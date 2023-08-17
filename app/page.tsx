@@ -12,12 +12,14 @@ function Hero() {
                 layout="fill"
                 objectFit="cover"
                 quality={100}
-                className="absolute z-0"
+                className="absolute -z-10 brightness-50 saturate-50"
             />
 
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <h1 className="text-6xl font-semibold text-white uppercase tracking-widest">Sailsetters</h1>
-                <h2 className="text-4xl text-white mt-2">Students for Change.</h2>
+            <div className="container relative mx-auto flex min-h-[80vh] max-w-4xl flex-col justify-center p-8 text-white md:p-16">
+                <h1 className='mb-4 text-6xl font-semibold uppercase tracking-wider'>
+                    Sailsetters
+                </h1>
+                <p className="text-2xl">Students for change.</p>
             </div>
         </section>
     );
