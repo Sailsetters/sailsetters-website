@@ -55,27 +55,29 @@ const Navbar = () => {
                 <div onClick={handleNav} className='block sm:hidden z-10'>
                     {nav ? <XMarkIcon style={{ color: `${textColor}` }} className='h-14 w-14' /> : <Bars3Icon style={{ color: `${textColor}` }} className='h-14 w-14' />}
                 </div>
+
                 {/* Mobile Menu */}
                 <div className={
                     nav ?
-                        'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen backdrop-blur-2xl text-center ease-in duration-300'
-                        : 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen backdrop-blur-none text-center ease-in duration-300'
+                        'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center backdrop-blur-md opacity-100 w-full h-screen  text-center ease-in duration-300'
+                        : 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center backdrop-blur-md opacity-0 w-full h-screen text-center ease-in duration-300 collapse'
                 }>
                     <ul>
-                        <li onClick={handleNav} className={nav ? ' p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100' : 'p-4 text-4xl pointer-events-none select-none ease-in duration-100 text-transparent'}>
+                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
                             <Link href='/'>Home</Link>
                         </li>
-                        <li onClick={handleNav} className={nav ? ' p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100' : 'p-4 text-4xl pointer-events-none select-none ease-in duration-100 text-transparent'}>
+                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
                             <Link href='/projects'>Projekte</Link>
                         </li>
-                        <li onClick={handleNav} className={nav ? ' p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100' : 'p-4 text-4xl pointer-events-none select-none ease-in duration-100 text-transparent'}>
+                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
                             <Link href='/about'>Über uns</Link>
                         </li>
-                        <li onClick={handleNav} className={nav ? ' p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100' : 'p-4 text-4xl pointer-events-none select-none ease-in duration-100 text-transparent'}>
+                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
                             <Link href='/contact'>Kontakt</Link>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </div>
     )
