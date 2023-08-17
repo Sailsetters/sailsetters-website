@@ -1,86 +1,61 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import React, {useEffect, useState} from 'react';
+import Link from 'next/link';
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
+
+const links = [
+    {href: '/', text: 'Home'},
+    {href: '/projects', text: 'Projekte'},
+    {href: '/about', text: 'Über uns'},
+    {href: '/contact', text: 'Kontakt'}
+];
+
+const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-    const [color, setColor] = useState('transparent');
-    const [textColor, setTextColor] = useState('white');
-    const [titleColor, setTitleColor] = useState('transparent');
-
-    const handleNav = () => {
-        setNav(!nav);
-    };
+    const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
-        const changeColor = () => {
-            if (window.scrollY >= 90) {
-                setColor('white')
-                setTextColor('black')
-                setTitleColor('black')
-            } else {
-                setColor('transparent')
-                setTextColor('white')
-                setTitleColor('transparent')
-            }
-        }
-        window.addEventListener('scroll', changeColor)
+        const handleScroll = () => setIsScrolled(window.scrollY >= 90);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const textColor = isScrolled ? 'black' : 'white';
 
     return (
-        <div style={{ backgroundColor: `${color}` }} className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
-            <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
-                <Link className='z-10' href='/'>
-                    <h1 style={{ color: `${titleColor}` }} className='font-bold text-2xl'>Sailsetters</h1>
-                    <h2 style={{ color: `${titleColor}` }} >Students for Change.</h2>
+        <div
+            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
+            <div className="max-w-[1240px] m-auto flex justify-between items-center p-4">
+                <Link href='/' className='z-10'>
+                    <h1 className={`font-bold text-2xl text-${textColor}`}>Sailsetters</h1>
+                    <h2 className={`text-${textColor}`}>Students for Change.</h2>
                 </Link>
-                <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
-                    <li className='p-4'>
-                        <Link href='/'>Home</Link>
-                    </li>
-                    <li className='p-4'>
-                        <Link href='/projects'>Projekte</Link>
-                    </li>
-                    <li className='p-4'>
-                        <Link href='/about'>Über uns</Link>
-                    </li>
-                    <li className='p-4'>
-                        <Link href='/contact'>Kontakt</Link>
-                    </li>
+                <ul className={`hidden sm:flex text-${textColor}`}>
+                    {links.map(link => (
+                        <Link key={link.href} href={link.href} className="p-4">{link.text}</Link>
+                    ))}
                 </ul>
-                {/* Mobile Button */}
-                <div onClick={handleNav} className='block sm:hidden z-10'>
-                    {nav ? <XMarkIcon style={{ color: `${textColor}` }} className='h-14 w-14' /> : <Bars3Icon style={{ color: `${textColor}` }} className='h-14 w-14' />}
+                <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
+                    {nav ?
+                        <XMarkIcon className={`h-8 w-8 text-${textColor}`}/> :
+                        <Bars3Icon className={`h-8 w-8 text-${textColor}`}/>
+                    }
                 </div>
-
-                {/* Mobile Menu */}
-                <div className={
-                    nav ?
-                        'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center backdrop-blur-md opacity-100 w-full h-screen  text-center ease-in duration-300'
-                        : 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center backdrop-blur-md opacity-0 w-full h-screen text-center ease-in duration-300 collapse'
-                }>
-                    <ul>
-                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
-                            <Link href='/'>Home</Link>
-                        </li>
-                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
-                            <Link href='/projects'>Projekte</Link>
-                        </li>
-                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
-                            <Link href='/about'>Über uns</Link>
-                        </li>
-                        <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
-                            <Link href='/contact'>Kontakt</Link>
-                        </li>
-                    </ul>
-                </div>
+                <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
+                    {links.map(link => (
+                        <Link href={link.href} onClick={() => setNav(false)}
+                              className='p-4 text-4xl hover:text-gray-500 text-white ease-in duration-100'>
+                            {link.text}
+                        </Link>
+                    ))}
+                </ul>
 
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
