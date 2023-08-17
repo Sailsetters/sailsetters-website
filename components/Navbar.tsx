@@ -11,6 +11,7 @@ const Navbar = () => {
         setNav(!nav);
     };
 
+
     return (
         <div className='fixed left-0 top-0 w-full'>
             <div className='max-w-[1240px] m-auto flex justify-between items-center p-4'>
@@ -33,7 +34,11 @@ const Navbar = () => {
                     {nav ? <XMarkIcon className="h-20 w-20" /> : <Bars3Icon className="h-20 w-20" />}
                 </div>
                 {/* Mobile Menu */}
-                <div className={`sm:hidden absolute top-0 left-${nav ? '0' : '[-100%]'} right-0 bottom-0 flex justify-center items-center w-full h-screen  bg-white text-center ease-in duration-300`}>
+                <div className={
+                nav ?
+                'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen  bg-white text-center ease-in duration-300'
+                : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen  bg-white text-center ease-in duration-300'
+                }>
                     <ul>
                         <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
                             <Link href='/'>Home</Link>
