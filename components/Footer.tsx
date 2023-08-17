@@ -6,6 +6,8 @@ import { EnvelopeOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer>
       <div className="bg-gray-800">
@@ -91,7 +93,7 @@ const Footer = () => {
         {/* Add a samll copyright message */}
         <div className="items-center flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col max-w-6xl">
           <div className="mt-2">
-            © 2021 Sailsetters e.V. Alle Rechte vorbehalten.
+            © {currentYear} Sailsetters e.V. Alle Rechte vorbehalten.
           </div>
         </div>
       </div>
