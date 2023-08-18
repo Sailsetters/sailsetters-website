@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="bg-gray-800">
+      <div className="bg-[#1d3557]">
         <div className="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
           {/* Col-1 */}
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
@@ -36,7 +36,7 @@ const Footer = () => {
               Rechtliches
             </div>
             {/* Links */}
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/impressum" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Impressum
             </Link>
             <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
