@@ -1,10 +1,10 @@
 import './globals.css'
-import type {Metadata} from 'next'
+import type { Metadata } from 'next'
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {Analytics} from "@vercel/analytics/react";
-import {inter} from "./fonts"
+import { Analytics } from "@vercel/analytics/react";
+import { inter } from "./fonts"
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Navbar />
-      <body className={inter.className}>{children}</body>
-      <Analytics />
-      <Footer />
+      <body className={inter.className}>
+        <Navbar />
+        {children}
+        <Footer />
+        <Analytics />
+      </body>
     </html>
   )
 }
