@@ -23,24 +23,22 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const textColor = isScrolled ? 'black' : 'white';
-
     return (
         <div
-            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
+            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-md' : 'bg-transparent'}`}>
             <div className="max-w-[1240px] m-auto flex justify-between items-center p-4">
                 <Link href='/' className='z-10'>
-                    <h1 className={`font-medium uppercase tracking tracking-widest text-2xl text-${textColor}`}>Sailsetters</h1>
+                    <h1 className={`font-medium uppercase tracking tracking-widest text-2xl text-gray-800`}>Sailsetters</h1>
                 </Link>
-                <ul className={`hidden sm:flex text-${textColor}`}>
+                <ul className={`hidden sm:flex text-gray-800 text-lg`}>
                     {links.map(link => (
                         <Link key={link.href} href={link.href} className="p-4">{link.text}</Link>
                     ))}
                 </ul>
                 <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
                     {nav ?
-                        <XMarkIcon className={`h-8 w-8 text-${textColor}`}/> :
-                        <Bars3Icon className={`h-8 w-8 text-${textColor}`}/>
+                        <XMarkIcon className={`h-8 w-8 text-gray-800`}/> :
+                        <Bars3Icon className={`h-8 w-8 text-gray-800`}/>
                     }
                 </div>
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>

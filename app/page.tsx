@@ -1,25 +1,24 @@
+"use client";
+
 import Head from 'next/head'
-import Image from 'next/image'
+import Spline from '@splinetool/react-spline';
 
 import React from 'react';
+import Link from "next/link";
 
 function Hero() {
     return (
-        <section className="relative h-screen w-screen flex">
-            <Image
-                src="/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"
-                alt="Background Image"
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                className="absolute -z-10 brightness-50 saturate-50"
-            />
+        <section className="relative flex items-center justify-center h-screen bg-blue-50">
+            <Spline scene="https://prod.spline.design/IwvZXJP9BoIPF9Cc/scene.splinecode" />
 
-            <div className="container relative mx-auto flex min-h-[80vh] max-w-4xl flex-col justify-center p-8 text-white md:p-16">
-                <h1 className='mb-4 text-6xl font-semibold uppercase tracking-wider'>
+            <div className="absolute text-gray-800 flex flex-col space-y-4">
+                <h1 className='text-6xl font-semibold uppercase tracking-wider'>
                     Sailsetters
                 </h1>
-                <p className="text-2xl">Students for change.</p>
+                <h2 className="text-4xl text-gray-500">Students for change.</h2>
+                <Link href="/" className="text-xl text-center text-blue-800 p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
+                    Join Us
+                </Link>
             </div>
         </section>
     );

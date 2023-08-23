@@ -15,6 +15,9 @@ const config: Config = {
       },
       colors: {
         powder: '#FEFEFA',
+        blue: {
+          50: "#E5E9F6",
+        }
       }
     },
   },
