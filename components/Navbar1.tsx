@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div
-            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-md' : 'bg-transparent'}`}>
+            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-xl bg-primary-50/30' : 'bg-transparent'}`}>
             <div className="max-w-[1240px] m-auto flex justify-between items-center p-4">
                 <Link href='/' className='z-10'>
                     <h1 className={`font-medium uppercase tracking tracking-widest text-2xl text-gray-800`}>Sailsetters</h1>

@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         powder: '#FEFEFA',
-        blue: {
+        primary: {
           50: "#E5E9F6",
         }
       }
