@@ -44,7 +44,7 @@ const Navbar = () => {
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
                     {links.map(link => (
                         <Link href={link.href} onClick={() => setNav(false)}
-                              className='p-4 text-2xl hover:text-gray-500 text-white ease-in duration-100'>
+                              className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
                             {link.text}
                         </Link>
                     ))}
