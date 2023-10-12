@@ -25,7 +25,7 @@ const Footer = () => {
             <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Projekte
             </Link>
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/impressum" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Kontakt
             </Link>
           </div>
@@ -39,12 +39,7 @@ const Footer = () => {
             <Link href="/impressum" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Impressum
             </Link>
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
-              Datenschutz
-            </Link>
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
-              AGB
-            </Link>
+            
           </div>
           {/* Col-3 */}
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
@@ -75,7 +70,7 @@ const Footer = () => {
             </ul>
 
           </div>
-          {/* Col-4 */}
+          {/* Col-4
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
             <div className="text-xs uppercase text-gray-400 font-medium mb-6">
               Newsletter
@@ -88,8 +83,8 @@ const Footer = () => {
                 </ button>
               </form>
             </div>
-          </div>
-        </div>
+          </div>*/}
+        </div> 
         {/* Add a samll copyright message */}
         <div className="items-center flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col max-w-6xl">
           <div className="mt-2">
