@@ -22,7 +22,7 @@ const Footer = () => {
             <Link href="/#ueber-uns" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Über uns
             </Link>
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/#projekte" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Projekte
             </Link>
             <Link href="/impressum" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
