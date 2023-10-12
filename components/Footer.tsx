@@ -19,7 +19,7 @@ const Footer = () => {
               Sailsetters
             </div>
             {/* Links */}
-            <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/#ueber-uns" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Über uns
             </Link>
             <Link href="#" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
@@ -47,26 +47,26 @@ const Footer = () => {
               Social
             </div>
             <ul className='flex gap-5' >
-              <li>
-                <Link href="#" className="my-3 block text-gray-300 hover:text-[#cd486b] text-sm font-medium duration-300">
+              {/* <li>
+                <Link href="#" target="_blank" className="my-3 block text-gray-300 hover:text-[#cd486b] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faInstagram} />
                 </Link>
               </li>
               <li>
-                <Link href="#" className="my-3 block text-gray-300 hover:text-[#4267B2] text-sm font-medium duration-300">
+                <Link href="#" target="_blank" className="my-3 block text-gray-300 hover:text-[#4267B2] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faFacebook} />
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link href="#" className="my-3 block text-gray-300 hover:text-[#0e76a8] text-sm font-medium duration-300">
+                <Link href="https://www.linkedin.com/company/sailsetters" target="_blank" className="my-3 block text-gray-300 hover:text-[#0e76a8] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faLinkedin} />
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="my-3 block text-gray-300 hover:text-[#ff0000] text-sm font-medium duration-300">
+              {/* <li>
+                <Link href="#" target="_blank" className="my-3 block text-gray-300 hover:text-[#ff0000] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faYoutube} />
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
           </div>
