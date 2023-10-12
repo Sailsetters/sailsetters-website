@@ -81,16 +81,55 @@ function Statements() {
     );
 }
 
+function ProjectCard({ title, description }) {
+    return (
+        <div className="group relative p-6 rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
+        <h4 className="text-xl font-semibold mb-4">{title}</h4>
+        <p className="text-gray-700">{description}</p>
+    </div>
+    );
+}
+
+function Projects() {
+    return (
+        <Section>
+            <h2 id="projekte" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <ProjectCard
+                    title="Mentoring @ StartStark"
+                    description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
+                />
+                <ProjectCard
+                    title="Spieleabend @ Lichtblick Hasenbergl"
+                    description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
+                />
+                <ProjectCard
+                    title="Projektwochen Naturwissenschaften @ Lichtblick Hasenbergl"
+                    description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
+                />
+                <ProjectCard
+                    title="Verstehendes Lesen @ Lichtblick Hasenbergl"
+                    description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
+                />
+                <ProjectCard
+                    title="Interesse oder Fragen?"
+                    description="Wenn du Interesse an einem unserer Projekte hast, oder Fragen zu diesen hast, dann schreib uns gerne per Mail oder social media."
+                />
+            </div>
+        </Section>
+    );
+}
 
 export default function Home() {
   return (
    <>
-     <Head>
+    <Head>
        <title>Sailsetters - Students for Change</title>
        <meta name="description" content="Join Sailsetters to make a difference in the accessebility of education."/>
-     </Head>
-     <Hero />
-     <Statements />
+    </Head>
+    <Hero />
+    <Statements />
+    <Projects />
    </>
   )
 }
