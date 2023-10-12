@@ -30,19 +30,30 @@ function Impressum() {
                             <span className="font-semibold">Registergericht:</span> Amtsgericht München?
                         </p>
                         <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke</p>
-
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Kontakt</h1>
                         <p className="mb-3 text-black">
-                            <span className="font-semibold">Telefon:</span> +49 (0) 123 44 55 66<br/>
+                            <span className="font-semibold">Telefon:</span> +49 176 32369363<br/>
                             <span className="font-semibold">Telefax:</span> +49 (0) 123 44 55 99<br/>
                             <span className="font-semibold">E-Mail:</span> kontakt@sailsetters.de
                         </p>
-
+                        <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Redaktionell verantwortlich</h1>
+                        <p className="mb-3 text-black">
+                            Johannes Michalke<br/>
+                            c/o Sailsetters e.V.<br/>
+                            Schellingstr. 36<br/>
+                            80799 München
+                        </p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >EU-Streitschlichtung</h1>
                         <p className="mb-3 text-black">
                             Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
                             <a href="https://ec.europa.eu/consumers/odr" className="text-blue-500"> https://ec.europa.eu/consumers/odr</a>.
                             Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+                        <p className="mb-3 text-black font-bold">
+                            Verbraucherstreitbeilegung/Universalschlichtungsstelle:
+                        </p>
+                        <p className="mb-3 text-black">
+                            Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+                        </p>
                     </div>
                 </div>
         </Section>
