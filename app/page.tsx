@@ -38,6 +38,7 @@ function Hero() {
     );
 }
 
+
 function StatementCard({ title, text, Icon }) {
     // Random position for the blue orb
     const top = Math.random() * 80 + 10 + '%';
@@ -81,7 +82,12 @@ function Statements() {
     );
 }
 
-function ProjectCard({ title, description }) {
+interface ProjectCardProps {
+    title: string;
+    description: string;
+  }
+
+function ProjectCard({ title, description }: ProjectCardProps) {
     return (
         <div className="group relative p-6 rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
         <h4 className="text-xl font-semibold mb-4">{title}</h4>
@@ -120,6 +126,30 @@ function Projects() {
     );
 }
 
+function Partners() {
+    const partners = [
+        { name: 'StartsStark', logo: './logo_startstark.png', link: 'https://startstark.de' },
+        { name: 'Lichtblick Hasenbergl', logo: './logo_lichtblickHasenbergl.png', link: 'https://lichtblick-hasenbergl.org' },
+        // ... add other partners here
+    ];
+
+    return (
+        <Section>
+            <h2 id="partner" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Partner</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center">
+                {partners.map(partner => (
+                    <div className="flex items-center justify-center w-[250px] h-[250px]">
+                        <a href={partner.link} target="_blank" rel="noopener noreferrer" key={partner.name} className="w-full transition-transform transform hover:scale-105">
+                            <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full flex items-center justify-center" />
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </Section>
+    );
+}
+
+
 export default function Home() {
   return (
    <>
@@ -130,6 +160,7 @@ export default function Home() {
     <Hero />
     <Statements />
     <Projects />
+    <Partners />
    </>
   )
 }
