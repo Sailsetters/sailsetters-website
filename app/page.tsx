@@ -15,16 +15,16 @@ function Hero() {
             </div>
 
             <div className="absolute flex flex-col space-y-4">
-                <div className="hidden md:flex relative animate-pulse flex-row items-center space-x-3 mb-2 text-gray-500/80">
+                {/* <div className="hidden md:flex relative animate-pulse flex-row items-center space-x-3 mb-2 text-gray-500/80">
                     <CursorArrowRippleIcon className="w-8"/>
                     <p className="text-2xl">Hover over the items</p>
-                </div>
+                </div> */}
                 <h1 className='relative text-4xl sm:text-6xl font-semibold uppercase tracking-wider'>
                     Sailsetters
                 </h1>
                 <h2 className="relative text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
                 <Link href="/" className="text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
-                    Join now!
+                    Jetzt Mitglied werden!
                 </Link>
             </div>
 
@@ -87,25 +87,47 @@ interface ProjectCardProps {
     description: string;
   }
 
+// function ProjectCard({ title, description }: ProjectCardProps) {
+//     const top = Math.random() * 80 + 10 + '%';
+//     const left = Math.random() * 70 + 10 + '%';
+
+//     return (
+//         <div className="group relative p-6 rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
+//             {/* Blue orb */}
+//         <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
+//         <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
+//         <p className="text-gray-700">{description}</p>
+//     </div>
+//     );
+// }
+
 function ProjectCard({ title, description }: ProjectCardProps) {
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
 
     return (
-        <div className="group relative p-6 rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
             {/* Blue orb */}
-        <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
-        <h4 className="text-xl font-semibold mb-4">{title}</h4>
-        <p className="text-gray-700">{description}</p>
-    </div>
+            <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
+            
+            <div className='mb-4'>
+                <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
+                <p className="text-gray-700">{description}</p>
+            </div>
+
+            <button className="ml-auto mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg  active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 shadow-2xl hover:shadow-inner">
+                Jetzt mithelfen
+            </button>
+        </div>
     );
 }
+
 
 function Projects() {
     return (
         <Section>
             <h2 id="projekte" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 gap-10 justify-items-center">
                 <ProjectCard
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
@@ -121,6 +143,10 @@ function Projects() {
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
+                />
+                <ProjectCard
+                    title="Nachhilfe"
+                    description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
                 />
                 <ProjectCard
                     title="Interesse oder Fragen?"
@@ -166,11 +192,11 @@ function TimelineEvent({ start, end, title, description}: TimelineEventProps ) {
     return (
         <div className="grid grid-cols-2">
             <div className='mr-0 mb-6'>
-                <h4 className="text-right text-xl font-semibold">{start}</h4>
-                <h4 className="text-right pb-8 text-xl font-semibold"> {end}</h4>
+                <h4 className="text-gray-800 text-right text-xl font-semibold">{start}</h4>
+                <h4 className="text-gray-800  text-right pb-8 text-xl font-semibold"> {end}</h4>
             </div>
             <div className="pb-4 ml-4 pl-2 border-l-4 border-black">
-                <h5 className=" text-lg font-semibold">{title}</h5>
+                <h5 className="text-gray-800  text-lg font-semibold">{title}</h5>
                 <p className="text-gray-700">{description}</p>
             </div>
         </div>
@@ -180,7 +206,7 @@ function TimelineEvent({ start, end, title, description}: TimelineEventProps ) {
 function Timeline() {
     return (
         <Section>
-            <h2 className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Timeline</h2>
+            <h2 className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Roadmap</h2>
             <div className="relative max-w-3xl mx-auto">
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
