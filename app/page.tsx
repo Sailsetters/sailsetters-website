@@ -173,10 +173,10 @@ function TimelineEvent({ start, end, title, description}: TimelineEventProps ) {
     return (
         <div className="grid grid-cols-2">
             <div className='mr-0 mb-6'>
-                <h4 className="text-gray-800 text-right text-xl font-semibold">{start}</h4>
-                <h4 className="text-gray-800  text-right pb-8 text-xl font-semibold"> {end}</h4>
+                <h4 className="text-gray-800 text-right text-lg">{start}</h4>
+                <h4 className="text-gray-800  text-right pb-8 text-lg"> {end}</h4>
             </div>
-            <div className="pb-4 ml-4 pl-2 border-l-4 border-black">
+            <div className="pb-4 ml-4 pl-2 border-l-2 border-black">
                 <h5 className="text-gray-800  text-lg font-semibold">{title}</h5>
                 <p className="text-gray-700">{description}</p>
             </div>
@@ -192,7 +192,7 @@ function Timeline() {
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
                     </div>
-                    <div className=" ml-4 pl-2 border-l-4 border-black border-dashed">
+                    <div className=" ml-4 pl-2 border-l-2 border-black border-dashed">
                     </div>
                 </div>
                 <TimelineEvent
@@ -228,7 +228,7 @@ function Timeline() {
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
                     </div>
-                    <div className=" ml-4 pl-2 border-l-4 border-black border-dashed">
+                    <div className=" ml-4 pl-2 border-l-2 border-black border-dashed">
                     </div>
                 </div>
             </div>
