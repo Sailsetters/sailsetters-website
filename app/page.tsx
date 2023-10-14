@@ -5,7 +5,10 @@ import Spline from '@splinetool/react-spline';
 import React from 'react';
 import Link from "next/link";
 import Section from "@/components/Section";
-import {ChevronDownIcon, CursorArrowRippleIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
+import {ChevronDownIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
+import {Element} from 'react-scroll';
+import Logos from "@/components/Logos";
+import Button from "@/components/Button";
 
 function Hero() {
     return (
@@ -97,7 +100,7 @@ function ProjectCard({ title, description }: ProjectCardProps) {
     const left = Math.random() * 70 + 10 + '%';
 
     return (
-        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
             {/* Blue orb */}
             <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
             
@@ -106,9 +109,9 @@ function ProjectCard({ title, description }: ProjectCardProps) {
                 <p className="text-gray-700">{description}</p>
             </div>
 
-            <button className="ml-auto mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg  active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 shadow-2xl hover:shadow-inner">
+            <Button>
                 Jetzt mithelfen
-            </button>
+            </Button>
         </div>
     );
 }
@@ -118,7 +121,7 @@ function Projects() {
     return (
         <Section>
             <h2 id="projects" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
-            <div className="grid grid-cols-1 gap-10 justify-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
                 <ProjectCard
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
@@ -149,25 +152,15 @@ function Projects() {
 }
 
 function Partners() {
-    const partners = [
-        { name: 'StartsStark', logo: './logo_startstark.png', link: 'https://startstark.de' },
-        { name: 'Lichtblick Hasenbergl', logo: './logo_lichtblickHasenbergl.png', link: 'https://lichtblick-hasenbergl.org' },
-        // ... add other partners here
+    const havens = [
+        {src: '/havens/logo_lichtblickHasenbergl.png', alt: 'Lichtblick Hasenbergl', href: 'https://lichtblick-hasenbergl.org'},
+        {src: '/havens/logo_startstark.png', alt: 'StartStark', href: 'https://startstark.de'},
     ];
 
     return (
         <Section>
             <h2 id="partner" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Partner</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-items-center">
-                {partners.map(
-                    partner => (
-                    <div className="flex items-center justify-center w-[250px] h-[250px]">
-                        <a href={partner.link} target="_blank" rel="noopener noreferrer" key={partner.name} className="w-full transition-transform transform hover:scale-105">
-                            <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full flex items-center justify-center" />
-                        </a>
-                    </div>
-                ))}
-            </div>
+            <Logos  logos={havens}/>
         </Section>
     );
 }
@@ -290,11 +283,21 @@ export default function Home() {
        <meta name="description" content="Join Sailsetters to make a difference in the accessebility of education."/>
     </Head>
     <Hero />
-    <Statements />
-    <Projects />
-    <Partners />
-    <SailsetterDescription />
-    <Timeline />
+    <Element name="statements">
+        <Statements />
+    </Element>
+    <Element name="projects">
+        <Projects />
+    </Element>
+    <Element name="partners">
+        <Partners />
+    </Element>
+    <Element name="join">
+        <SailsetterDescription />
+    </Element>
+    <Element name="timeline">
+        <Timeline />
+    </Element>
    </>
   )
 }
