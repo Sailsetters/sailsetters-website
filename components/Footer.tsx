@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {faFacebook, faInstagram, faLinkedin, faYoutube} from '@fortawesome/free-brands-svg-icons'
-import {EnvelopeOpenIcon} from '@heroicons/react/24/outline'
+import {faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
@@ -10,7 +9,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="bg-[#1d3557]">
+      <div className="bg-blue-800/60">
         <div className="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
           {/* Col-1 */}
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
