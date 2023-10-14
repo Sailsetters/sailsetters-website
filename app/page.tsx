@@ -38,8 +38,13 @@ function Hero() {
     );
 }
 
+interface StatementCardProps {
+    title: string;
+    text: string;
+    Icon: React.ElementType;
+  }
 
-function StatementCard({ title, text, Icon }) {
+function StatementCard({ title, text, Icon }: StatementCardProps) {
     // Random position for the blue orb
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
@@ -65,7 +70,7 @@ function StatementCard({ title, text, Icon }) {
 function Statements() {
     return (
         <Section >
-            <h2 id="ueber-uns" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Ziele</h2>
+            <h2 id="about" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Ziele</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-10 text-center">
                 <StatementCard
                     title="Vision"
@@ -86,20 +91,6 @@ interface ProjectCardProps {
     title: string;
     description: string;
   }
-
-// function ProjectCard({ title, description }: ProjectCardProps) {
-//     const top = Math.random() * 80 + 10 + '%';
-//     const left = Math.random() * 70 + 10 + '%';
-
-//     return (
-//         <div className="group relative p-6 rounded-lg backdrop-blur-md shadow-lg hover:shadow-2xl transition-all duration-300">
-//             {/* Blue orb */}
-//         <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
-//         <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
-//         <p className="text-gray-700">{description}</p>
-//     </div>
-//     );
-// }
 
 function ProjectCard({ title, description }: ProjectCardProps) {
     const top = Math.random() * 80 + 10 + '%';
@@ -126,7 +117,7 @@ function ProjectCard({ title, description }: ProjectCardProps) {
 function Projects() {
     return (
         <Section>
-            <h2 id="projekte" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
+            <h2 id="projects" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
             <div className="grid grid-cols-1 gap-10 justify-items-center">
                 <ProjectCard
                     title="Mentoring"
@@ -255,6 +246,41 @@ function Timeline() {
     );
 }
 
+function SailsetterDescription() {
+    return (
+        <Section>
+            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde jetzt ein Sailsetter!</h2>
+
+            <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
+                <div className="w-full md:w-1/2 text-center md:text-left">
+                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Such dir bei der Bewerbung einen Haven und ein zugehöriges Projekt aus, bei welchem du ein Semester lang ehrenamtlich regelmäßig mitarbeitest.</p>
+                    <p className="text-lg mb-6">Dieses ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt. Alle unsere Sailsetter bekommen natürlich nach einem abgeschlossenen Semester ein Zertifikat für Ihr Engagement ausgestellt.</p>
+                    <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben, zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich kennenzulernen!</p>
+                    <div className="flex justify-end mt-8">
+            <Link href="">
+                <button className='bg-blue-600 text-white px-4 py-2 rounded-lg active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 shadow-2xl hover:shadow-inner'>
+                    Jetzt bewerben!
+                </button>
+            </Link>
+        </div>
+            </div>
+
+                
+
+                {/* <div className="w-full md:w-1/2">
+                    <div className="relative rounded-lg overflow-hidden shadow-xl">
+                        <img src="./sailsetter_image.jpg" alt="Sailsetter at work" className="w-full h-auto"/>
+                        <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white p-4">
+                            <h3 className="text-xl font-semibold">Unsere Arbeit im Fokus</h3>
+                            <p className="text-md">Ein Blick hinter die Kulissen der Projekte von Sailsetters.</p>
+                        </div>
+                    </div>
+                </div> */}
+            </div>
+        </Section>
+    );
+}
+
 
 export default function Home() {
   return (
@@ -267,6 +293,7 @@ export default function Home() {
     <Statements />
     <Projects />
     <Partners />
+    <SailsetterDescription />
     <Timeline />
    </>
   )

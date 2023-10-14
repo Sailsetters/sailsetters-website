@@ -6,9 +6,10 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 
 const links = [
     {href: '/', text: 'Home'},
-    {href: '/projects', text: 'Projekte'},
-    {href: '/about', text: 'Über uns'},
-    {href: '/contact', text: 'Kontakt'}
+    {href: '/#projects', text: 'Projekte'},
+    {href: '/#about', text: 'Über uns'},
+    // {href: '/contact', text: 'Kontakt'},
+    {href: '/#join', text: 'Mitmachen'},
 ];
 
 const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
@@ -49,7 +50,7 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </ul>
-
+                
             </div>
         </div>
     );
