@@ -6,7 +6,7 @@ import React from 'react';
 import Link from "next/link";
 import Section from "@/components/Section";
 import {ChevronDownIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
-import {Element} from 'react-scroll';
+import {Element, Link as ScrollLink} from 'react-scroll';
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
 
@@ -31,12 +31,9 @@ function Hero() {
                 </Link>
             </div>
 
-            <button
-                className="absolute bottom-16 left-[50%] -translate-x-[50%]"
-                onClick={() => window.scrollBy({ top: 500, behavior: "smooth" })}
-            >
+            <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements" smooth duration={500}>
                 <ChevronDownIcon className="animate-bounce h-12 w-12"/>
-            </button>
+            </ScrollLink>
         </section>
     );
 }
