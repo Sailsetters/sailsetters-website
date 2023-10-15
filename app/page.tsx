@@ -248,9 +248,9 @@ function SailsetterDescription() {
                     <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben, zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich kennenzulernen!</p>
                     <div className="flex justify-end mt-8">
             <Link href="">
-                <button className='bg-blue-600 text-white px-4 py-2 rounded-lg active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 shadow-2xl hover:shadow-inner'>
+                <Button>
                     Jetzt bewerben!
-                </button>
+                </Button>
             </Link>
         </div>
             </div>
