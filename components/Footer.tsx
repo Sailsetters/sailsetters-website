@@ -67,7 +67,6 @@ const Footer = () => {
                 </Link>
               </li> */}
             </ul>
-
           </div>
           {/* Col-4
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
@@ -86,9 +85,12 @@ const Footer = () => {
         </div> 
         {/* Add a samll copyright message */}
         <div className="items-center flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col max-w-6xl">
-          <div className="mt-2">
+          <p>
+            Designed by <Link className="text-gray-300 hover:text-blue-300" href="https://www.linkedin.com/in/maxvonstorch/">Max von Storch</Link> and <Link className="text-gray-300 hover:text-blue-300" href="https://www.linkedin.com/in/navid-rajaei-a405ab251/">Navid Rajaei</Link>
+          </p>
+          <p className="mt-2">
             © {currentYear} Sailsetters e.V. Alle Rechte vorbehalten.
-          </div>
+          </p>
         </div>
       </div>
     </footer>
