@@ -70,7 +70,6 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
 function Statements() {
     return (
         <Section >
-            <h2 id="about" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Ziele</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-10 text-center">
                 <StatementCard
                     title="Vision"

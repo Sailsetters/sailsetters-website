@@ -7,10 +7,10 @@ import Image from "next/image";
 import {Link as ScrollLink} from "react-scroll";
 
 const links = [
-    {href: 'projects', text: 'Projekte'},
-    {href: 'havens', text: 'Havens'},
     {href: 'join', text: 'Mitmachen'},
+    {href: 'projects', text: 'Projekte'},
     {href: 'timeline', text: 'Roadmap'},
+    {href: 'havens', text: 'Havens'},
 ];
 
 const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
