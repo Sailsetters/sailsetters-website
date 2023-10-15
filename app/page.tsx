@@ -91,14 +91,15 @@ interface ProjectCardProps {
     title: string;
     description: string;
     buttonText: string;
+    href: string;
   }
 
-function ProjectCard({ title, description, buttonText }: ProjectCardProps) {
+function ProjectCard({ title, description, buttonText, href }: ProjectCardProps) {
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
 
     return (
-        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg hover:shadow-xl transition duration-300">
+        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
             {/* Blue orb */}
             <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
             
@@ -107,7 +108,7 @@ function ProjectCard({ title, description, buttonText }: ProjectCardProps) {
                 <p className="text-gray-700">{description}</p>
             </div>
 
-            <Button>
+            <Button href={href}>
                 {buttonText}
             </Button>
         </div>
@@ -124,31 +125,37 @@ function Projects() {
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
                     buttonText="Jetzt mithelfen"
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                 />
                 <ProjectCard
                     title="Spieleabend"
                     description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
                     buttonText="Jetzt mithelfen"
+                    href="/"
                 />
                 <ProjectCard
                     title="Projektwochen Naturwissenschaften"
                     description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
                     buttonText="Jetzt mithelfen"
+                    href="/"
                 />
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
                     buttonText="Jetzt mithelfen"
+                    href="/"
                 />
                 <ProjectCard
                     title="Nachhilfe"
                     description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
                     buttonText="Jetzt mithelfen"
+                    href="/"
                 />
                 <ProjectCard
                     title="Interesse oder Fragen?"
                     description="Wenn du Interesse an einem unserer Projekte hast, oder Fragen zu diesen hast, dann schreib uns gerne per Mail oder social media."
                     buttonText="Kontaktiere uns"
+                    href="/"
                 />
             </div>
         </Section>
