@@ -8,7 +8,7 @@ import {Link as ScrollLink} from "react-scroll";
 
 const links = [
     {href: 'projects', text: 'Projekte'},
-    {href: 'partners', text: 'Partner'},
+    {href: 'havens', text: 'Havens'},
     {href: 'join', text: 'Mitmachen'},
     {href: 'timeline', text: 'Roadmap'},
 ];
@@ -45,10 +45,11 @@ const Navbar = () => {
                 </div>
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
                     {links.map(link => (
-                        <Link href={link.href} onClick={() => setNav(false)}
-                              className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
-                            {link.text}
-                        </Link>
+                        <ScrollLink to={link.href} onClick={() => setNav(false)} smooth duration={500} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</ScrollLink>
+                        // <Link href={link.href} onClick={() => setNav(false)}
+                        //       className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
+                        //     {link.text}
+                        // </Link>
                     ))}
                 </ul>
                 

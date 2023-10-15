@@ -90,14 +90,15 @@ function Statements() {
 interface ProjectCardProps {
     title: string;
     description: string;
+    buttonText: string;
   }
 
-function ProjectCard({ title, description }: ProjectCardProps) {
+function ProjectCard({ title, description, buttonText }: ProjectCardProps) {
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
 
     return (
-        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
+        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg hover:shadow-xl transition duration-300">
             {/* Blue orb */}
             <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
             
@@ -107,7 +108,7 @@ function ProjectCard({ title, description }: ProjectCardProps) {
             </div>
 
             <Button>
-                Jetzt mithelfen
+                {buttonText}
             </Button>
         </div>
     );
@@ -122,33 +123,39 @@ function Projects() {
                 <ProjectCard
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
+                    buttonText="Jetzt mithelfen"
                 />
                 <ProjectCard
                     title="Spieleabend"
                     description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
+                    buttonText="Jetzt mithelfen"
                 />
                 <ProjectCard
                     title="Projektwochen Naturwissenschaften"
                     description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
+                    buttonText="Jetzt mithelfen"
                 />
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
+                    buttonText="Jetzt mithelfen"
                 />
                 <ProjectCard
                     title="Nachhilfe"
                     description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
+                    buttonText="Jetzt mithelfen"
                 />
                 <ProjectCard
                     title="Interesse oder Fragen?"
                     description="Wenn du Interesse an einem unserer Projekte hast, oder Fragen zu diesen hast, dann schreib uns gerne per Mail oder social media."
+                    buttonText="Kontaktiere uns"
                 />
             </div>
         </Section>
     );
 }
 
-function Partners() {
+function Havens() {
     const havens = [
         {src: '/havens/logo_lichtblickHasenbergl.png', alt: 'Lichtblick Hasenbergl', href: 'https://lichtblick-hasenbergl.org'},
         {src: '/havens/logo_startstark.png', alt: 'StartStark', href: 'https://startstark.de'},
@@ -156,7 +163,7 @@ function Partners() {
 
     return (
         <Section>
-            <h2 id="partner" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Partner</h2>
+            <h2 id="havens" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Havens</h2>
             <Logos  logos={havens}/>
         </Section>
     );
@@ -223,7 +230,7 @@ function Timeline() {
                     start="10.02.24"
                     end=""
                     title="Reflection Day"
-                    description="An diesem Tag treffen sich alle aktiven Sailsetter und tauschen in einem Workshop Format ihre Erfahrungen, die sie auf ihren Projekten gemacht haben, aus. Danach gemeinsames Socializing und feiern."
+                    description="An diesem Tag treffen sich alle aktiven Sailsetter und tauschen in einem Workshop Format ihre Erfahrungen, die sie auf ihren Projekten gemacht haben, aus."
                 />
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
@@ -239,7 +246,7 @@ function Timeline() {
 function SailsetterDescription() {
     return (
         <Section>
-            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde jetzt ein Sailsetter!</h2>
+            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde jetzt Sailsetter!</h2>
 
             <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
                 <div className="w-full md:w-1/2 text-center md:text-left">
@@ -283,17 +290,17 @@ export default function Home() {
     <Element name="statements">
         <Statements />
     </Element>
-    <Element name="projects">
-        <Projects />
-    </Element>
-    <Element name="partners">
-        <Partners />
-    </Element>
     <Element name="join">
         <SailsetterDescription />
     </Element>
+    <Element name="projects">
+        <Projects />
+    </Element>
     <Element name="timeline">
         <Timeline />
+    </Element>
+    <Element name="havens">
+        <Havens />
     </Element>
    </>
   )
