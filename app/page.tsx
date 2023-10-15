@@ -261,11 +261,9 @@ function SailsetterDescription() {
                     <p className="text-lg mb-6">Dieses ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt. Alle unsere Sailsetter bekommen natürlich nach einem abgeschlossenen Semester ein Zertifikat für Ihr Engagement ausgestellt.</p>
                     <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben, zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich kennenzulernen!</p>
                     <div className="flex justify-end mt-8">
-            <Link href="">
-                <Button>
+                <Button href="">
                     Jetzt bewerben!
                 </Button>
-            </Link>
         </div>
             </div>
 
