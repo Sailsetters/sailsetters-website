@@ -1,10 +1,10 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type {Metadata} from 'next'
 import React from "react";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar1";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react";
-import { inter } from "./fonts"
+import {Analytics} from "@vercel/analytics/react";
+import {inter} from "./fonts"
 
 export const metadata: Metadata = {
   title: 'Create Next App',
