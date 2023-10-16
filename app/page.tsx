@@ -14,7 +14,7 @@ function Hero() {
     return (
         <section className="relative flex items-center justify-center h-screen bg-primary-50 text-gray-800">
             <div className="w-full h-full overflow-hidden">
-                <Spline scene="https://prod.spline.design/IwvZXJP9BoIPF9Cc/scene.splinecode" />
+                <Spline scene="https://prod.spline.design/IwvZXJP9BoIPF9Cc/scene.splinecode"/>
             </div>
 
             <div className="absolute flex flex-col space-y-4">
@@ -26,12 +26,14 @@ function Hero() {
                     Sailsetters
                 </h1>
                 <h2 className="relative text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <Link href="/" className="text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
+                <Link href="/"
+                      className="text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
                     Jetzt Mitglied werden!
                 </Link>
             </div>
 
-            <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements" smooth duration={500}>
+            <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements"
+                        smooth duration={500}>
                 <ChevronDownIcon className="animate-bounce h-12 w-12"/>
             </ScrollLink>
         </section>
@@ -42,9 +44,9 @@ interface StatementCardProps {
     title: string;
     text: string;
     Icon: React.ElementType;
-  }
+}
 
-function StatementCard({ title, text, Icon }: StatementCardProps) {
+function StatementCard({title, text, Icon}: StatementCardProps) {
     // Random position for the blue orb
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
@@ -52,12 +54,13 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
     return (
         <div className="relative px-6">
             {/* Blue orb */}
-            <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
+            <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40"
+                 style={{top, left}}></div>
 
             {/* Main Card with backdrop-blur */}
             <div className="flex flex-col space-y-4 rounded-lg p-4">
                 <div className="flex items-center space-x-4">
-                    <Icon className="w-8 h-8 text-blue-500" />
+                    <Icon className="w-8 h-8 text-blue-500"/>
                     <h3 className="text-3xl">{title}</h3>
                 </div>
                 <p className="text-start text-lg">{text}</p>
@@ -69,7 +72,7 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
 
 function Statements() {
     return (
-        <Section >
+        <Section>
             <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-10 text-center">
                 <StatementCard
                     title="Vision"
@@ -101,16 +104,18 @@ interface ProjectCardProps {
     description: string;
     buttonText: string;
     href: string;
-  }
+}
 
-function ProjectCard({ title, description, buttonText, href }: ProjectCardProps) {
+function ProjectCard({title, description, buttonText, href}: ProjectCardProps) {
     const top = Math.random() * 80 + 10 + '%';
     const left = Math.random() * 70 + 10 + '%';
 
     return (
-        <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
+        <div
+            className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
             {/* Blue orb */}
-            <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
+            <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40"
+                 style={{top, left}}></div>
 
             <div className='mb-4'>
                 <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
@@ -128,7 +133,8 @@ function ProjectCard({ title, description, buttonText, href }: ProjectCardProps)
 function Projects() {
     return (
         <Section>
-            <h2 id="projects" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
+            <h2 id="projects"
+                className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
                 <ProjectCard
                     title="Mentoring"
@@ -173,14 +179,20 @@ function Projects() {
 
 function Havens() {
     const havens = [
-        {src: '/havens/logo_lichtblickHasenbergl.png', alt: 'Lichtblick Hasenbergl', href: 'https://lichtblick-hasenbergl.org'},
+        {
+            src: '/havens/logo_lichtblickHasenbergl.png',
+            alt: 'Lichtblick Hasenbergl',
+            href: 'https://lichtblick-hasenbergl.org'
+        },
         {src: '/havens/logo_startstark.png', alt: 'StartStark', href: 'https://startstark.de'},
     ];
 
     return (
         <Section>
-            <h2 id="havens" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere Havens</h2>
-            <Logos  logos={havens}/>
+            <h2 id="havens"
+                className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere
+                Havens</h2>
+            <Logos logos={havens}/>
         </Section>
     );
 }
@@ -190,9 +202,9 @@ interface TimelineEventProps {
     end: string;
     title: string;
     description: string;
-  }
+}
 
-function TimelineEvent({ start, end, title, description}: TimelineEventProps ) {
+function TimelineEvent({start, end, title, description}: TimelineEventProps) {
     return (
         <div className="grid grid-cols-2">
             <div className='mr-0 mb-6'>
@@ -261,19 +273,24 @@ function Timeline() {
 function SailsetterDescription() {
     return (
         <Section>
-            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde jetzt Sailsetter!</h2>
+            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde
+                jetzt Sailsetter!</h2>
 
-            <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
+            <div
+                className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
                 <div className="w-full w-3/4 text-center md:text-left">
-                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
-                    <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben, zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich kennenzulernen!</p>
+                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses
+                        ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der
+                        Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
+                    <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben,
+                        zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich
+                        kennenzulernen!</p>
                     <div className="flex justify-end mt-8">
-                <Button href="">
-                    Jetzt bewerben!
-                </Button>
-        </div>
-            </div>
-
+                        <Button href="">
+                            Jetzt bewerben!
+                        </Button>
+                    </div>
+                </div>
 
 
                 {/* <div className="w-full md:w-1/2">
@@ -292,26 +309,28 @@ function SailsetterDescription() {
 
 
 export default function Home() {
-  return (
-   <>
-    <Head>
-       <title>Sailsetters - Students for Change</title>
-       <meta name="description" content="Join Sailsetters to make a difference in the accessebility of education."/>
-    </Head>
-    <Hero />
-    <Element name="statements">
-        <Statements />
-    </Element>
-    <Element name="join">
-        <SailsetterDescription />
-        <Timeline />
-    </Element>
-    <Element name="projects">
-        <Projects />
-    </Element>
-    <Element name="havens">
-        <Havens />
-    </Element>
-   </>
-  )
+    return (
+        <>
+            <Head>
+                <title>Sailsetters - Students for Change</title>
+                <meta name="description"
+                      content="Join Sailsetters to make a difference in the accessebility of education."/>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
+            <Hero/>
+            <Element name="statements">
+                <Statements/>
+            </Element>
+            <Element name="join">
+                <SailsetterDescription/>
+                <Timeline/>
+            </Element>
+            <Element name="projects">
+                <Projects/>
+            </Element>
+            <Element name="havens">
+                <Havens/>
+            </Element>
+        </>
+    )
 }
