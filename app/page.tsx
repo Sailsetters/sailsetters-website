@@ -315,7 +315,7 @@ export default function Home() {
                 <title>Sailsetters - Students for Change</title>
                 <meta name="description"
                       content="Join Sailsetters to make a difference in the accessebility of education."/>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/app/favicon.ico"/>
             </Head>
             <Hero/>
             <Element name="statements">
