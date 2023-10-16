@@ -26,7 +26,7 @@ function Hero() {
                     Sailsetters
                 </h1>
                 <h2 className="relative text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <Link href="/"
+                <Link href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                       className="text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
                     Jetzt Mitglied werden!
                 </Link>
@@ -140,31 +140,31 @@ function Projects() {
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
                     buttonText="Jetzt mithelfen"
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Spieleabend"
                     description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
                     buttonText="Jetzt mithelfen"
-                    href="/"
+                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Projektwochen Naturwissenschaften"
                     description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
                     buttonText="Jetzt mithelfen"
-                    href="/"
+                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
                     buttonText="Jetzt mithelfen"
-                    href="/"
+                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Nachhilfe"
                     description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
                     buttonText="Jetzt mithelfen"
-                    href="/"
+                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Interesse oder Fragen?"
@@ -286,7 +286,7 @@ function SailsetterDescription() {
                         zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich
                         kennenzulernen!</p>
                     <div className="flex justify-end mt-8">
-                        <Button href="">
+                        <Button href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
                             Jetzt bewerben!
                         </Button>
                     </div>
