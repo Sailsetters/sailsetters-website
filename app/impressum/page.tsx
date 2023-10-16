@@ -34,7 +34,7 @@ function Impressum() {
                         <p className="mb-3 text-black">
                             <span className="font-semibold">Telefon:</span> +49 176 32369363<br/>
                             <span className="font-semibold">Telefax:</span> +49 89 54645686<br/>
-                            <span className="font-semibold">E-Mail:</span> kontakt@sailsetters.de
+                            <span className="font-semibold">E-Mail:</span> contact@sailsetters.de
                         </p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Redaktionell verantwortlich</h1>
                         <p className="mb-3 text-black">
