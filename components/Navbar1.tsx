@@ -7,9 +7,9 @@ import Image from "next/image";
 import {Link as ScrollLink} from "react-scroll";
 
 const links = [
+    {href: 'statements', text: 'Über uns'},
     {href: 'join', text: 'Mitmachen'},
     {href: 'projects', text: 'Projekte'},
-    {href: 'timeline', text: 'Roadmap'},
     {href: 'havens', text: 'Havens'},
 ];
 

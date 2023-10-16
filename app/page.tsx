@@ -5,7 +5,7 @@ import Spline from '@splinetool/react-spline';
 import React from 'react';
 import Link from "next/link";
 import Section from "@/components/Section";
-import {ChevronDownIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
+import {ChevronDownIcon, GiftIcon, InformationCircleIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
 import {Element, Link as ScrollLink} from 'react-scroll';
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
@@ -73,13 +73,23 @@ function Statements() {
             <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-10 text-center">
                 <StatementCard
                     title="Vision"
-                    text="Unsere Vision ist ein Deutschland, in dem jedes Kind, unabhängig von seiner Lebenssituation, gleichen und gerechten Bildungszugang erhält, um ein selbstbestimmtes Leben zu führen."
+                    text="Ein Deutschland, in dem jedes Kind, unabhängig von seiner Lebenssituation, die Chance auf Bildung und ein selbstbestimmtes Leben erhält."
                     Icon={MapIcon}
                 />
                 <StatementCard
                     title="Mission"
-                    text="Wir engagieren uns für benachteiligte Kinder und Jugendliche, arbeiten mit Partnern zusammen, um Bildungsstrukturen zu verbessern, und setzen Initiativen um, die über akademische Hilfe hinausgehen. Unsere Mission ist die ganzheitliche Förderung und das Streben nach einem gerechteren Bildungssystem in Deutschland."
+                    text="Sailsetters vermittelt Studierende an engagierte Organisationen und eigene Initiativen, um durch gezielte Projekte die Bildung und ganzheitliche Entwicklung nachhaltig zu fördern."
                     Icon={TrophyIcon}
+                />
+                <StatementCard
+                    title="Umsetzung"
+                    text="Such dir bei der Bewerbung einen Haven und ein zugehöriges Projekt aus, bei welchem du ein Semester lang ehrenamtlich regelmäßig mitarbeitest."
+                    Icon={InformationCircleIcon}
+                />
+                <StatementCard
+                    title="Engagement"
+                    text="Jeder Sailsetter erhält neben der Fülle an Erfahrungen und Erlebnissen, die er während seiner Zeit bei Sailsetters sammelt, ein Zertifikat für sein Engagement."
+                    Icon={GiftIcon}
                 />
             </div>
         </Section>
@@ -101,7 +111,7 @@ function ProjectCard({ title, description, buttonText, href }: ProjectCardProps)
         <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
             {/* Blue orb */}
             <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top, left }}></div>
-            
+
             <div className='mb-4'>
                 <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
                 <p className="text-gray-700">{description}</p>
@@ -154,7 +164,7 @@ function Projects() {
                     title="Interesse oder Fragen?"
                     description="Wenn du Interesse an einem unserer Projekte hast, oder Fragen zu diesen hast, dann schreib uns gerne per Mail oder social media."
                     buttonText="Kontaktiere uns"
-                    href="/"
+                    href="mailto:contact@sailsetters.de"
                 />
             </div>
         </Section>
@@ -199,8 +209,7 @@ function TimelineEvent({ start, end, title, description}: TimelineEventProps ) {
 
 function Timeline() {
     return (
-        <Section>
-            <h2 className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Roadmap</h2>
+        <Section className="-mt-24">
             <div className="relative max-w-3xl mx-auto">
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
@@ -211,7 +220,7 @@ function Timeline() {
                 <TimelineEvent
                     start="16.10.23 -"
                     end="29.10.23"
-                    title="Berwerbungsphase"
+                    title="Bewerbungsphase"
                     description=""
                 />
                 <TimelineEvent
@@ -255,9 +264,8 @@ function SailsetterDescription() {
             <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde jetzt Sailsetter!</h2>
 
             <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
-                <div className="w-full md:w-1/2 text-center md:text-left">
-                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Such dir bei der Bewerbung einen Haven und ein zugehöriges Projekt aus, bei welchem du ein Semester lang ehrenamtlich regelmäßig mitarbeitest.</p>
-                    <p className="text-lg mb-6">Dieses ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt. Alle unsere Sailsetter bekommen natürlich nach einem abgeschlossenen Semester ein Zertifikat für Ihr Engagement ausgestellt.</p>
+                <div className="w-full w-3/4 text-center md:text-left">
+                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
                     <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben, zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich kennenzulernen!</p>
                     <div className="flex justify-end mt-8">
                 <Button href="">
@@ -266,7 +274,7 @@ function SailsetterDescription() {
         </div>
             </div>
 
-                
+
 
                 {/* <div className="w-full md:w-1/2">
                     <div className="relative rounded-lg overflow-hidden shadow-xl">
@@ -296,12 +304,10 @@ export default function Home() {
     </Element>
     <Element name="join">
         <SailsetterDescription />
+        <Timeline />
     </Element>
     <Element name="projects">
         <Projects />
-    </Element>
-    <Element name="timeline">
-        <Timeline />
     </Element>
     <Element name="havens">
         <Havens />
