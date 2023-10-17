@@ -46,11 +46,12 @@ function Impressum() {
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >EU-Streitschlichtung</h1>
                         <p className="mb-3 text-black">
                             Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-                            <a href="https://ec.europa.eu/consumers/odr" className="text-blue-500"> https://ec.europa.eu/consumers/odr</a>.
+                            <a href="https://ec.europa.eu/consumers/odr" className="text-blue-500 break-words"> https://ec.europa.eu/consumers/odr</a>.
                             Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-                        <p className="mb-3 text-black font-bold">
-                            Verbraucherstreitbeilegung/Universalschlichtungsstelle:
+                        <p className="mb-3 text-black font-bold flex sm:flex-row flex-col">
+                            <span>Verbraucherstreitbeilegung/</span><span>Universalschlichtungsstelle:</span>
                         </p>
+
                         <p className="mb-3 text-black">
                             Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                         </p>
