@@ -221,7 +221,7 @@ function TimelineEvent({start, end, title, description}: TimelineEventProps) {
 
 function Timeline() {
     return (
-        <Section className="-mt-24">
+        <Section>
             <div className="relative max-w-3xl mx-auto">
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
