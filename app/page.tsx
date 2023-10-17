@@ -139,31 +139,31 @@ function Projects() {
                 <ProjectCard
                     title="Mentoring"
                     description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
-                    buttonText="Jetzt mithelfen"
+                    buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Spieleabend"
                     description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
-                    buttonText="Jetzt mithelfen"
+                    buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Projektwochen Naturwissenschaften"
                     description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
-                    buttonText="Jetzt mithelfen"
+                    buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
-                    buttonText="Jetzt mithelfen"
+                    buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Nachhilfe"
                     description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
-                    buttonText="Jetzt mithelfen"
+                    buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
