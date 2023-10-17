@@ -3,12 +3,12 @@
 import Head from 'next/head'
 import Spline from '@splinetool/react-spline';
 import React from 'react';
-import Link from "next/link";
 import Section from "@/components/Section";
 import {ChevronDownIcon, GiftIcon, InformationCircleIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
 import {Element, Link as ScrollLink} from 'react-scroll';
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
+import BigButton from "@/components/BigButton";
 
 function Hero() {
     return (
@@ -26,10 +26,9 @@ function Hero() {
                     Sailsetters
                 </h1>
                 <h2 className="relative text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <Link href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
-                      className="text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200">
+                <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
                     Jetzt Mitglied werden!
-                </Link>
+                </BigButton>
             </div>
 
             <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements"
@@ -285,10 +284,10 @@ function SailsetterDescription() {
                     <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben,
                         zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich
                         kennenzulernen!</p>
-                    <div className="flex justify-end mt-8">
-                        <Button href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
+                    <div className="flex justify-center mt-8">
+                        <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
                             Jetzt bewerben!
-                        </Button>
+                        </BigButton>
                     </div>
                 </div>
 
