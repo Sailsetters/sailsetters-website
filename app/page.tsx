@@ -277,7 +277,7 @@ function SailsetterDescription() {
 
             <div
                 className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
-                <div className="w-full w-3/4 text-center md:text-left">
+                <div className="w-3/4 md:w1/2 text-center">
                     <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses
                         ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der
                         Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
