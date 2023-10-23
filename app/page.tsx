@@ -137,7 +137,7 @@ function Projects() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
                 <ProjectCard
                     title="Mentoring"
-                    description="Bei unserem Mentoring Projekt, „matched“ unser Haven StartStark dich mit einem Mentee, einem Kind oder Jugendlichen, das regelmäßig das Gate6 besucht. Die Idee hinter dem Mentoring, ist den Mentees als eine 1:1 Bezugsperson zur Seite zu stehen. Dabei kann und wird die Mentor-Mentee Beziehung natürlich bei jedem Paar anders aussehen."
+                    description="Die OpenSpace Lernwelt von StartStark ist nachmittags der Ort für Kinder und Jugendliche aus der Messestadt, um in Ruhe zu lernen. Wenn du als Sailsetter mitmachst, bist du alle zwei Wochen dabei und unterstützt das Team. Dabei lernst du viele junge Menschen kennen. Es kann sich eine 1:1 Mentoring-Beziehung entwickeln. Sollte das passieren, liegt der Fokus mehr auf dem Austausch mit deinem Mentee."
                     buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
