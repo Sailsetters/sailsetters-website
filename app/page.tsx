@@ -136,7 +136,7 @@ function Projects() {
                 className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
                 <ProjectCard
-                    title="Mentoring"
+                    title="OpenSpace Lernwelt und Mentoring"
                     description="Die OpenSpace Lernwelt von StartStark ist nachmittags der Ort für Kinder und Jugendliche aus der Messestadt, um in Ruhe zu lernen. Wenn du als Sailsetter mitmachst, bist du alle zwei Wochen dabei und unterstützt das Team. Dabei lernst du viele junge Menschen kennen. Es kann sich eine 1:1 Mentoring-Beziehung entwickeln. Sollte das passieren, liegt der Fokus mehr auf dem Austausch mit deinem Mentee."
                     buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
