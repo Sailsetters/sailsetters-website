@@ -230,7 +230,7 @@ function Timeline() {
                 </div>
                 <TimelineEvent
                     start="16.10.23 -"
-                    end="29.10.23"
+                    end="2.11.23"
                     title="Bewerbungsphase"
                     description=""
                 />
