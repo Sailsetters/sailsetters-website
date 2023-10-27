@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {faInstagram, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+import {faInstagram, faFacebook, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
@@ -51,11 +51,11 @@ const Footer = () => {
                   <FontAwesomeIcon width={20} height={20} icon={faInstagram} />
                 </Link>
               </li>
-             {/* <li>
-                <Link href="#" target="_blank" className="my-3 block text-gray-300 hover:text-[#4267B2] text-sm font-medium duration-300">
+              <li>
+                <Link href="https://www.facebook.com/sailsetters" target="_blank" className="my-3 block text-gray-300 hover:text-[#4267B2] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faFacebook} />
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link href="https://www.linkedin.com/company/sailsetters" target="_blank" className="my-3 block text-gray-300 hover:text-[#0e76a8] text-sm font-medium duration-300">
                   <FontAwesomeIcon width={20} height={20} icon={faLinkedin} />
