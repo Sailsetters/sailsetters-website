@@ -100,7 +100,7 @@ function Statements() {
 
 interface ProjectCardProps {
     title: string;
-    description: string;
+    description: React.ReactNode; // it's possible to pass a string aswell
     buttonText: string;
     href: string;
 }
@@ -148,8 +148,12 @@ function Projects() {
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
-                    title="Projektwochen Naturwissenschaften"
-                    description="Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei andern Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt."
+                    title="Projektwochen Naturwissenschaften (3 ECTS)"
+                    description={
+                        <span>
+                            Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei anderen Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt. Im Rahmen des <a href="https://www.sot.tum.de/wtg/tuminspiriert-studentische-projekte/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-all duration-300">TUMinspiriert</a> Programms ist es möglich durch die Teilnahme an diesem Projekt 3 ECTS zu erhalten.
+                        </span>
+                    }
                     buttonText="Jetzt bewerben"
                     href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
