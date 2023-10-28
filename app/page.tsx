@@ -17,16 +17,16 @@ function Hero() {
                 <Spline scene="https://prod.spline.design/IwvZXJP9BoIPF9Cc/scene.splinecode"/>
             </div>
 
-            <div className="absolute flex flex-col space-y-4">
+            <div className="absolute flex flex-col space-y-1 sm:space-y-4">
                 {/* <div className="hidden md:flex relative animate-pulse flex-row items-center space-x-3 mb-2 text-gray-500/80">
                     <CursorArrowRippleIcon className="w-8"/>
                     <p className="text-2xl">Hover over the items</p>
                 </div> */}
-                <h1 className='relative text-4xl sm:text-6xl font-semibold uppercase tracking-wider'>
+                <h1 className='text-4xl sm:text-6xl font-semibold uppercase tracking-wider'>
                     Sailsetters
                 </h1>
-                <h2 className="relative text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
+                <h2 className="text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
+                <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV" className='mt-2 sm:mt-0'>
                     Jetzt Mitglied werden!
                 </BigButton>
             </div>
@@ -47,11 +47,11 @@ interface StatementCardProps {
 
 function StatementCard({title, text, Icon}: StatementCardProps) {
     // Random position for the blue orb
-    const top = Math.random() * 80 + 10 + '%';
-    const left = Math.random() * 70 + 10 + '%';
+    const top = Math.random() * 100 + '%';
+    const left = Math.random() * 100 + '%';
 
     return (
-        <div className="relative px-6">
+        <div className="relative sm:px-6">
             {/* Blue orb */}
             <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40"
                  style={{top, left}}></div>
@@ -72,7 +72,7 @@ function StatementCard({title, text, Icon}: StatementCardProps) {
 function Statements() {
     return (
         <Section>
-            <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-10 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-5 sm:gap-10 text-center">
                 <StatementCard
                     title="Vision"
                     text="Ein Deutschland, in dem jedes Kind, unabhängig von seiner Lebenssituation, die Chance auf Bildung und ein selbstbestimmtes Leben erhält."
@@ -133,7 +133,7 @@ function Projects() {
     return (
         <Section>
             <h2 id="projects"
-                className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Projekte</h2>
+                className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-8 sm:mb-16 font-semibold">Projekte</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
                 <ProjectCard
                     title="OpenSpace Lernwelt und Mentoring"
@@ -189,7 +189,7 @@ function Havens() {
     return (
         <Section>
             <h2 id="havens"
-                className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Unsere
+                className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest® mb-8 sm:mb-16 font-semibold">Unsere
                 Havens</h2>
             <Logos logos={havens}/>
         </Section>
@@ -230,16 +230,16 @@ function Timeline() {
                 </div>
                 <TimelineEvent
                     start="16.10.23 -"
-                    end="2.11.23"
+                    end="02.11.23"
                     title="Bewerbungsphase"
                     description=""
                 />
-                <TimelineEvent
+                {/* <TimelineEvent
                     start="30.10.23 -"
                     end="03.11.23"
                     title="Interviewphase"
                     description=""
-                />
+                /> */}
                 <TimelineEvent
                     start="04.11.23"
                     end=""
@@ -272,35 +272,26 @@ function Timeline() {
 function SailsetterDescription() {
     return (
         <Section>
-            <h2 id="join" className="text-5xl text-gray-800 text-center uppercase tracking-wide mb-16 font-medium">Werde
+            <h2 id="join" className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold">Werde
                 jetzt Sailsetter!</h2>
 
             <div
-                className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10 text-gray-800 justify-center items-center">
-                <div className="w-3/4 md:w1/2 text-center">
-                    <p className="text-lg mb-6">Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses
+                className="flex flex-col text-gray-800 justify-center items-center">
+                <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
+                    <p>Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses
                         ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der
                         Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
-                    <p className="text-lg">Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben,
+                    <p>Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben,
                         zu einem anderen Haven wechseln oder eine organisatorische Rolle übernehmen. Wir freuen uns dich
                         kennenzulernen!</p>
                     <div className="flex justify-center mt-8">
+                        <div className='w-4/5 sm:w-1/2'>
                         <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
                             Jetzt bewerben!
                         </BigButton>
-                    </div>
-                </div>
-
-
-                {/* <div className="w-full md:w-1/2">
-                    <div className="relative rounded-lg overflow-hidden shadow-xl">
-                        <img src="./sailsetter_image.jpg" alt="Sailsetter at work" className="w-full h-auto"/>
-                        <div className="absolute bottom-0 left-0 w-full bg-black/50 text-white p-4">
-                            <h3 className="text-xl font-semibold">Unsere Arbeit im Fokus</h3>
-                            <p className="text-md">Ein Blick hinter die Kulissen der Projekte von Sailsetters.</p>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         </Section>
     );
