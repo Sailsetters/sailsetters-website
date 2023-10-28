@@ -34,7 +34,7 @@ const Navbar = () => {
                 </Link>
                 <ul className={`hidden sm:flex text-gray-800 text-lg`}>
                     {links.map(link => (
-                        <ScrollLink to={link.href} smooth duration={500} className="cursor-pointer p-4">{link.text}</ScrollLink>
+                        <ScrollLink to={link.href} smooth duration={500} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</ScrollLink>
                     ))}
                 </ul>
                 <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
