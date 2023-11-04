@@ -26,7 +26,7 @@ function Hero() {
                     Sailsetters
                 </h1>
                 <h2 className="text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV" className='mt-2 sm:mt-0'>
+                <BigButton href="mailto:contact@sailsetters.de" className='mt-2 sm:mt-0'>
                     Jetzt Mitglied werden!
                 </BigButton>
             </div>
@@ -101,8 +101,8 @@ function Statements() {
 interface ProjectCardProps {
     title: string;
     description: React.ReactNode; // it's possible to pass a string aswell
-    buttonText: string;
-    href: string;
+    buttonText?: string;
+    href?: string;
 }
 
 function ProjectCard({title, description, buttonText, href}: ProjectCardProps) {
@@ -121,9 +121,11 @@ function ProjectCard({title, description, buttonText, href}: ProjectCardProps) {
                 <p className="text-gray-700">{description}</p>
             </div>
 
-            <Button href={href}>
-                {buttonText}
-            </Button>
+            {buttonText && href && ( // button text and href are optional. -> no button is rendered if none are passed
+                <Button href={href}>
+                    {buttonText}
+                </Button>
+            )}
         </div>
     );
 }
@@ -138,14 +140,14 @@ function Projects() {
                 <ProjectCard
                     title="OpenSpace Lernwelt und Mentoring"
                     description="Die OpenSpace Lernwelt von StartStark ist nachmittags der Ort für Kinder und Jugendliche aus der Messestadt, um in Ruhe zu lernen. Wenn du als Sailsetter mitmachst, bist du alle zwei Wochen dabei und unterstützt das Team. Dabei lernst du viele junge Menschen kennen. Es kann sich eine 1:1 Mentoring-Beziehung entwickeln. Sollte das passieren, liegt der Fokus mehr auf dem Austausch mit deinem Mentee."
-                    buttonText="Jetzt bewerben"
-                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+                    // buttonText="Jetzt bewerben"
+                    // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Spieleabend"
                     description="Der Spieleabend ist ein Projekt mit unserem Haven Lichtblick Hasenbergl, bei dem du, zusammen mit mindestens einem anderen Sailsetter, einmal im Monat den Lichtblick Hasenbergl besuchst und einen Spieleabend veranstaltest. Dabei lernt ihr zuvor die Spielregeln und spielt dieses dann zusammen mit einer kleinen Gruppe an Kindern."
-                    buttonText="Jetzt bewerben"
-                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+                    // buttonText="Jetzt bewerben"
+                    // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Projektwochen Naturwissenschaften (3 ECTS)"
@@ -154,20 +156,20 @@ function Projects() {
                             Die Projektwochen Naturwissenschaften sind ein Projekt am Kindergarten unseres Havens Lichtblick Hasenbergl. Dabei bereitest du zusammen mit ein bis drei anderen Sailsettern naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese finden dann in vier aufeinanderfolgenden Wochen im Januar 2024 jeweils an einem Vormittag pro Woche statt. Im Rahmen des <a href="https://www.sot.tum.de/wtg/tuminspiriert-studentische-projekte/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-all duration-300">TUMinspiriert</a> Programms ist es möglich durch die Teilnahme an diesem Projekt 3 ECTS zu erhalten.
                         </span>
                     }
-                    buttonText="Jetzt bewerben"
-                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+                    // buttonText="Jetzt bewerben"
+                    // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Verstehendes Lesen"
                     description="Verstehendes Lesen, ist ein 1:1 Projekt mit unserem Haven Lichtblick Hasenbergl. Einmal pro Woche liest du gemeinsam mit einem Kind im Grundschulalter. Dabei geht es darum das Textverständnis des Kindes zu verbessern. Für dieses Projekt suchen wir explizit nach Pädagogik- und Lehramt-Studierenden."
-                    buttonText="Jetzt bewerben"
-                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+                    // buttonText="Jetzt bewerben"
+                    // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Nachhilfe"
                     description="Im Tillmann Kinder- und Jugendhaus sind Jugendliche im Alter von 6-18 Jahren untergebracht. Als Teil dieses Projekts, gibst du einmal pro Woche einem Kind oder Jugendlichen 1:1 Nachhilfe."
-                    buttonText="Jetzt bewerben"
-                    href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+                    // buttonText="Jetzt bewerben"
+                    // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
                 />
                 <ProjectCard
                     title="Interesse oder Fragen?"
@@ -290,7 +292,7 @@ function SailsetterDescription() {
                         kennenzulernen!</p>
                     <div className="flex justify-center mt-8">
                         <div className='w-4/5 sm:w-1/2'>
-                        <BigButton href="https://h47ugi7vs69.typeform.com/to/Du70lKoV">
+                        <BigButton href="mailto:contact@sailsetters.de">
                             Jetzt bewerben!
                         </BigButton>
                         </div>
