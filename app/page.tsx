@@ -27,7 +27,7 @@ function Hero() {
                 </h1>
                 <h2 className="text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
                 <BigButton href="mailto:contact@sailsetters.de" className='mt-2 sm:mt-0'>
-                    Jetzt Mitglied werden!
+                    Kontaktiere uns jetzt!
                 </BigButton>
             </div>
 
@@ -293,7 +293,7 @@ function SailsetterDescription() {
                     <div className="flex justify-center mt-8">
                         <div className='w-4/5 sm:w-1/2'>
                         <BigButton href="mailto:contact@sailsetters.de">
-                            Jetzt bewerben!
+                            Jetzt kontaktieren!
                         </BigButton>
                         </div>
                     </div>
