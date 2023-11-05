@@ -250,19 +250,19 @@ function Timeline() {
                     start="04.11.23"
                     end=""
                     title="Onboarding Day"
-                    description="Onboarding Day für alle neuen Sailsetter."
+                    description="Onboarding Day für alle neuen Sailsetter:innen."
                 />
                 <TimelineEvent
                     start="05.11.23 -"
                     end="09.02.24"
                     title="Projektphase"
-                    description="In dieser Phase arbeiten alle unsere Sailsetter an verschiedenen Projekten mit."
+                    description="In dieser Phase arbeiten alle unsere Sailsetter:innen an verschiedenen Projekten mit."
                 />
                 <TimelineEvent
                     start="10.02.24"
                     end=""
                     title="Reflection Day"
-                    description="An diesem Tag treffen sich alle aktiven Sailsetter und tauschen in einem Workshop Format ihre Erfahrungen, die sie auf ihren Projekten gemacht haben, aus."
+                    description="An diesem Tag treffen sich alle aktiven Sailsetter:innen und tauschen in einem Workshop Format ihre Erfahrungen, die sie auf ihren Projekten gemacht haben, aus."
                 />
                 <div className="grid grid-cols-2">
                     <div className='mr-0 mb-6'>
@@ -279,12 +279,12 @@ function SailsetterDescription() {
     return (
         <Section>
             <h2 id="join" className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold">Werde
-                jetzt Sailsetter!</h2>
+                jetzt Sailsetter:in!</h2>
 
             <div
                 className="flex flex-col text-gray-800 justify-center items-center">
                 <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
-                    <p>Bewirb dich noch heute und starte auf deine Reise als Sailsetter. Dieses
+                    <p>Bewirb dich noch heute und starte auf deine Reise als Sailsetter:in. Dieses
                         ehrenamtliche Engagement ist der Weg, auf dem wir unsere Mission verfolgen und endet mit der
                         Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung bleibt.</p>
                     <p>Im darauffolgenden Semester kannst du dann entweder bei deinem Haven bleiben,
