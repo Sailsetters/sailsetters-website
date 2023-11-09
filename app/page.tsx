@@ -90,7 +90,7 @@ function Statements() {
                 />
                 <StatementCard
                     title="Engagement"
-                    text="Jeder Sailsetter erhält neben der Fülle an Erfahrungen und Erlebnissen, die er während seiner Zeit bei Sailsetters sammelt, ein Zertifikat für sein Engagement."
+                    text="Alle Sailsetter:innen erhalten neben der Fülle an Erfahrungen und Erlebnissen, die sie während ihrer Zeit bei Sailsetters sammeln, ein Zertifikat für ihr Engagement."
                     Icon={GiftIcon}
                 />
             </div>
