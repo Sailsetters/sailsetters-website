@@ -1,7 +1,7 @@
 import './globals.css'
 import type {Metadata} from 'next'
 import React from "react";
-import Navbar from "@/components/Navbar1";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {Analytics} from "@vercel/analytics/react";
 import {inter} from "./fonts"
