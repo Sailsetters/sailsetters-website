@@ -2,13 +2,14 @@
 
 import Head from 'next/head'
 import Spline from '@splinetool/react-spline';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from "@/components/Section";
 import {ChevronDownIcon, GiftIcon, InformationCircleIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
 import {Element, Link as ScrollLink} from 'react-scroll';
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
 import BigButton from "@/components/BigButton";
+import CalendlyPopup from '@/components/CalendlyPopup';
 
 function Hero() {
     return (
@@ -26,9 +27,9 @@ function Hero() {
                     Sailsetters
                 </h1>
                 <h2 className="text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <BigButton href="mailto:contact@sailsetters.de" className='mt-2 sm:mt-0'>
-                    Kontaktiere uns jetzt!
-                </BigButton>
+                <CalendlyPopup className='mt-2 sm:mt-0'>
+                    Jetzt Gespräch vereinbaren!
+                </CalendlyPopup>
             </div>
 
             <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements"
