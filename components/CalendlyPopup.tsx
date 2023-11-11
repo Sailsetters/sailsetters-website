@@ -56,7 +56,7 @@ export default function CalendlyPopup ({children, className, ...props}: Calendly
                         >
                             <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
 
-                                <InlineWidget url="https://calendly.com/sailsetters/kennenlerngesprach"/>
+                                <InlineWidget url="https://calendly.com/sailsetters/kennenlergespraech"/>
 
                             </Dialog.Panel>
                         </Transition.Child>

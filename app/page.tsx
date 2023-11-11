@@ -293,9 +293,9 @@ function SailsetterDescription() {
                         kennenzulernen!</p>
                     <div className="flex justify-center mt-8">
                         <div className='w-4/5 sm:w-1/2'>
-                        <BigButton href="mailto:contact@sailsetters.de">
-                            Jetzt kontaktieren!
-                        </BigButton>
+                        <CalendlyPopup>
+                            Jetzt Gespräch vereinabren!
+                        </CalendlyPopup>
                         </div>
                     </div>
                 </div>
