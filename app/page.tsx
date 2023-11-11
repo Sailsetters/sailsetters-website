@@ -315,17 +315,17 @@ export default function Home() {
                 <link rel="icon" href="/app/favicon.ico"/>
             </Head>
             <Hero/>
-            <Element name="statements">
+            <Element id="statements">
                 <Statements/>
             </Element>
-            <Element name="join">
+            <Element id="join">
                 <SailsetterDescription/>
                 <Timeline/>
             </Element>
-            <Element name="projects">
+            <Element id="projects">
                 <Projects/>
             </Element>
-            <Element name="havens">
+            <Element id="havens">
                 <Havens/>
             </Element>
         </>

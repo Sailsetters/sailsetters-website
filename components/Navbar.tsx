@@ -4,13 +4,12 @@ import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 import Image from "next/image";
-import {Link as ScrollLink} from "react-scroll";
 
 const links = [
-    {href: 'statements', text: 'Über uns'},
-    {href: 'join', text: 'Mitmachen'},
-    {href: 'projects', text: 'Projekte'},
-    {href: 'havens', text: 'Havens'},
+    {href: '/#statements', text: 'Über uns'},
+    {href: '/#join', text: 'Mitmachen'},
+    {href: '/#projects', text: 'Projekte'},
+    {href: '/#havens', text: 'Havens'},
 ];
 
 const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
@@ -34,7 +33,7 @@ const Navbar = () => {
                 </Link>
                 <ul className={`hidden sm:flex text-gray-800 text-lg`}>
                     {links.map(link => (
-                        <ScrollLink to={link.href} smooth duration={500} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</ScrollLink>
+                        <Link href={link.href} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</Link>
                     ))}
                 </ul>
                 <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
@@ -45,7 +44,7 @@ const Navbar = () => {
                 </div>
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
                     {links.map(link => (
-                        <ScrollLink to={link.href} onClick={() => setNav(false)} smooth duration={500} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</ScrollLink>
+                        <Link href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</Link>
                         // <Link href={link.href} onClick={() => setNav(false)}
                         //       className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
                         //     {link.text}
