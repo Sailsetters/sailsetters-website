@@ -18,10 +18,10 @@ const Footer = () => {
               Sailsetters
             </div>
             {/* Links */}
-            <Link href="/#ueber-uns" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/#statements" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Über uns
             </Link>
-            <Link href="/#projekte" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
+            <Link href="/#projects" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
               Projekte
             </Link>
             <Link href="/impressum" className="my-3 block text-gray-300 hover:pl-[8px] text-sm font-medium duration-300">
