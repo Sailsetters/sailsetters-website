@@ -294,7 +294,7 @@ function SailsetterDescription() {
                     <div className="flex justify-center mt-8">
                         <div className='w-4/5 sm:w-1/2'>
                         <CalendlyPopup>
-                            Jetzt Gespräch vereinabren!
+                            Jetzt Gespräch vereinbaren!
                         </CalendlyPopup>
                         </div>
                     </div>
