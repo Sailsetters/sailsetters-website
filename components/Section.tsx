@@ -5,7 +5,7 @@ import Image from "next/image";
 const styles = cva("relative p-8 sm:py-16 lg:py-32", {
     variants: {
         background: {
-            lblue: "bg-primary-50",
+            lblue: "bg-linen",
             inverted: "bg-gradient-to-b from-blue-700 to-blue-800 text-white",
         },
     },

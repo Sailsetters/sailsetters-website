@@ -14,10 +14,12 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        blood: '#5C0905',
+        burnt: '#F87E60',
+        tangerine: '#E59D76',
+        tawny: '#CE6127',
+        linen: '#F7E8DE',
         powder: '#FEFEFA',
-        primary: {
-          50: "#E5E9F6",
-        }
       }
     },
   },
