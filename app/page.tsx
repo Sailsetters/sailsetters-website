@@ -1,35 +1,29 @@
 "use client";
 
 import Head from 'next/head'
-import Spline from '@splinetool/react-spline';
-import React, { useEffect, useRef, useState } from 'react';
 import Section from "@/components/Section";
 import {ChevronDownIcon, GiftIcon, InformationCircleIcon, MapIcon, TrophyIcon} from '@heroicons/react/24/outline'
 import {Element, Link as ScrollLink} from 'react-scroll';
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
-import BigButton from "@/components/BigButton";
 import CalendlyPopup from '@/components/CalendlyPopup';
+import Image from 'next/image'
 
 function Hero() {
     return (
-        <section className="relative flex items-center justify-center h-screen bg-primary-50 text-gray-800">
+        <section className="relative flex items-center justify-center h-screen bg-linen text-gray-800">
             <div className="w-full h-full overflow-hidden">
-                <Spline scene="https://prod.spline.design/IwvZXJP9BoIPF9Cc/scene.splinecode"/>
+                <Image src='/background.png' alt='Hero' fill/>
             </div>
-
-            <div className="absolute flex flex-col space-y-1 sm:space-y-4">
-                {/* <div className="hidden md:flex relative animate-pulse flex-row items-center space-x-3 mb-2 text-gray-500/80">
-                    <CursorArrowRippleIcon className="w-8"/>
-                    <p className="text-2xl">Hover over the items</p>
-                </div> */}
-                <h1 className='text-4xl sm:text-6xl font-semibold uppercase tracking-wider'>
-                    Sailsetters
-                </h1>
-                <h2 className="text-2xl sm:text-4xl text-gray-800">Students for change.</h2>
-                <CalendlyPopup className='mt-2 sm:mt-0'>
-                    Jetzt Gespräch vereinbaren!
-                </CalendlyPopup>
+            <div className="absolute flex flex-col space-y-1 sm:space-y-4 px-4">
+                <Image src='/sailsetters_wordmark.png' alt='wordmark' width={800}
+                height={100}/>
+                <h2 className="text-2xl sm:text-4xl text-gray-900">Gemeinsam für ein bildungsgerechtes Deutschland</h2>
+                <div className='w-1/2 self-center pt-12'>
+                    <CalendlyPopup className='mt-2 sm:mt-0'>
+                        Sailsetter werden!
+                    </CalendlyPopup>
+                </div>
             </div>
 
             <ScrollLink className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]" to="statements"

@@ -21,7 +21,7 @@ export default function CalendlyPopup ({children, className, ...props}: Calendly
         setIsOpen(true)
     }
 
-    const baseStyle = "text-lg sm:text-xl text-center text-blue-800 p-2 sm:p-4 rounded-lg shadow-md bg-blue-500/40 hover:bg-blue-500/60 hover:text-blue-50 transition-all duration-200 w-full";
+    const baseStyle = "text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-blood/60 hover:bg-blood/80 hover:text-linen transition-all duration-200 w-full";
 
     return (
         <>
