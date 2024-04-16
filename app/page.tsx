@@ -1,6 +1,6 @@
 "use client";
 
-import Head from 'next/head'
+import Head from "next/head";
 import Section from "@/components/Section";
 import {
   ChevronDownIcon,
@@ -12,25 +12,31 @@ import {
 import { Element, Link as ScrollLink } from "react-scroll";
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
-import CalendlyPopup from '@/components/CalendlyPopup';
-import Image from 'next/image'
+import CalendlyPopup from "@/components/CalendlyPopup";
+import Image from "next/image";
 
 function Hero() {
-    return (
-        <section className="relative flex items-center justify-center h-screen bg-linen text-gray-800">
-            <div className="w-full h-full overflow-hidden">
-                <Image src='/background.png' alt='Hero' fill/>
-            </div>
-            <div className="absolute flex flex-col space-y-1 sm:space-y-4 px-4">
-                <Image src='/sailsetters_wordmark.png' alt='wordmark' width={800}
-                height={100}/>
-                <h2 className="text-2xl sm:text-4xl text-gray-900">Gemeinsam für ein bildungsgerechtes Deutschland</h2>
-                <div className='w-1/2 self-center pt-12'>
-                    <CalendlyPopup className='mt-2 sm:mt-0'>
-                        Sailsetter werden!
-                    </CalendlyPopup>
-                </div>
-            </div>
+  return (
+    <section className="relative flex items-center justify-center h-screen bg-linen text-gray-800">
+      <div className="w-full h-full overflow-hidden">
+        <Image src="/background.png" alt="Hero" fill />
+      </div>
+      <div className="absolute flex flex-col space-y-1 sm:space-y-4 px-4">
+        <Image
+          src="/sailsetters_wordmark.png"
+          alt="wordmark"
+          width={800}
+          height={100}
+        />
+        <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-gray-900">
+          GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
+        </h2>
+        <div className="w-1/2 self-center pt-12">
+          <CalendlyPopup className="mt-2 sm:mt-0">
+            Sailsetter werden!
+          </CalendlyPopup>
+        </div>
+      </div>
       <ScrollLink
         className="cursor-pointer absolute bottom-16 left-[50%] -translate-x-[50%]"
         to="statements"
@@ -58,14 +64,14 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
     <div className="relative sm:px-6">
       {/* Blue orb */}
       <div
-        className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40"
+        className="absolute w-16 h-16 bg-burnt/70 blur-xl rounded-full opacity-20"
         style={{ top, left }}
       ></div>
 
       {/* Main Card with backdrop-blur */}
       <div className="flex flex-col space-y-4 rounded-lg p-4">
         <div className="flex items-center space-x-4">
-          <Icon className="w-8 h-8 text-blue-500" />
+          <Icon className="w-8 h-8 text-burnt" />
           <h3 className="text-3xl">{title}</h3>
         </div>
         <p className="text-start text-lg">{text}</p>
@@ -125,7 +131,7 @@ function ProjectCard({
     <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
       {/* Blue orb */}
       <div
-        className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40"
+        className="absolute w-16 h-16 bg-burnt/30 blur-xl rounded-full opacity-40"
         style={{ top, left }}
       ></div>
 
@@ -208,7 +214,7 @@ function Projects() {
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
       </div>
-      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold">
+      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
         Unterstützung bei Projekten in ganz München
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
@@ -227,10 +233,10 @@ function Projects() {
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
       </div>
-      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold">
+      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
         1-zu-1 Förderung von Kindern und Jugendlichen
       </h3>
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
         <ProjectCard
           title="Nachhilfe"
           subttitle="Diakonie/Adelgundenheim/Gesellschaft macht Schule"
@@ -392,7 +398,7 @@ function Timeline() {
   );
 }
 
-function SailsettersWhoAreWe() {
+function SailsettersAbout() {
   return (
     <Section>
       <h2
@@ -401,18 +407,18 @@ function SailsettersWhoAreWe() {
       >
         Wer sind wir?
       </h2>
-      <div></div>
       <div className="flex flex-col text-gray-800 justify-center items-center">
-        <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
-          <div className="relative w-full h-full">
+        <div className="flex flex-col justify-center items-center first-line:max-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-8">
+          <div className="relative w-8/10 h-full">
             <img src="/team.png" alt="Team picture" />
           </div>
-          <p>Wir sind eine...</p>
-          <p className="font-semibold">... leidenschaftlich engagierte</p>
-          <p className="font-semibold">... dynamische</p>
-          <p className="font-semibold">... gemeinschaftliche</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center font-semibold text-center text-blood space-y-4 tracking-wide">
+          <p>LEIDENSCHAFTLICH ENGAGIERT</p>
+          <p>DYNAMISCH</p>
+          <p>GEMEINSCHAFTLICH</p>
+          </div>
           <p>
-            Gruppe von Studierenden aus verschiedensten Studiengängen, denen das
+            Wir sind eine Gruppe von Studierenden der TUM und LMU aus verschiedensten Studiengängen, denen das
             Thema Bildungsgerechtigkeit am Herzen liegt.
           </p>
         </div>
@@ -446,9 +452,9 @@ function SailsetterDescription() {
             Semester ein. Damit stellen wir sicher das sich dein Engagement gut
             in den Studienalltag einfügt. Wir freuen uns dich kennenzulernen!
           </p>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
-              <CalendlyPopup>Werde jetzt Sailsetter!</CalendlyPopup>
+              <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">Werde jetzt Sailsetter!</CalendlyPopup>
             </div>
           </div>
         </div>
@@ -475,7 +481,7 @@ export default function Home() {
         <Statements />
       </Element>
       <Element id="join">
-        <SailsettersWhoAreWe />
+        <SailsettersAbout />
         <SailsetterDescription />
       </Element>
       <Element id="projects">

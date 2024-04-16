@@ -13,7 +13,7 @@ export default function Button({
                                     href,
                                    ...props
                                }: Props) {
-    const baseStyle = "bg-blue-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 hover:shadow-md hover:bg-blue-500";
+    const baseStyle = "bg-burnt/70 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 transition-all duration-300 hover:shadow-md hover:bg-burnt";
 
     return (
         <Link href={`${href}`} className="ml-auto">
