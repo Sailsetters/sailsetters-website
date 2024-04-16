@@ -412,14 +412,15 @@ function SailsettersAbout() {
           <div className="relative w-8/10 h-full">
             <img src="/team.png" alt="Team picture" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 items-center font-semibold text-center text-blood space-y-4 tracking-wide">
-          <p>LEIDENSCHAFTLICH ENGAGIERT</p>
-          <p>DYNAMISCH</p>
-          <p>GEMEINSCHAFTLICH</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end font-semibold text-center text-blood space-y-4 tracking-wide">
+            <p>LEIDENSCHAFTLICH ENGAGIERT</p>
+            <p>DYNAMISCH</p>
+            <p>GEMEINSCHAFTLICH</p>
           </div>
           <p>
-            Wir sind eine Gruppe von Studierenden der TUM und LMU aus verschiedensten Studiengängen, denen das
-            Thema Bildungsgerechtigkeit am Herzen liegt.
+            Wir sind eine Gruppe von Studierenden der TUM und LMU aus
+            verschiedensten Studiengängen, denen das Thema Bildungsgerechtigkeit
+            am Herzen liegt.
           </p>
         </div>
       </div>
@@ -454,7 +455,9 @@ function SailsetterDescription() {
           </p>
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
-              <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">Werde jetzt Sailsetter!</CalendlyPopup>
+              <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
+                Werde jetzt Sailsetter!
+              </CalendlyPopup>
             </div>
           </div>
         </div>
