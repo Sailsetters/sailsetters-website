@@ -20,26 +20,30 @@ function Impressum() {
                     <div>
                         <h1></h1>
                         <p className="mb-3 text-black">
-                            Sailsetters<br/>
+                            Sailsetters e.V.<br/>
                             Schellingstr. 36<br/>
                             80799 München
                         </p>
-                        {/* <p className="mb-3 text-black">
+                        <p className="mb-3 text-black">
                             <span className="font-semibold">Vereinsregister:</span> ABC 123456
                             <br/>
-                            <span className="font-semibold">Registergericht:</span> Amtsgericht München?
-                        </p> */}
-                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke</p>
+                            <span className="font-semibold">Registergericht:</span> Amtsgericht München
+                        </p>
+                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke<br/>Johannes Michalke<br/>Johannes Michalke</p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Kontakt</h1>
                         <p className="mb-3 text-black">
                             <span className="font-semibold">Telefon:</span> +49 176 32369363<br/>
                             <span className="font-semibold">Telefax:</span> +49 89 54645686<br/>
-                            <span className="font-semibold">E-Mail:</span> contact@sailsetters.de
+                            <span className="font-semibold">E-Mail:</span> contact(at)sailsetters.de
+                        </p>
+                        <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Umsatzsteuer-ID</h1>
+                        <p className="mb-3 text-black">
+                            <span className="font-semibold">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</span> DE123456789
                         </p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Redaktionell verantwortlich</h1>
                         <p className="mb-3 text-black">
                             Johannes Michalke<br/>
-                            c/o Sailsetters<br/>
+                            c/o Sailsetters e.V.<br/>
                             Schellingstr. 36<br/>
                             80799 München
                         </p>
