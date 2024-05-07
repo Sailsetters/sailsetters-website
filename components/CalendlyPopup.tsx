@@ -61,7 +61,7 @@ export default function CalendlyPopup({
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
-                  <InlineWidget url="https://calendly.com/me--6hg/sailsetters" />
+                  <InlineWidget url="https://calendly.com/lisa-tokar/kennenlerngesprach-sailsetters" />
                 </Dialog.Panel>
               </Transition.Child>
             </div>
