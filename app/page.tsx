@@ -314,6 +314,11 @@ function Havens() {
       alt: "Diakonie Bayern",
       href: "https://www.diakonie-bayern.de/",
     },
+    {
+      src: "/havens/logo_tumThinkTank.svg",
+      alt: "TUM Think Tank",
+      href: "https://tumthinktank.de/",
+    }
   ];
 
   return (
