@@ -129,7 +129,7 @@ function ProjectCard({
 
   return (
     <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
-      {/* Blue orb */}
+      {/* Red orb */}
       <div
         className="absolute w-16 h-16 bg-burnt/30 blur-xl rounded-full opacity-40"
         style={{ top, left }}
