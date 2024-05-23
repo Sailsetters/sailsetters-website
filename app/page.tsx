@@ -33,7 +33,7 @@ function Hero() {
         </h2>
         <div className="w-1/2 self-center pt-12">
           <CalendlyPopup className="mt-2 sm:mt-0">
-            Sailsetter werden!
+            Sailsetter:in werden!
           </CalendlyPopup>
         </div>
       </div>
@@ -96,12 +96,12 @@ function Statements() {
         />
         <StatementCard
           title="Umsetzung"
-          text="Als Sailsetter helfen wir ehrenamtlich ca. 20 Stunden pro Semester an einem oder mehreren unserer Projekte mit."
+          text="Als Sailsetter:innen helfen wir ehrenamtlich ca. 20 Stunden pro Semester an einem oder mehreren unserer Projekte mit."
           Icon={InformationCircleIcon}
         />
         <StatementCard
           title="Engagement"
-          text="Alle Sailsetter erhalten neben der Fülle an Erfahrungen und Erlebnissen, die sie während ihrer Zeit bei Sailsetters sammeln, ein Zertifikat für ihr Engagement."
+          text="Alle Sailsetter:innen erhalten neben der Fülle an Erfahrungen und Erlebnissen, die sie während ihrer Zeit bei Sailsetters sammeln, ein Zertifikat für ihr Engagement."
           Icon={GiftIcon}
         />
       </div>
@@ -440,13 +440,13 @@ function SailsetterDescription() {
         id="join"
         className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold"
       >
-        Werde jetzt Sailsetter!
+        Werde jetzt Sailsetter:in!
       </h2>
 
       <div className="flex flex-col text-gray-800 justify-center items-center">
         <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
           <p>
-            Sprich noch heute mit uns und starte auf deine Reise als Sailsetter.
+            Sprich noch heute mit uns und starte auf deine Reise als Sailsetter:in.
             Das heißt du engagierst du dich während dem Semester an einem oder
             mehreren Projekten. Das Engagement endet mit der Vorlesungszeit,
             sodass genug Zeit für die Prüfungsvorbereitung bleibt.
@@ -454,14 +454,14 @@ function SailsetterDescription() {
           <p>
             Bei uns kannst du dein Engagement flexibel planen. Dafür haben wir
             eigens eine Plattform - {<span className="italic">Dock</span>} -
-            entwickelt. Insgesamt setzt ein Sailsetter ca. 20 Stunden pro
+            entwickelt. Insgesamt setzen Sailsetter:innen ca. 20 Stunden pro
             Semester ein. Damit stellen wir sicher das sich dein Engagement gut
             in den Studienalltag einfügt. Wir freuen uns dich kennenzulernen!
           </p>
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
               <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
-                Werde jetzt Sailsetter!
+                Werde jetzt Sailsetter:in!
               </CalendlyPopup>
             </div>
           </div>
