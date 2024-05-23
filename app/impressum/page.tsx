@@ -12,8 +12,8 @@ function Impressum() {
         <Section>
                 <div className="max-w-xl mx-auto mt-10 p-6  bg-opacity-60 backdrop-blur-md rounded-xl shadow-2xl">
 
-                    {/* Blue orb */}
-                    <div className="absolute w-16 h-16 bg-blue-500/70 blur-xl rounded-full opacity-40" style={{ top: top, left: left, width: 100, height: 100 }}></div>
+                    {/* Red orb */}
+                    <div className="absolute w-16 h-16 bg-burnt/30 blur-xl rounded-full opacity-40" style={{ top: top, left: left, width: 100, height: 100 }}></div>
 
                     <h1 className="text-2xl font-bold text-black">Impressum</h1>
                     <h1 className='text-lg font-bold border-b-2 border-gray-300 pb-2 mb-5 text-black' >Angaben gemäß § 5 TMG</h1>
@@ -25,21 +25,22 @@ function Impressum() {
                             80799 München
                         </p>
                         <p className="mb-3 text-black">
-                            <span className="font-semibold">Vereinsregister:</span> ABC 123456
-                            <br/>
                             <span className="font-semibold">Registergericht:</span> Amtsgericht München
+                            <br />
+                            <span className="font-semibold">Registernummer:</span> VR 210317
                         </p>
-                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke<br/>Johannes Michalke<br/>Johannes Michalke</p>
+                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke</p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Kontakt</h1>
                         <p className="mb-3 text-black">
                             <span className="font-semibold">Telefon:</span> +49 176 32369363<br/>
                             <span className="font-semibold">Telefax:</span> +49 89 54645686<br/>
                             <span className="font-semibold">E-Mail:</span> contact(at)sailsetters.de
                         </p>
-                        <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Umsatzsteuer-ID</h1>
-                        <p className="mb-3 text-black">
+                        {/* Since we don't have a Umsatzsteuer ID we don't need to have it in the impressum. */}
+                        {/* <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Umsatzsteuer-ID</h1> */}
+                        {/* <p className="mb-3 text-black">
                             <span className="font-semibold">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</span> DE123456789
-                        </p>
+                        </p> */}
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Redaktionell verantwortlich</h1>
                         <p className="mb-3 text-black">
                             Johannes Michalke<br/>
