@@ -318,7 +318,7 @@ function Havens() {
       src: "/havens/logo_tumThinkTank.svg",
       alt: "TUM Think Tank",
       href: "https://tumthinktank.de/",
-    }
+    },
   ];
 
   return (
@@ -445,19 +445,35 @@ function SailsetterDescription() {
 
       <div className="flex flex-col text-gray-800 justify-center items-center">
         <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
+          {/* <p>
+            Sprich noch heute mit uns und starte auf deine Reise als
+            Sailsetter:in. Das heißt du engagierst du dich während dem Semester
+            an einem oder mehreren Projekten. Das Engagement endet mit der
+            Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung
+            bleibt.
+          </p> */}
           <p>
-            Sprich noch heute mit uns und starte auf deine Reise als Sailsetter:in.
-            Das heißt du engagierst du dich während dem Semester an einem oder
-            mehreren Projekten. Das Engagement endet mit der Vorlesungszeit,
-            sodass genug Zeit für die Prüfungsvorbereitung bleibt.
+            Engagiere dich in langfristigen Projekten, entwickle eigene Ideen
+            und trage zu nachhaltigen Veränderungen bei. Vernetze dich mit
+            Experten und erfahrenen Mitgliedern, um wirkungsvolle Projekte zu
+            gestalten.
           </p>
           <p>
-            Bei uns kannst du dein Engagement flexibel planen. Dafür haben wir
-            eigens eine Plattform - {<span className="italic">Dock</span>} -
-            entwickelt. Insgesamt setzen Sailsetter:innen ca. 20 Stunden pro
-            Semester ein. Damit stellen wir sicher das sich dein Engagement gut
-            in den Studienalltag einfügt. Wir freuen uns dich kennenzulernen!
+            Mit ca. 2-3 Stunden pro Woche kannst du aktiv mitwirken,
+            Verantwortung übernehmen und dich persönlich weiterentwickeln – und
+            hast dabei genug Zeit für dein Studium.
           </p>
+          {/* <p>
+            Beginne deine Reise als Sailsetter:in und engagiere dich während des
+            Semesters in unseren semesterübergreifenden Projekten oder hilf mit
+            bei der Entwickl. Dein Engagement endet rechtzeitig vor der
+            Prüfungsphase, damit du genug Zeit zum Lernen hast.
+          </p>
+          <p>Oder hilf mit bei der Entwicklung eigener Projekt</p>
+          <p>
+            Du kannst dein Engagement flexibel gestalten und etwa 20 Stunden pro
+            Semester einbringen. Wir freuen uns darauf, dich kennenzulernen!
+          </p> */}
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
               <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
