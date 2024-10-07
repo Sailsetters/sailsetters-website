@@ -170,8 +170,32 @@ function Projects() {
         </a>{" "}
         )
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10 justify-items-center mb-10">
         <ProjectCard
+          title="Projekt Wellenbrecher"
+          subttitle="Perspektiven schaffen"
+          description="Dieses Projekt bietet Jugendlichen im Mittelschulalter berufliche Orientierung und fördert Soft Skills durch Workshops, externe Besuche und langfristige Betreuung. Dabei arbeiten wir mit akademischen Partnern, Sozialorganisationen und Unternehmen zusammen, um den Jugendlichen vielfältige Einblicke zu ermöglichen. Ziel ist es, insbesondere benachteiligte Jugendliche dabei zu unterstützen, ihre Talente zu entdecken und ihre Zukunft selbstbestimmt zu gestalten."
+          // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+        />
+        <ProjectCard
+          title="Übertrittsnachhilfe"
+          subttitle="Individuelle Nachhilfe für den Schulübertritt"
+          description="Das Projekt unterstützt Schüler:innen der 4. Klasse dabei, den erforderlichen Notenschnitt für die gewünschte weiterführende Schule zu erreichen. Einmal wöchentlich wird eine Wiederholungsstunde angeboten, in der relevante Inhalte aufgearbeitet und durch eine 1-zu-1-Betreuung vertieft werden. Zusätzlich werden Lernstrategien vermittelt, um die Schüler optimal auf den Übertritt vorzubereiten."
+          // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+        />
+        <ProjectCard
+          title="Projektwochen Naturwissenschaften"
+          subttitle="Haus für Kinder Perlach & Lichtblick Hasenbergl"
+          description="Unsere Mitglieder bereiten naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese führen sie dann alle zwei Wochen mit wechselnden Gruppen an Kindergartenkindern in unserem Haven “Haus für Kinder Perlach” durch. Dadurch wollen wir helfen Kinder schon früh spielend an das Thema der Naturwissenschaften heranzuführen."
+          // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+        />
+        <ProjectCard
+          title="Kinderuni"
+          subttitle="Neugier wecken"
+          description="Die Kinderuni fördert die Freude am Lernen bei Grundschulkindern durch interaktive Lerneinheiten zu spannenden Themen, die über den regulären Lehrplan hinausgehen. In Vorträgen und Unterrichtsstunden können die Kinder ihre Neugier durch Fragen stillen und erhalten dabei spielerische Belohnungen. Ziel ist es, Eigeninitiative und dynamisches Bildungsverständnis zu stärken, während Sailsetter:innen das Wissen auf kreative Weise vermitteln."
+          // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
+        />
+        {/* <ProjectCard
           title="Naturwissenschaftliche Experimente für  Kindergartenkinder"
           subttitle="Haus für Kinder Perlach"
           description="Unsere Mitglieder bereiten naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese führen sie dann alle zwei Wochen mit wechselnden Gruppen an Kindergartenkindern in unserem Haven “Haus für Kinder Perlach” durch. Dadurch wollen wir helfen Kinder schon früh spielend an das Thema der Naturwissenschaften heranzuführen."
@@ -212,9 +236,9 @@ function Projects() {
           description="Unsere Mitglieder unterstützen bei der Organisation des Sommerfestes für die Mentees und Mentoren des Adelgundenheims. Dabei helfen sie bei der Planung und Durchführung des Festes."
           // buttonText="Jetzt bewerben"
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
-        />
+        /> */}
       </div>
-      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
+      {/* <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
         Unterstützung bei Projekten in ganz München
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
@@ -272,7 +296,7 @@ function Projects() {
           buttonText="Kontaktiere uns"
           href="mailto:contact@sailsetters.de"
         />
-      </div>
+      </div> */}
     </Section>
   );
 }
