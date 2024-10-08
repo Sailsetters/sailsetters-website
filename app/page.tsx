@@ -14,6 +14,7 @@ import Logos from "@/components/Logos";
 import Button from "@/components/Button";
 import CalendlyPopup from "@/components/CalendlyPopup";
 import Image from "next/image";
+import Link from "next/link";
 
 function Hero() {
   return (
@@ -31,10 +32,21 @@ function Hero() {
         <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-gray-900">
           GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
         </h2>
-        <div className="w-1/2 self-center pt-12">
+        {/* <div className="w-1/2 self-center pt-12 ">
           <CalendlyPopup className="mt-2 sm:mt-0">
             Sailsetter:in werden!
           </CalendlyPopup>
+        </div> */}
+        <div className="w-1/2 self-center pt-12">
+          <Link
+            href={
+              "https://docs.google.com/forms/d/e/1FAIpQLSeB6XCrqGyqjFyyXAzreb-XJV9ZKPN4R5lUm2rjJa0pJXtgcw/viewform?usp=sf_link"
+            }
+          >
+            <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-blood/60 hover:bg-blood/80 hover:text-linen transition-all duration-200 w-full">
+              <div>Sailsetter:in werden!</div>
+            </div>
+          </Link>
         </div>
       </div>
       <ScrollLink
@@ -500,9 +512,18 @@ function SailsetterDescription() {
           </p> */}
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
-              <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
+              {/* <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
                 Werde jetzt Sailsetter:in!
-              </CalendlyPopup>
+              </CalendlyPopup> */}
+              <Link
+                href={
+                  "https://docs.google.com/forms/d/e/1FAIpQLSeB6XCrqGyqjFyyXAzreb-XJV9ZKPN4R5lUm2rjJa0pJXtgcw/viewform?usp=sf_link"
+                }
+              >
+                <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-burnt/80 hover:bg-burnt hover:text-linen transition-all duration-200 w-full">
+                  <div>Werde jetzt Sailsetter:in!</div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
