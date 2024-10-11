@@ -451,7 +451,7 @@ function SailsettersAbout() {
       <div className="flex flex-col text-gray-800 justify-center items-center">
         <div className="flex flex-col justify-center items-center first-line:max-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-8">
           <div className="relative w-8/10 h-full">
-            <img src="/team.png" alt="Team picture" />
+            <img src="/team-picture-bolder.png" alt="Team picture" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 items-end font-semibold text-center text-blood space-y-4 tracking-wide">
             <p>LEIDENSCHAFTLICH ENGAGIERT</p>
