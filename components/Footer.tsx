@@ -54,7 +54,7 @@ const Footer = () => {
               Impressum
             </Link>
             <Link
-              href="/satzung.pdf"
+              href="/satzung"
               className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
             >
               Satzung
