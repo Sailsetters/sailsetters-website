@@ -98,12 +98,12 @@ function Statements() {
       <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-5 sm:gap-10 text-center">
         <StatementCard
           title="Vision"
-          text="Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder einen Zugang zu schulischer und sozialer Bildung haben, welcher ihnen ein selbstbestimmtes Leben ermöglicht."
+          text="Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder und Jugendliche einen Zugang zu schulischer und sozialer Bildung haben, welcher ihnen ein selbstbestimmtes Leben ermöglicht."
           Icon={MapIcon}
         />
         <StatementCard
           title="Mission"
-          text="Als engagierte Gemeinschaft von Studierenden unterstützen wir ehrenamtlich Organisationen, die unsere Vision teilen, und fördern den politischen Diskurs zum Thema Bildungsgerechtigkeit."
+          text="Als Studierende aller Fachrichtungen entwickeln wir gemeinschaftlich und öffentlichkeitswirksam eigenständige Projekte, die Kinder und Jugendliche auf Augenhöhe bei ihrer schulischen sowie sozialen Entwicklung begleiten."
           Icon={TrophyIcon}
         />
         <StatementCard
