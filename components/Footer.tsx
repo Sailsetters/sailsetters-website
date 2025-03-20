@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslations } from "next-intl";
+import LocaleSwitch from "@/components/LocaleSwitch";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -115,6 +116,14 @@ const Footer = () => {
               </form>
             </div>
           </div>*/}
+          <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+            {/* Col Title */}
+            <div className="text-xs uppercase text-blood font-medium mb-6">
+              {t("language")}
+            </div>
+            {/* Links */}
+            <LocaleSwitch />
+          </div>
         </div>
         {/* Add a samll copyright message */}
         <div className="items-center flex pb-5 px-3 m-auto pt-5 border-t border-blood text-blood text-sm flex-col max-w-6xl">
