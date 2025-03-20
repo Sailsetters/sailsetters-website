@@ -6,10 +6,11 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
+  const t = useTranslations("Footer");
   return (
     <footer>
       <div className="bg-burnt">
@@ -25,33 +26,33 @@ const Footer = () => {
               href="/#statements"
               className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
             >
-              Über uns
+              {t("about")}
             </Link>
             <Link
               href="/#projects"
               className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
             >
-              Projekte
+              {t("projects")}
             </Link>
             <Link
               href="/impressum"
               className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
             >
-              Kontakt
+              {t("contact")}
             </Link>
           </div>
           {/* Col-2 */}
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
             {/* Col Title */}
             <div className="text-xs uppercase text-blood font-medium mb-6">
-              Rechtliches
+              {t("legal")}
             </div>
             {/* Links */}
             <Link
               href="/impressum"
               className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
             >
-              Impressum
+              {t("imprint")}
             </Link>
             <Link
               href="/satzung"

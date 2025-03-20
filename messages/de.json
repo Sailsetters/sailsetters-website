@@ -1,0 +1,77 @@
+{
+    "Hero": {
+      "subtitle": "GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND",
+      "join": "Sailsetter:in werden!"
+    },
+    "Statements": {
+      "vision": {
+        "title": "Vision",
+        "text": "Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder und Jugendliche einen Zugang zu schulischer und sozialer Bildung haben, welcher ihnen ein selbstbestimmtes Leben ermöglicht."
+      },
+      "mission": {
+        "title": "Mission",
+        "text": "Als Studierende aller Fachrichtungen entwickeln wir gemeinschaftlich und öffentlichkeitswirksam eigenständige Projekte, die Kinder und Jugendliche auf Augenhöhe bei ihrer schulischen sowie sozialen Entwicklung begleiten."
+      },
+      "implementation": {
+        "title": "Umsetzung",
+        "text": "Als Sailsetter:innen helfen wir ehrenamtlich ca. 20 Stunden pro Semester an einem oder mehreren unserer Projekte mit."
+      },
+      "commitment": {
+        "title": "Engagement",
+        "text": "Alle Sailsetter:innen erhalten neben der Fülle an Erfahrungen und Erlebnissen, die sie während ihrer Zeit bei Sailsetters sammeln, ein Zertifikat für ihr Engagement."
+      }
+    },
+    "Projects": {
+      "title": "Projekte",
+      "subtitle": "Entwicklung eigenständiger Projekte",
+      "tumInspiriert": "An der TUM 3 ECTS möglich",
+      "wellenbrecher": {
+        "title": "Projekt Wellenbrecher",
+        "subtitle": "Perspektiven schaffen",
+        "description": "Dieses Projekt bietet Jugendlichen im Mittelschulalter berufliche Orientierung und fördert Soft Skills durch Workshops, externe Besuche und langfristige Betreuung. Dabei arbeiten wir mit akademischen Partnern, Sozialorganisationen und Unternehmen zusammen, um den Jugendlichen vielfältige Einblicke zu ermöglichen. Ziel ist es, insbesondere benachteiligte Jugendliche dabei zu unterstützen, ihre Talente zu entdecken und ihre Zukunft selbstbestimmt zu gestalten."
+      },
+      "uebertrittsnachhilfe": {
+        "title": "Übertrittsnachhilfe",
+        "subtitle": "Individuelle Nachhilfe für den Schulübertritt",
+        "description": "Das Projekt unterstützt Schüler:innen der 4. Klasse dabei, den erforderlichen Notenschnitt für die gewünschte weiterführende Schule zu erreichen. Einmal wöchentlich wird eine Wiederholungsstunde angeboten, in der relevante Inhalte aufgearbeitet und durch eine 1-zu-1-Betreuung vertieft werden. Zusätzlich werden Lernstrategien vermittelt, um die Schüler optimal auf den Übertritt vorzubereiten."
+      },
+      "projektWochenNaturwissenschaften": {
+        "title": "Projektwochen Naturwissenschaften",
+        "subtitle": "Haus für Kinder Perlach & Lichtblick Hasenbergl",
+        "description": "Unsere Mitglieder bereiten naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese führen sie dann alle zwei Wochen mit wechselnden Gruppen an Kindergartenkindern in unserem Haven “Haus für Kinder Perlach” durch. Dadurch wollen wir helfen Kinder schon früh spielend an das Thema der Naturwissenschaften heranzuführen."
+      },
+      "kinderuni": {
+        "title": "Kinderuni",
+        "subtitle": "Neugier wecken",
+        "description": "Die Kinderuni fördert die Freude am Lernen bei Grundschulkindern durch interaktive Lerneinheiten zu spannenden Themen, die über den regulären Lehrplan hinausgehen. In Vorträgen und Unterrichtsstunden können die Kinder ihre Neugier durch Fragen stillen und erhalten dabei spielerische Belohnungen. Ziel ist es, Eigeninitiative und dynamisches Bildungsverständnis zu stärken, während Sailsetter:innen das Wissen auf kreative Weise vermitteln."
+      }
+    },
+    "Havens": {
+      "title": "Unsere Haven und Partner"
+    },
+    "About": {
+      "title": "Wer sind wir?",
+      "passion": "LEIDENSCHAFTLICH ENGAGIERT",
+      "dynamic": "DYNAMISCH",
+      "community": "GEMEINSCHAFTLICH",
+      "description": "Wir sind eine Gruppe von Studierenden der TUM und LMU aus verschiedensten Studiengängen, denen das Thema Bildungsgerechtigkeit am Herzen liegt."
+    },
+    "SailsettersDescription": {
+      "join": "Werde jetzt Sailsetter:in!",
+      "commitment": "Engagiere dich in langfristigen Projekten, entwickle eigene Ideen und trage zu nachhaltigen Veränderungen bei. Vernetze dich mit Experten und erfahrenen Mitgliedern, um wirkungsvolle Projekte zu gestalten.",
+      "timeInvestment": "Mit ca. 2-3 Stunden pro Woche kannst du aktiv mitwirken, Verantwortung übernehmen und dich persönlich weiterentwickeln – und hast dabei genug Zeit für dein Studium."
+    },
+    "Navbar": {
+      "statements": "Über uns",
+      "join": "Mitmachen",
+      "projects": "Projekte",
+      "havens": "Havens"
+    },
+    "Footer": {
+      "about": "Über uns",
+      "projects": "Projekte",
+      "contact": "Kontakt",
+      "legal": "Rechtliches",
+      "imprint": "Impressum"
+    }
+}

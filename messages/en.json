@@ -1,0 +1,77 @@
+{
+  "Hero": {
+    "subtitle": "TOGETHER FOR AN EDUCATION-FAIR GERMANY",
+    "join": "Become a Sailsetter!"
+  },
+  "Statements": {
+    "vision": {
+      "title": "Vision",
+      "text": "Our vision is an education-fair Germany, where all children and young people have access to academic and social education, enabling them to lead a self-determined life."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "As students from all disciplines, we collaboratively and publicly develop independent projects that support children and young people on an equal footing in their academic and social development."
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "As Sailsetters, we volunteer approximately 20 hours per semester in one or more of our projects."
+    },
+    "commitment": {
+      "title": "Commitment",
+      "text": "All Sailsetters receive, in addition to the wealth of experiences and memories they gain during their time at Sailsetters, a certificate for their commitment."
+    }
+  },
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Development of independent projects",
+    "tumInspiriert": "3 ECTS possible at TUM",
+    "wellenbrecher": {
+      "title": "Project Wellenbrecher",
+      "subtitle": "Creating Perspectives",
+      "description": "This project provides career orientation for middle school students and promotes soft skills through workshops, external visits, and long-term mentoring. We collaborate with academic partners, social organizations, and companies to offer young people diverse insights. The goal is to support especially disadvantaged youth in discovering their talents and shaping their future independently."
+    },
+    "uebertrittsnachhilfe": {
+      "title": "Transition Tutoring",
+      "subtitle": "Individual tutoring for school transition",
+      "description": "The project supports 4th-grade students in achieving the required grades for their desired secondary school. A weekly review session is offered, where key topics are covered and deepened through one-on-one tutoring. Additionally, learning strategies are taught to optimally prepare students for the transition."
+    },
+    "projektWochenNaturwissenschaften": {
+      "title": "Science Project Weeks",
+      "subtitle": "Haus für Kinder Perlach & Lichtblick Hasenbergl",
+      "description": "Our members prepare scientific experiments for kindergarten children. These experiments are conducted every two weeks with rotating groups of children at our haven, 'Haus für Kinder Perlach.' Through this, we aim to introduce children to science in a playful way at an early age."
+    },
+    "kinderuni": {
+      "title": "Children’s University",
+      "subtitle": "Inspiring Curiosity",
+      "description": "The Children's University fosters a love of learning among elementary school children through interactive educational units on exciting topics beyond the standard curriculum. In lectures and classroom sessions, children can satisfy their curiosity by asking questions and receiving playful rewards. The goal is to strengthen initiative and a dynamic understanding of education while Sailsetters convey knowledge creatively."
+    }
+  },
+  "Havens": {
+    "title": "Our Havens and Partners"
+  },
+  "About": {
+    "title": "Who are we?",
+    "passion": "PASSIONATELY COMMITTED",
+    "dynamic": "DYNAMIC",
+    "community": "COMMUNITY-ORIENTED",
+    "description": "We are a group of students from TUM and LMU from various study programs who care deeply about educational equity."
+  },
+  "SailsettersDescription": {
+    "join": "Become a Sailsetter now!",
+    "commitment": "Get involved in long-term projects, develop your own ideas, and contribute to sustainable change. Connect with experts and experienced members to create impactful projects.",
+    "timeInvestment": "With about 2-3 hours per week, you can actively participate, take on responsibility, and develop personally – while still having enough time for your studies."
+  },
+  "Navbar": {
+    "statements": "About Us",
+    "join": "Join",
+    "projects": "Projects",
+    "havens": "Havens"
+  },
+  "Footer": {
+    "about": "About Us",
+    "projects": "Projects",
+    "contact": "Contact",
+    "legal": "Legal",
+    "imprint": "Imprint"
+  }
+}

@@ -15,8 +15,10 @@ import Button from "@/components/Button";
 import CalendlyPopup from "@/components/CalendlyPopup";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 function Hero() {
+  const t = useTranslations("Hero");
   return (
     <section className="relative flex items-center justify-center h-screen bg-linen text-gray-800">
       <div className="w-full h-full overflow-hidden">
@@ -30,7 +32,7 @@ function Hero() {
           height={100}
         />
         <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-gray-900">
-          GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
+          {t("subtitle")}
         </h2>
         {/* <div className="w-1/2 self-center pt-12 ">
           <CalendlyPopup className="mt-2 sm:mt-0">
@@ -44,7 +46,7 @@ function Hero() {
             }
           >
             <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-blood/60 hover:bg-blood/80 hover:text-linen transition-all duration-200 w-full">
-              <div>Sailsetter:in werden!</div>
+              <div>{t("join")}</div>
             </div>
           </Link>
         </div>
@@ -93,27 +95,28 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
 }
 
 function Statements() {
+  const t = useTranslations("Statements");
   return (
     <Section>
       <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-5 sm:gap-10 text-center">
         <StatementCard
-          title="Vision"
-          text="Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder und Jugendliche einen Zugang zu schulischer und sozialer Bildung haben, welcher ihnen ein selbstbestimmtes Leben ermöglicht."
+          title={t("vision.title")}
+          text={t("vision.text")}
           Icon={MapIcon}
         />
         <StatementCard
-          title="Mission"
-          text="Als Studierende aller Fachrichtungen entwickeln wir gemeinschaftlich und öffentlichkeitswirksam eigenständige Projekte, die Kinder und Jugendliche auf Augenhöhe bei ihrer schulischen sowie sozialen Entwicklung begleiten."
+          title={t("mission.title")}
+          text={t("mission.text")}
           Icon={TrophyIcon}
         />
         <StatementCard
-          title="Umsetzung"
-          text="Als Sailsetter:innen helfen wir ehrenamtlich ca. 20 Stunden pro Semester an einem oder mehreren unserer Projekte mit."
+          title={t("implementation.title")}
+          text={t("implementation.text")}
           Icon={InformationCircleIcon}
         />
         <StatementCard
-          title="Engagement"
-          text="Alle Sailsetter:innen erhalten neben der Fülle an Erfahrungen und Erlebnissen, die sie während ihrer Zeit bei Sailsetters sammeln, ein Zertifikat für ihr Engagement."
+          title={t("commitment.title")}
+          text={t("commitment.text")}
           Icon={GiftIcon}
         />
       </div>
@@ -123,7 +126,7 @@ function Statements() {
 
 interface ProjectCardProps {
   title: string;
-  subttitle: string;
+  subtitle: string;
   description: React.ReactNode; // it's possible to pass a string aswell
   buttonText?: string;
   href?: string;
@@ -132,7 +135,7 @@ interface ProjectCardProps {
 function ProjectCard({
   title,
   description,
-  subttitle,
+  subtitle,
   buttonText,
   href,
 }: ProjectCardProps) {
@@ -149,7 +152,7 @@ function ProjectCard({
 
       <div className="mb-4">
         <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
-        <h5 className=" text-gray-800 italic mb-4">{subttitle}</h5>
+        <h5 className=" text-gray-800 italic mb-4">{subtitle}</h5>
         <p className="text-gray-700">{description}</p>
       </div>
 
@@ -162,49 +165,50 @@ function ProjectCard({
 }
 
 function Projects() {
+  const t = useTranslations("Projects");
   return (
     <Section>
       <h2
         id="projects"
         className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-8 sm:mb-16 font-semibold"
       >
-        Projekte
+        {t("title")}
       </h2>
       <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold">
-        Entwicklung eigenständiger Projekte (
+        {t("subtitle")} (
         <a
           href="https://www.sot.tum.de/wtg/tuminspiriert-studentische-projekte/"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-blue-600 transition-all duration-300"
         >
-          An der TUM 3 ECTS möglich
+          {t("tumInspiriert")}
         </a>{" "}
         )
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10 justify-items-center mb-10">
         <ProjectCard
-          title="Projekt Wellenbrecher"
-          subttitle="Perspektiven schaffen"
-          description="Dieses Projekt bietet Jugendlichen im Mittelschulalter berufliche Orientierung und fördert Soft Skills durch Workshops, externe Besuche und langfristige Betreuung. Dabei arbeiten wir mit akademischen Partnern, Sozialorganisationen und Unternehmen zusammen, um den Jugendlichen vielfältige Einblicke zu ermöglichen. Ziel ist es, insbesondere benachteiligte Jugendliche dabei zu unterstützen, ihre Talente zu entdecken und ihre Zukunft selbstbestimmt zu gestalten."
+          title={t("wellenbrecher.title")}
+          subtitle={t("wellenbrecher.subtitle")}
+          description={t("wellenbrecher.description")}
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
         <ProjectCard
-          title="Übertrittsnachhilfe"
-          subttitle="Individuelle Nachhilfe für den Schulübertritt"
-          description="Das Projekt unterstützt Schüler:innen der 4. Klasse dabei, den erforderlichen Notenschnitt für die gewünschte weiterführende Schule zu erreichen. Einmal wöchentlich wird eine Wiederholungsstunde angeboten, in der relevante Inhalte aufgearbeitet und durch eine 1-zu-1-Betreuung vertieft werden. Zusätzlich werden Lernstrategien vermittelt, um die Schüler optimal auf den Übertritt vorzubereiten."
+          title={t("uebertrittsnachhilfe.title")}
+          subtitle={t("uebertrittsnachhilfe.subtitle")}
+          description={t("uebertrittsnachhilfe.description")}
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
         <ProjectCard
-          title="Projektwochen Naturwissenschaften"
-          subttitle="Haus für Kinder Perlach & Lichtblick Hasenbergl"
-          description="Unsere Mitglieder bereiten naturwissenschaftliche Experimente für Kindergartenkinder vor. Diese führen sie dann alle zwei Wochen mit wechselnden Gruppen an Kindergartenkindern in unserem Haven “Haus für Kinder Perlach” durch. Dadurch wollen wir helfen Kinder schon früh spielend an das Thema der Naturwissenschaften heranzuführen."
+          title={t("projektWochenNaturwissenschaften.title")}
+          subtitle={t("projektWochenNaturwissenschaften.subtitle")}
+          description={t("projektWochenNaturwissenschaften.description")}
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
         <ProjectCard
-          title="Kinderuni"
-          subttitle="Neugier wecken"
-          description="Die Kinderuni fördert die Freude am Lernen bei Grundschulkindern durch interaktive Lerneinheiten zu spannenden Themen, die über den regulären Lehrplan hinausgehen. In Vorträgen und Unterrichtsstunden können die Kinder ihre Neugier durch Fragen stillen und erhalten dabei spielerische Belohnungen. Ziel ist es, Eigeninitiative und dynamisches Bildungsverständnis zu stärken, während Sailsetter:innen das Wissen auf kreative Weise vermitteln."
+          title={t("kinderuni.title")}
+          subtitle={t("kinderuni.subtitle")}
+          description={t("kinderuni.description")}
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
         {/* <ProjectCard
@@ -356,14 +360,14 @@ function Havens() {
       href: "https://tumthinktank.de/",
     },
   ];
-
+  const t = useTranslations("Havens");
   return (
     <Section>
       <h2
         id="havens"
         className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest® mb-8 sm:mb-16 font-semibold"
       >
-        Unsere Haven und Partner
+        {t("title")}
       </h2>
       <Logos logos={havens} />
     </Section>
@@ -440,13 +444,14 @@ function Timeline() {
 }
 
 function SailsettersAbout() {
+  const t = useTranslations("About");
   return (
     <Section>
       <h2
         id="join"
         className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold"
       >
-        Wer sind wir?
+        {t("title")}
       </h2>
       <div className="flex flex-col text-gray-800 justify-center items-center">
         <div className="flex flex-col justify-center items-center first-line:max-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-8">
@@ -454,15 +459,11 @@ function SailsettersAbout() {
             <img src="/team-picture-bolder.png" alt="Team picture" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 items-end font-semibold text-center text-blood space-y-4 tracking-wide">
-            <p>LEIDENSCHAFTLICH ENGAGIERT</p>
-            <p>DYNAMISCH</p>
-            <p>GEMEINSCHAFTLICH</p>
+            <p>{t("passion")}</p>
+            <p>{t("dynamic")}</p>
+            <p>{t("community")}</p>
           </div>
-          <p>
-            Wir sind eine Gruppe von Studierenden der TUM und LMU aus
-            verschiedensten Studiengängen, denen das Thema Bildungsgerechtigkeit
-            am Herzen liegt.
-          </p>
+          <p>{t("description")}</p>
         </div>
       </div>
     </Section>
@@ -470,13 +471,14 @@ function SailsettersAbout() {
 }
 
 function SailsetterDescription() {
+  const t = useTranslations("SailsettersDescription");
   return (
     <Section>
       <h2
         id="join"
         className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold"
       >
-        Werde jetzt Sailsetter:in!
+        {t("join")}
       </h2>
 
       <div className="flex flex-col text-gray-800 justify-center items-center">
@@ -488,17 +490,8 @@ function SailsetterDescription() {
             Vorlesungszeit, sodass genug Zeit für die Prüfungsvorbereitung
             bleibt.
           </p> */}
-          <p>
-            Engagiere dich in langfristigen Projekten, entwickle eigene Ideen
-            und trage zu nachhaltigen Veränderungen bei. Vernetze dich mit
-            Experten und erfahrenen Mitgliedern, um wirkungsvolle Projekte zu
-            gestalten.
-          </p>
-          <p>
-            Mit ca. 2-3 Stunden pro Woche kannst du aktiv mitwirken,
-            Verantwortung übernehmen und dich persönlich weiterentwickeln – und
-            hast dabei genug Zeit für dein Studium.
-          </p>
+          <p>{t("commitment")}</p>
+          <p>{t("timeInvestment")}</p>
           {/* <p>
             Beginne deine Reise als Sailsetter:in und engagiere dich während des
             Semesters in unseren semesterübergreifenden Projekten oder hilf mit
@@ -521,7 +514,7 @@ function SailsetterDescription() {
                 }
               >
                 <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-burnt/80 hover:bg-burnt hover:text-linen transition-all duration-200 w-full">
-                  <div>Werde jetzt Sailsetter:in!</div>
+                  <div>{t("join")}</div>
                 </div>
               </Link>
             </div>
