@@ -21,15 +21,15 @@ function Impressum() {
                         <h1></h1>
                         <p className="mb-3 text-black">
                             Sailsetters e.V.<br/>
-                            Schellingstr. 36<br/>
-                            80799 München
+                            Zedernweg 6<br/>
+                            80939 München
                         </p>
                         <p className="mb-3 text-black">
                             <span className="font-semibold">Registergericht:</span> Amtsgericht München
                             <br />
                             <span className="font-semibold">Registernummer:</span> VR 210317
                         </p>
-                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Johannes Michalke</p>
+                        <p className="mb-3 text-black"><span className="font-semibold">Vertreten durch:</span><br/>Navid Rajaei</p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Kontakt</h1>
                         <p className="mb-3 text-black">
                             <span className="font-semibold">Telefon:</span> +49 176 32369363<br/>
@@ -43,10 +43,10 @@ function Impressum() {
                         </p> */}
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Redaktionell verantwortlich</h1>
                         <p className="mb-3 text-black">
-                            Johannes Michalke<br/>
+                            Navid Rajaei<br/>
                             c/o Sailsetters e.V.<br/>
-                            Schellingstr. 36<br/>
-                            80799 München
+                            Zedernweg 6<br/>
+                            80939 München
                         </p>
                         <h1 className='text-xl font-bold mb-3 mt-5 text-black' >EU-Streitschlichtung</h1>
                         <p className="mb-3 text-black">
