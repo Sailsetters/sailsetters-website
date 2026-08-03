@@ -36,7 +36,7 @@ function Impressum() {
                             <span className="font-semibold">Telefax:</span> +49 89 54645686<br/>
                             <span className="font-semibold">E-Mail:</span> contact(at)sailsetters.de
                         </p>
-                        {/* Since we don't have a Umsatzsteuer ID we don't need to have it in the impressum. */}
+                        {/* Since we don't have a Umsatzsteuer ID we don't need to have it in the impressum. test */}
                         {/* <h1 className='text-xl font-bold mb-3 mt-5 text-black' >Umsatzsteuer-ID</h1> */}
                         {/* <p className="mb-3 text-black">
                             <span className="font-semibold">Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</span> DE123456789
