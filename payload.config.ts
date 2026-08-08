@@ -8,6 +8,8 @@ import { en } from '@payloadcms/translations/languages/en'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { Applications } from './collections/Applications'
+import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
 
@@ -26,7 +28,7 @@ export default buildConfig({
     supportedLanguages: { de, en },
     fallbackLanguage: 'de',
   },
-  collections: [Media, Users],
+  collections: [Applications, ContactSubmissions, Media, Users],
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: {

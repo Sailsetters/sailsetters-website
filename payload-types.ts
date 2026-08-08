@@ -67,6 +67,8 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    applications: Application;
+    'contact-submissions': ContactSubmission;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -76,6 +78,8 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    applications: ApplicationsSelect<false> | ApplicationsSelect<true>;
+    'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -116,6 +120,49 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "applications".
+ */
+export interface Application {
+  id: number;
+  name: string;
+  email: string;
+  university?: string | null;
+  studySubject?: string | null;
+  semester?: string | null;
+  /**
+   * Warum möchtest du bei Sailsetters mitmachen?
+   */
+  motivation: string;
+  /**
+   * Wie viel Zeit kannst du pro Semester einbringen?
+   */
+  availability?: string | null;
+  /**
+   * Wird beim Absenden des Formulars gesetzt. Ohne Einwilligung darf die Bewerbung nicht gespeichert werden.
+   */
+  consent: boolean;
+  status: 'neu' | 'in-pruefung' | 'eingeladen' | 'angenommen' | 'abgelehnt';
+  internalNotes?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions".
+ */
+export interface ContactSubmission {
+  id: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  consent: boolean;
+  status: 'neu' | 'in-bearbeitung' | 'erledigt';
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -190,6 +237,14 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
+        relationTo: 'applications';
+        value: number | Application;
+      } | null)
+    | ({
+        relationTo: 'contact-submissions';
+        value: number | ContactSubmission;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null)
@@ -238,6 +293,38 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "applications_select".
+ */
+export interface ApplicationsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  university?: T;
+  studySubject?: T;
+  semester?: T;
+  motivation?: T;
+  availability?: T;
+  consent?: T;
+  status?: T;
+  internalNotes?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions_select".
+ */
+export interface ContactSubmissionsSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  subject?: T;
+  message?: T;
+  consent?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
