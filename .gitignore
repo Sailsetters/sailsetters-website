@@ -36,3 +36,9 @@ next-env.d.ts
 
 # jetbrains
 .idea
+
+# payload
+# Uploaded media is stored in Supabase Storage in production; local uploads
+# are not committed. payload-types.ts and admin/importMap.js ARE committed so
+# the project builds without a database connection.
+/public/media
