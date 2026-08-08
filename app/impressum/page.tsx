@@ -1,12 +1,12 @@
 import React from 'react';
 import Section from "@/components/Section";
-import {DocumentIcon} from '@heroicons/react/24/outline';
 
 function Impressum() {
 
-    // Random position for the blue orb
-    const top = Math.random() * 80 + 10 + '%';
-    const left = Math.random() * 70 + 10 + '%';
+    // Fixed rather than random so the orb does not shift between the server
+    // and client renders.
+    const top = '35%';
+    const left = '25%';
 
     return (
         <Section>

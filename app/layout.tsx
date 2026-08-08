@@ -3,12 +3,13 @@ import type {Metadata} from 'next'
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {Analytics} from "@vercel/analytics/react";
+import {Analytics} from "@vercel/analytics/next";
 import {inter} from "./fonts"
 
 export const metadata: Metadata = {
-  title: 'Sailsetters',
-  description: 'Students for change',
+  title: 'Sailsetters – Gemeinsam für ein bildungsgerechtes Deutschland',
+  description:
+    'Sailsetters ist ein studentischer Verein, der sich für Bildungsgerechtigkeit in Deutschland einsetzt.',
 }
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body className={inter.className}>
         <Navbar />
         {children}

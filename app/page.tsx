@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Section from "@/components/Section";
 import {
   ChevronDownIcon,
@@ -12,7 +11,6 @@ import {
 import { Element, Link as ScrollLink } from "react-scroll";
 import Logos from "@/components/Logos";
 import Button from "@/components/Button";
-import CalendlyPopup from "@/components/CalendlyPopup";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,11 +30,6 @@ function Hero() {
         <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-gray-900">
           GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
         </h2>
-        {/* <div className="w-1/2 self-center pt-12 ">
-          <CalendlyPopup className="mt-2 sm:mt-0">
-            Sailsetter:in werden!
-          </CalendlyPopup>
-        </div> */}
         <div className="w-1/2 self-center pt-12">
           <Link
             href={
@@ -61,6 +54,17 @@ function Hero() {
   );
 }
 
+// Scatters the decorative orbs without Math.random(), which would place them
+// differently on the server and the client and break hydration.
+function seededPair(seed: string): [number, number] {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return [((h >>> 0) % 1000) / 1000, ((Math.imul(h, 48271) >>> 0) % 1000) / 1000];
+}
+
 interface StatementCardProps {
   title: string;
   text: string;
@@ -68,9 +72,9 @@ interface StatementCardProps {
 }
 
 function StatementCard({ title, text, Icon }: StatementCardProps) {
-  // Random position for the blue orb
-  const top = Math.random() * 100 + "%";
-  const left = Math.random() * 100 + "%";
+  const [topSeed, leftSeed] = seededPair(title);
+  const top = topSeed * 100 + "%";
+  const left = leftSeed * 100 + "%";
 
   return (
     <div className="relative sm:px-6">
@@ -136,8 +140,9 @@ function ProjectCard({
   buttonText,
   href,
 }: ProjectCardProps) {
-  const top = Math.random() * 80 + 10 + "%";
-  const left = Math.random() * 70 + 10 + "%";
+  const [topSeed, leftSeed] = seededPair(title);
+  const top = topSeed * 80 + 10 + "%";
+  const left = leftSeed * 70 + 10 + "%";
 
   return (
     <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
@@ -512,9 +517,6 @@ function SailsetterDescription() {
           </p> */}
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
-              {/* <CalendlyPopup className="bg-burnt/80 hover:bg-burnt">
-                Werde jetzt Sailsetter:in!
-              </CalendlyPopup> */}
               <Link
                 href={
                   "https://docs.google.com/forms/d/e/1FAIpQLSeB6XCrqGyqjFyyXAzreb-XJV9ZKPN4R5lUm2rjJa0pJXtgcw/viewform?usp=sf_link"
@@ -535,28 +537,18 @@ function SailsetterDescription() {
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>
-          Sailsetters - Gemeinsam für ein bildungsgerechtes Deutschland
-        </title>
-        <meta
-          name="description"
-          content="Join Sailsetters to make a difference in the accessebility of education."
-        />
-        <link rel="icon" href="/app/favicon.ico" />
-      </Head>
       <Hero />
-      <Element id="statements">
+      <Element name="statements" id="statements">
         <Statements />
       </Element>
-      <Element id="join">
+      <Element name="join" id="join">
         <SailsettersAbout />
         <SailsetterDescription />
       </Element>
-      <Element id="projects">
+      <Element name="projects" id="projects">
         <Projects />
       </Element>
-      <Element id="havens">
+      <Element name="havens" id="havens">
         <Havens />
       </Element>
     </>

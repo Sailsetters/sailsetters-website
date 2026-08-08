@@ -33,7 +33,7 @@ const Navbar = () => {
                 </Link>
                 <ul className={`hidden sm:flex text-gray-800 text-lg`}>
                     {links.map(link => (
-                        <Link href={link.href} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</Link>
+                        <Link key={link.href} href={link.href} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</Link>
                     ))}
                 </ul>
                 <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
@@ -44,7 +44,7 @@ const Navbar = () => {
                 </div>
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
                     {links.map(link => (
-                        <Link href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</Link>
+                        <Link key={link.href} href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</Link>
                         // <Link href={link.href} onClick={() => setNav(false)}
                         //       className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
                         //     {link.text}

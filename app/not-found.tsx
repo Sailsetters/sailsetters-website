@@ -16,7 +16,7 @@ export default function FourOhFour() {
         <div className="absolute inset-0 bg-black bg-opacity-30 z-9 flex flex-col items-center justify-center">
 
         <h1 className="text-6xl text-white font-bold mb-4">404</h1>
-            <p className="text-center text-2xl text-white mb-8">Oops! The page you're looking for isn't here.</p>
+            <p className="text-center text-2xl text-white mb-8">Oops! The page you&apos;re looking for isn&apos;t here.</p>
             <Link href='/'>
                 <button className="group relative inline-flex items-center justify-center p-4 border-2 border-white rounded-full transition-all duration-300 ease-in-out hover:bg-white">
                     <span className='uppercase font-medium bg-clip-text text-transparent bg-white transition-all duration-300 ease-in-out group-hover:bg-sky-700'>
