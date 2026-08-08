@@ -1,31 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Sailsetters brand palette. Exposed as bg-*, text-*, border-* utilities. */
+@theme {
+  --color-blood: #5c0905;
+  --color-burnt: #f87e60;
+  --color-tangerine: #e59d76;
+  --color-tawny: #ce6127;
+  --color-linen: #f7e8de;
+  --color-powder: #fefefa;
+}
 
 html {
+  /* !important is needed to beat Tailwind's preflight reset. */
   scroll-behavior: smooth !important;
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--color-powder);
+  color: var(--color-gray-900);
 }

@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sailsetters Website
 
-## Getting Started
+Website des Sailsetters e.V. — [sailsetters.de](https://sailsetters.de)
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) — deployed on Vercel
+- **React 19**
+- **Tailwind CSS 4** — configured CSS-first in `app/globals.css`, no `tailwind.config.ts`
+- **TypeScript 6**
+
+The site is **German only**. There is no internationalisation and none is planned.
+
+## Entwicklung
+
+Requires Node.js 20.19+, 22.13+, or 24+.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build      # production build (also type-checks)
+npm run lint       # eslint
+npm run typecheck  # tsc --noEmit
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Struktur
 
-## Learn More
+```
+app/            routes (App Router)
+  page.tsx        homepage
+  impressum/      Impressum (§ 5 TMG)
+  satzung/        Vereinssatzung
+  globals.css     Tailwind entry + brand palette
+components/     shared components
+public/         images, partner logos, Satzung PDF
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Farben
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The brand palette is defined in the `@theme` block in `app/globals.css` and is
+available as normal Tailwind utilities (`bg-blood`, `text-linen`, …):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Token       | Hex       |
+| ----------- | --------- |
+| `blood`     | `#5c0905` |
+| `burnt`     | `#f87e60` |
+| `tangerine` | `#e59d76` |
+| `tawny`     | `#ce6127` |
+| `linen`     | `#f7e8de` |
+| `powder`    | `#fefefa` |
 
-## Deploy on Vercel
+## Branches
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `main` — what is live
+- `v2` — the ongoing redesign, including the Payload CMS admin panel and the
+  application/contact forms
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Content and legal corrections (Impressum, contact details) go directly to `main`
+and are merged into `v2`.
