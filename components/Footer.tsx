@@ -59,6 +59,12 @@ const Footer = () => {
             >
               Satzung
             </Link>
+            <Link
+              href="/datenschutz"
+              className="my-3 block text-linen hover:pl-[8px] text-sm font-medium duration-300"
+            >
+              Datenschutz
+            </Link>
           </div>
           {/* Col-3 */}
           <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">

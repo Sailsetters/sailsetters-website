@@ -31,11 +31,7 @@ function Hero() {
           GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
         </h2>
         <div className="w-1/2 self-center pt-12">
-          <Link
-            href={
-              "https://docs.google.com/forms/d/e/1FAIpQLSeB6XCrqGyqjFyyXAzreb-XJV9ZKPN4R5lUm2rjJa0pJXtgcw/viewform?usp=sf_link"
-            }
-          >
+          <Link href="/bewerbung">
             <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-blood/60 hover:bg-blood/80 hover:text-linen transition-all duration-200 w-full">
               <div>Sailsetter:in werden!</div>
             </div>
@@ -517,11 +513,7 @@ function SailsetterDescription() {
           </p> */}
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
-              <Link
-                href={
-                  "https://docs.google.com/forms/d/e/1FAIpQLSeB6XCrqGyqjFyyXAzreb-XJV9ZKPN4R5lUm2rjJa0pJXtgcw/viewform?usp=sf_link"
-                }
-              >
+              <Link href="/bewerbung">
                 <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-burnt/80 hover:bg-burnt hover:text-linen transition-all duration-200 w-full">
                   <div>Werde jetzt Sailsetter:in!</div>
                 </div>

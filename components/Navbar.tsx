@@ -10,6 +10,7 @@ const links = [
     {href: '/#join', text: 'Mitmachen'},
     {href: '/#projects', text: 'Projekte'},
     {href: '/#havens', text: 'Havens'},
+    {href: '/kontakt', text: 'Kontakt'},
 ];
 
 const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
