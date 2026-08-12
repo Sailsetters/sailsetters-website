@@ -33,6 +33,10 @@ export const ContactSubmissions: CollectionConfig = {
       type: 'checkbox',
       label: 'Einwilligung zur Datenverarbeitung erteilt',
       required: true,
+      // See Applications: `required` alone does not reject a false checkbox on a
+      // public-create collection.
+      validate: (value: unknown) =>
+        value === true || 'Ohne Einwilligung dürfen wir die Nachricht nicht speichern.',
       admin: { readOnly: true },
     },
     {

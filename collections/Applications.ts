@@ -59,6 +59,11 @@ export const Applications: CollectionConfig = {
       type: 'checkbox',
       label: 'Einwilligung zur Datenverarbeitung erteilt',
       required: true,
+      // `required` alone does not reject a missing or false checkbox, and this
+      // collection is public-create — so without this the consent requirement
+      // could be bypassed by posting straight to the REST API.
+      validate: (value: unknown) =>
+        value === true || 'Ohne Einwilligung darf die Bewerbung nicht gespeichert werden.',
       admin: {
         readOnly: true,
         description:
