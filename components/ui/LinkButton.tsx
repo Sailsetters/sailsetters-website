@@ -13,6 +13,7 @@ const variants = {
   secondary: 'border-[1.5px] border-ink text-ink hover:bg-ink hover:text-sand',
   sunrise: 'bg-sunrise text-ink hover:bg-sand',
   onDark: 'border-[1.5px] border-sand text-sand hover:bg-sand hover:text-ink',
+  paper: 'bg-paper text-port hover:bg-sand',
 } as const
 
 type Props = ComponentProps<typeof Link> & {

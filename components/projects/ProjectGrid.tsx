@@ -9,7 +9,6 @@ import ProjectCard from './ProjectCard'
 const FILTERS: { value: Project['category'] | 'alle'; label: string }[] = [
   { value: 'alle', label: 'Alle' },
   { value: 'eigenes-projekt', label: 'Eigene Projekte' },
-  { value: 'unterstuetzung', label: 'Unterstützung in München' },
   { value: 'foerderung', label: '1-zu-1-Förderung' },
 ]
 

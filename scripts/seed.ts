@@ -29,7 +29,11 @@ const partners = [
   { name: 'TUM Think Tank', website: 'https://tumthinktank.de/', logo: 'logo_tumThinkTank.svg' },
 ]
 
-type Category = 'eigenes-projekt' | 'unterstuetzung' | 'foerderung'
+type Category = 'eigenes-projekt' | 'foerderung'
+
+// Current as of September 2026: Wellenbrecher, Übertrittsnachhilfe, Kinderuni,
+// Naturwissenschaftliche Experimente. Everything else is a past project.
+const CURRENT = new Set(['Projekt Wellenbrecher', 'Übertrittsnachhilfe', 'Kinderuni', 'Naturwissenschaftliche Experimente'])
 
 const projects: { title: string; tagline: string; description: string; category: Category }[] = [
   {
@@ -72,35 +76,35 @@ const projects: { title: string; tagline: string; description: string; category:
     tagline: 'Condrobs',
     description:
       'Gemeinsam mit She.codes führen unsere Mitglieder Informatik-Workshops für weiblich gelesene Kinder und Jugendliche durch, die einen ersten Zugang zum Programmieren öffnen.',
-    category: 'unterstuetzung',
+    category: 'eigenes-projekt',
   },
   {
     title: 'Get-to-know München',
     tagline: 'Diakonie',
     description:
       'Stadttouren für Geflüchtete, vorbereitet und geführt von Sailsetter:innen, damit das Ankommen in München leichter wird – an mehreren Terminen mit derselben Gruppe.',
-    category: 'unterstuetzung',
+    category: 'eigenes-projekt',
   },
   {
     title: 'IT-Crashkurs für Geflüchtete',
     tagline: 'Diakonie',
     description:
       'Unsere Mitglieder bereiten einen IT-Crashkurs zu einem selbst gewählten Thema vor und führen ihn mit verschiedenen Gruppen von Geflüchteten durch.',
-    category: 'unterstuetzung',
+    category: 'eigenes-projekt',
   },
   {
     title: 'Angebote für Kinder der Familienhilfe',
     tagline: 'Adelgundenheim',
     description:
       'Zusammen mit Pädagoginnen des Adelgundenheims entwickeln Sailsetter:innen Freizeitangebote für Kinder, damit deren Mütter Zeit für andere Aktivitäten gewinnen.',
-    category: 'unterstuetzung',
+    category: 'eigenes-projekt',
   },
   {
     title: 'Sommerfest für Mentees und Mentor:innen',
     tagline: 'Adelgundenheim',
     description:
       'Unsere Mitglieder unterstützen bei Planung und Durchführung des Sommerfests für die Mentees und Mentor:innen des Adelgundenheims.',
-    category: 'unterstuetzung',
+    category: 'eigenes-projekt',
   },
   {
     title: 'Nachhilfe',
@@ -175,7 +179,7 @@ if (await isEmpty('projects')) {
   for (const [i, p] of projects.entries()) {
     await payload.create({
       collection: 'projects',
-      data: { ...p, status: 'aktiv', order: i, featured: i < 3 },
+      data: { ...p, status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert', order: i, featured: i < 3 },
       context,
     })
   }

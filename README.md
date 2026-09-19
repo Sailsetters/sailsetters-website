@@ -99,7 +99,8 @@ sie sofort sichtbar ist, ohne dass jemand deployen muss.
 
 Welche drei Projekte auf der Startseite stehen, entscheidet das Häkchen
 „Auf der Startseite zeigen“; ohne Häkchen sind es die ersten drei nach
-Reihenfolge. Alte Projekte werden archiviert, nicht gelöscht.
+Reihenfolge. Abgeschlossene Projekte werden auf „Vergangen“ gesetzt, nicht
+gelöscht — sie erscheinen dann unter „Vergangene Projekte“ auf `/projekte`.
 
 `npm run seed` befüllt eine leere Datenbank mit dem Stand der alten Website
 (Logos aus `scripts/seed-assets/`). Der Befehl überspringt Collections, die

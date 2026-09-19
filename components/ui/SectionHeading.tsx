@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
-export function Eyebrow({ children, tone = 'driftwood' }: { children: ReactNode; tone?: 'driftwood' | 'port' | 'sunrise' }) {
-  const color = { driftwood: 'text-driftwood', port: 'text-port', sunrise: 'text-sunrise' }[tone]
+export function Eyebrow({ children, tone = 'driftwood' }: { children: ReactNode; tone?: 'driftwood' | 'port' | 'sunrise' | 'dune' }) {
+  const color = { driftwood: 'text-driftwood', port: 'text-port', sunrise: 'text-sunrise', dune: 'text-dune' }[tone]
   return <span className={`text-sm font-semibold uppercase tracking-[0.08em] ${color}`}>{children}</span>
 }
 

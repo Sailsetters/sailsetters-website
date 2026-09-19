@@ -4,16 +4,16 @@ import { authenticated } from '../lib/access'
 import { revalidateHomeAfterChange, revalidateHomeAfterDelete } from '../lib/revalidate'
 
 /**
- * Projekte, wie sie auf der Startseite erscheinen. Öffentlich lesbar, nur
- * intern bearbeitbar. Alte Projekte werden archiviert statt gelöscht, damit
- * die Geschichte des Vereins erhalten bleibt.
+ * Projekte auf der Startseite und unter /projekte. Öffentlich lesbar, nur
+ * intern bearbeitbar. Abgeschlossene Projekte werden auf „Vergangen“ gesetzt
+ * statt gelöscht — sie erscheinen dann unter „Vergangene Projekte“.
  */
 export const Projects: CollectionConfig = {
   slug: 'projects',
   labels: { singular: 'Projekt', plural: 'Projekte' },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'status', 'featured', 'order'],
+    defaultColumns: ['title', 'category', 'status', 'period', 'featured', 'order'],
     group: 'Website',
   },
   access: {
@@ -50,7 +50,6 @@ export const Projects: CollectionConfig = {
       required: true,
       options: [
         { label: 'Eigenes Projekt', value: 'eigenes-projekt' },
-        { label: 'Unterstützung in München', value: 'unterstuetzung' },
         { label: '1-zu-1-Förderung', value: 'foerderung' },
       ],
       admin: { position: 'sidebar' },
@@ -62,10 +61,23 @@ export const Projects: CollectionConfig = {
       required: true,
       defaultValue: 'aktiv',
       options: [
-        { label: 'Aktiv', value: 'aktiv' },
-        { label: 'Archiviert', value: 'archiviert' },
+        { label: 'Aktuell', value: 'aktiv' },
+        { label: 'Vergangen', value: 'archiviert' },
       ],
-      admin: { position: 'sidebar', description: 'Nur aktive Projekte erscheinen auf der Website.' },
+      admin: {
+        position: 'sidebar',
+        description:
+          'Aktuelle Projekte stehen oben auf /projekte und kommen für die Startseite infrage. Vergangene erscheinen darunter unter „Vergangene Projekte“.',
+      },
+    },
+    {
+      name: 'period',
+      type: 'text',
+      label: 'Zeitraum',
+      admin: {
+        position: 'sidebar',
+        description: 'Optional, z. B. „WiSe 2024/25“ oder „seit 2023“. Erscheint auf der Karte.',
+      },
     },
     {
       name: 'featured',

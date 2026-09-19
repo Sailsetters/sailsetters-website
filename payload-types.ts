@@ -350,11 +350,15 @@ export interface Project {
    * Zwei bis drei Sätze. Erscheint so auf der Startseite.
    */
   description: string;
-  category: 'eigenes-projekt' | 'unterstuetzung' | 'foerderung';
+  category: 'eigenes-projekt' | 'foerderung';
   /**
-   * Nur aktive Projekte erscheinen auf der Website.
+   * Aktuelle Projekte stehen oben auf /projekte und kommen für die Startseite infrage. Vergangene erscheinen darunter unter „Vergangene Projekte“.
    */
   status: 'aktiv' | 'archiviert';
+  /**
+   * Optional, z. B. „WiSe 2024/25“ oder „seit 2023“. Erscheint auf der Karte.
+   */
+  period?: string | null;
   /**
    * Die Startseite zeigt drei Projekte. Sind mehr markiert, gelten die ersten drei nach Reihenfolge; ist keines markiert, die ersten drei aktiven.
    */
@@ -602,6 +606,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   category?: T;
   status?: T;
+  period?: T;
   featured?: T;
   order?: T;
   updatedAt?: T;
