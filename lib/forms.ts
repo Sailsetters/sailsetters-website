@@ -40,6 +40,20 @@ export function requiredEmail(
  * The consent checkbox is a DSGVO requirement, not a nicety — without it we are
  * not allowed to store the submission at all.
  */
+export function requiredAge(
+  formData: FormData,
+  field: string,
+  errors: Record<string, string>,
+): number | undefined {
+  const raw = String(formData.get(field) ?? '').trim()
+  const age = Number(raw)
+  if (!raw || !Number.isInteger(age) || age < 16 || age > 99) {
+    errors[field] = 'Bitte gib dein Alter an (16 bis 99).'
+    return undefined
+  }
+  return age
+}
+
 export function requiredConsent(
   formData: FormData,
   errors: Record<string, string>,

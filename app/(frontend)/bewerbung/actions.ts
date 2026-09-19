@@ -5,9 +5,11 @@ import { randomUUID } from 'crypto'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
+import { bewerbungsphase } from '@/lib/bewerbungsphase'
 import {
   optionalPdf,
   optionalText,
+  requiredAge,
   requiredConsent,
   requiredEmail,
   requiredText,
@@ -22,6 +24,7 @@ export async function submitApplication(
 
   const name = requiredText(formData, 'name', 'Name', errors)
   const email = requiredEmail(formData, 'email', errors)
+  const age = requiredAge(formData, 'age', errors)
   const motivation = requiredText(formData, 'motivation', 'Motivation', errors)
   const consent = requiredConsent(formData, errors)
   const cv = await optionalPdf(formData, 'cv', errors)
@@ -35,6 +38,16 @@ export async function submitApplication(
   }
 
   const payload = await getPayload({ config })
+
+  // The page hides the form while closed; this covers a stale tab or a direct post.
+  const phase = await payload.findGlobal({ slug: 'bewerbungsphase' })
+  if (!bewerbungsphase(phase.modus).open) {
+    return {
+      status: 'error',
+      message: 'Die Bewerbungsphase ist derzeit geschlossen. Schau zur nächsten Bewerbungsphase wieder vorbei.',
+    }
+  }
+
   let cvId: number | undefined
 
   try {
@@ -58,6 +71,7 @@ export async function submitApplication(
       data: {
         name,
         email,
+        age,
         university: optionalText(formData, 'university'),
         studySubject: optionalText(formData, 'studySubject'),
         semester: optionalText(formData, 'semester'),

@@ -33,3 +33,17 @@ export const revalidateHomeAfterGlobalChange: GlobalAfterChangeHook = ({ doc, re
   revalidateHome(req.context)
   return doc
 }
+
+/** For globals that drive other pages, e.g. the Bewerbungsphase → /bewerbung. */
+export const revalidateAfterGlobalChange =
+  (paths: string[]): GlobalAfterChangeHook =>
+  ({ doc, req }) => {
+    if (!req.context?.disableRevalidate) {
+      try {
+        for (const path of paths) revalidatePath(path)
+      } catch {
+        // Outside a Next request there is nothing to revalidate.
+      }
+    }
+    return doc
+  }

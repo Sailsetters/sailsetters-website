@@ -25,7 +25,7 @@ export const Applications: CollectionConfig = {
   labels: { singular: 'Bewerbung', plural: 'Bewerbungen' },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'status', 'assignee', 'email', 'createdAt'],
+    defaultColumns: ['name', 'age', 'status', 'assignee', 'email', 'createdAt'],
     group: 'Bewerbungen',
   },
   access: {
@@ -103,6 +103,7 @@ export const Applications: CollectionConfig = {
     {
       type: 'row',
       fields: [
+        { name: 'age', type: 'number', label: 'Alter', min: 16, max: 99 },
         { name: 'university', type: 'text', label: 'Hochschule' },
         { name: 'studySubject', type: 'text', label: 'Studiengang' },
         { name: 'semester', type: 'text', label: 'Fachsemester' },

@@ -88,6 +88,7 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 | ---------------- | ------------------------------------------------------ |
 | `email-vorlagen` | Vorlagen für Einladung und Zusage, im Admin editierbar |
 | `startseite`     | Kennzahlen (aktive Mitglieder, Projekte pro Semester)  |
+| `bewerbungsphase`| Formular automatisch (Fenster) / offen / geschlossen   |
 
 ### Seiten aus Payload
 
@@ -123,6 +124,11 @@ Nachweis, was der Person mitgeteilt wurde.
 
 Notizen zu einer Bewerbung sind nur intern sichtbar und werden beim Speichern
 automatisch mit Autor:in und Zeitpunkt versehen.
+
+Das Formular ist nur in den Bewerbungsfenstern offen: 1. bis 21. Oktober und
+1. bis 21. April (Berliner Zeit, siehe `lib/bewerbungsphase.ts`). Das Global
+„Bewerbungsphase“ kann es unabhängig davon öffnen oder schließen; das gilt
+auch serverseitig, ein direkter Post an das Formular wird dann abgelehnt.
 
 Applicant and contact data is personal data under the DSGVO. Both form
 collections require an explicit `consent` checkbox, and neither is readable

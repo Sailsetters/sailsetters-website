@@ -106,10 +106,12 @@ export interface Config {
   };
   fallbackLocale: null;
   globals: {
+    bewerbungsphase: Bewerbungsphase;
     'email-vorlagen': EmailVorlagen;
     startseite: Startseite;
   };
   globalsSelect: {
+    bewerbungsphase: BewerbungsphaseSelect<false> | BewerbungsphaseSelect<true>;
     'email-vorlagen': EmailVorlagenSelect<false> | EmailVorlagenSelect<true>;
     startseite: StartseiteSelect<false> | StartseiteSelect<true>;
   };
@@ -169,6 +171,7 @@ export interface Application {
   id: number;
   name: string;
   email: string;
+  age?: number | null;
   university?: string | null;
   studySubject?: string | null;
   semester?: string | null;
@@ -511,6 +514,7 @@ export interface ApplicationFilesSelect<T extends boolean = true> {
 export interface ApplicationsSelect<T extends boolean = true> {
   name?: T;
   email?: T;
+  age?: T;
   university?: T;
   studySubject?: T;
   semester?: T;
@@ -683,6 +687,22 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   createdAt?: T;
 }
 /**
+ * Die Bewerbungsfenster sind fest: 1. bis 21. Oktober und 1. bis 21. April. „Automatisch“ folgt diesen Fenstern; „Offen“ und „Geschlossen“ übersteuern sie.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bewerbungsphase".
+ */
+export interface Bewerbungsphase {
+  id: number;
+  modus: 'automatisch' | 'offen' | 'geschlossen';
+  /**
+   * Optional. Erscheint unter dem Satz „Die Bewerbungsphase ist derzeit geschlossen …“, z. B. mit einem Hinweis auf die Taskforces oder eine Info-Veranstaltung.
+   */
+  hinweis?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
  * Platzhalter: {{name}} = Name der bewerbenden Person, {{bearbeiter}} = dein Name. Beide werden automatisch eingesetzt. Alles andere in doppelten geschweiften Klammern (z. B. {{meetingLink}}) bleibt im Entwurf stehen und muss vor dem Senden ersetzt werden.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -722,6 +742,17 @@ export interface Startseite {
   };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "bewerbungsphase_select".
+ */
+export interface BewerbungsphaseSelect<T extends boolean = true> {
+  modus?: T;
+  hinweis?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

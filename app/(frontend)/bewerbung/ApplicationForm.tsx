@@ -41,7 +41,8 @@ export default function ApplicationForm() {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <TextField name="age" label="Alter" type="number" required error={errors.age} />
         <TextField name="university" label="Hochschule" error={errors.university} />
         <TextField name="studySubject" label="Studiengang" error={errors.studySubject} />
         <TextField name="semester" label="Fachsemester" error={errors.semester} />

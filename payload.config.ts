@@ -20,6 +20,7 @@ import { Partners } from './collections/Partners'
 import { Projects } from './collections/Projects'
 import { Team } from './collections/Team'
 import { Users } from './collections/Users'
+import { Bewerbungsphase } from './globals/Bewerbungsphase'
 import { EmailVorlagen } from './globals/EmailVorlagen'
 import { Startseite } from './globals/Startseite'
 import { privateVercelBlobAdapter } from './lib/privateBlobAdapter'
@@ -69,7 +70,7 @@ export default buildConfig({
     Team,
     Users,
   ],
-  globals: [EmailVorlagen, Startseite],
+  globals: [Bewerbungsphase, EmailVorlagen, Startseite],
   email,
   editor: lexicalEditor(),
   db: postgresAdapter({

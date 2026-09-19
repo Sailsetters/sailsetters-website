@@ -1,8 +1,12 @@
+import config from '@payload-config'
 import type { Metadata } from 'next'
+import { getPayload } from 'payload'
 
 import SemesterSteps from '@/components/SemesterSteps'
 import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
+import { bewerbungsphase, formatDay } from '@/lib/bewerbungsphase'
+import { verein } from '@/lib/verein'
 
 import ApplicationForm from './ApplicationForm'
 
@@ -12,7 +16,15 @@ export const metadata: Metadata = {
     'Bewirb dich als Sailsetter:in und engagiere dich für Bildungsgerechtigkeit in München.',
 }
 
-export default function BewerbungPage() {
+// Static, rebuilt hourly so the intake windows open and close on their own;
+// the Bewerbungsphase global also revalidates this page when saved.
+export const revalidate = 3600
+
+export default async function BewerbungPage() {
+  const payload = await getPayload({ config })
+  const settings = await payload.findGlobal({ slug: 'bewerbungsphase' })
+  const phase = bewerbungsphase(settings.modus)
+
   return (
     <>
       <PageHeader
@@ -57,12 +69,39 @@ export default function BewerbungPage() {
         </section>
 
         <section aria-labelledby="formular" className="flex flex-col gap-6">
-          <h2 id="formular" className="text-2xl lg:text-[30px]">
-            Deine Bewerbung
-          </h2>
-          <div className="rounded-[20px] bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] sm:p-8 lg:p-12">
-            <ApplicationForm />
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 id="formular" className="text-2xl lg:text-[30px]">
+              Deine Bewerbung
+            </h2>
+            {phase.open && phase.closesOn && (
+              <span className="text-[15px] text-driftwood">
+                Bewerbungsphase bis {formatDay(phase.closesOn)}
+              </span>
+            )}
           </div>
+          {phase.open ? (
+            <div className="rounded-[20px] bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] sm:p-8 lg:p-12">
+              <ApplicationForm />
+            </div>
+          ) : (
+            <div role="status" className="flex flex-col gap-4 rounded-[20px] bg-dune p-7 lg:p-10">
+              <h3 className="text-2xl">Die Bewerbungsphase ist derzeit geschlossen</h3>
+              <p className="max-w-[720px] text-lg leading-relaxed">
+                Wir nehmen zweimal im Jahr neue Sailsetter:innen auf, jeweils vom 1. bis 21. Oktober
+                und vom 1. bis 21. April.
+                {phase.nextOpensOn && <> Die nächste Bewerbungsphase startet am {formatDay(phase.nextOpensOn)}.</>}
+              </p>
+              {settings.hinweis && (
+                <p className="max-w-[720px] leading-relaxed whitespace-pre-line">{settings.hinweis}</p>
+              )}
+              <p className="text-[15px] text-driftwood">
+                Fragen vorab?{' '}
+                <a href={`mailto:${verein.email}`} className="underline hover:text-port">
+                  {verein.email}
+                </a>
+              </p>
+            </div>
+          )}
         </section>
       </PageBody>
     </>
