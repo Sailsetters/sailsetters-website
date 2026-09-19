@@ -8,7 +8,7 @@ import { initialFormState } from '@/lib/forms'
 
 import { submitContact } from './actions'
 
-export default function ContactForm() {
+export default function ContactForm({ defaultSubject }: { defaultSubject?: string }) {
   const [state, formAction] = useActionState(submitContact, initialFormState)
 
   if (state.status === 'success') {
@@ -41,7 +41,7 @@ export default function ContactForm() {
         />
       </div>
 
-      <TextField name="subject" label="Betreff" required error={errors.subject} />
+      <TextField name="subject" label="Betreff" required error={errors.subject} defaultValue={defaultSubject} />
 
       <TextAreaField
         name="message"

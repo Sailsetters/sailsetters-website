@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { de } from '@payloadcms/translations/languages/de'
 import { en } from '@payloadcms/translations/languages/en'
@@ -13,8 +14,12 @@ import { Applications } from './collections/Applications'
 import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Emails } from './collections/Emails'
 import { Media } from './collections/Media'
+import { Partners } from './collections/Partners'
+import { Projects } from './collections/Projects'
+import { Team } from './collections/Team'
 import { Users } from './collections/Users'
 import { EmailVorlagen } from './globals/EmailVorlagen'
+import { Startseite } from './globals/Startseite'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -50,8 +55,8 @@ export default buildConfig({
     supportedLanguages: { de, en },
     fallbackLanguage: 'de',
   },
-  collections: [Applications, ContactSubmissions, Emails, Media, Users],
-  globals: [EmailVorlagen],
+  collections: [Applications, ContactSubmissions, Emails, Media, Partners, Projects, Team, Users],
+  globals: [EmailVorlagen, Startseite],
   email,
   editor: lexicalEditor(),
   db: postgresAdapter({
@@ -64,4 +69,17 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   sharp,
+  plugins: [
+    // Vercel's filesystem is ephemeral, so in production uploads (partner
+    // logos, board photos) go to Vercel Blob. Locally, without the token,
+    // they land in public/media as before.
+    ...(process.env.BLOB_READ_WRITE_TOKEN
+      ? [
+          vercelBlobStorage({
+            collections: { media: true },
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+          }),
+        ]
+      : []),
+  ],
 })

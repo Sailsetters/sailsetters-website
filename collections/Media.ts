@@ -12,9 +12,8 @@ export const Media: CollectionConfig = {
     delete: ({ req }) => Boolean(req.user),
   },
   upload: {
-    // Local disk only. Vercel's filesystem is ephemeral, so production needs a
-    // storage adapter pointed at Supabase Storage before this collection is used
-    // for anything that must survive a deploy.
+    // Local disk in development. In production the Vercel Blob plugin in
+    // payload.config.ts takes over (Vercel's filesystem is ephemeral).
     staticDir: 'public/media',
     mimeTypes: ['image/*', 'application/pdf'],
   },

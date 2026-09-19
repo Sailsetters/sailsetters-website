@@ -9,7 +9,18 @@ export const metadata: Metadata = {
   description: 'Schreib uns eine Nachricht — wir freuen uns auf deine Anfrage.',
 }
 
-export default function KontaktPage() {
+// Known prefills, keyed by the ?betreff= value the homepage links with.
+const SUBJECTS: Record<string, string> = {
+  partnerschaft: 'Partnerschaft mit Sailsetters',
+}
+
+export default async function KontaktPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ betreff?: string }>
+}) {
+  const { betreff } = await searchParams
+  const defaultSubject = betreff ? SUBJECTS[betreff] : undefined
   return (
     <Section className="pt-32">
       <div className="mx-auto max-w-3xl">
@@ -33,7 +44,7 @@ export default function KontaktPage() {
         </div>
 
         <div className="mt-10">
-          <ContactForm />
+          <ContactForm defaultSubject={defaultSubject} />
         </div>
       </div>
     </Section>

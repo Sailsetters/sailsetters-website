@@ -71,6 +71,9 @@ export interface Config {
     'contact-submissions': ContactSubmission;
     emails: Email;
     media: Media;
+    partners: Partner;
+    projects: Project;
+    team: Team;
     users: User;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -87,6 +90,9 @@ export interface Config {
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     emails: EmailsSelect<false> | EmailsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    team: TeamSelect<false> | TeamSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -99,9 +105,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'email-vorlagen': EmailVorlagen;
+    startseite: Startseite;
   };
   globalsSelect: {
     'email-vorlagen': EmailVorlagenSelect<false> | EmailVorlagenSelect<true>;
+    startseite: StartseiteSelect<false> | StartseiteSelect<true>;
   };
   locale: null;
   widgets: {
@@ -281,6 +289,74 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  name: string;
+  /**
+   * Vollständige Adresse inklusive https://
+   */
+  website?: string | null;
+  /**
+   * PNG oder SVG mit transparentem Hintergrund, wenn möglich.
+   */
+  logo: number | Media;
+  /**
+   * Kleinere Zahlen zuerst.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  title: string;
+  /**
+   * Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft.
+   */
+  tagline?: string | null;
+  /**
+   * Zwei bis drei Sätze. Erscheint so auf der Startseite.
+   */
+  description: string;
+  category: 'eigenes-projekt' | 'unterstuetzung' | 'foerderung';
+  /**
+   * Nur aktive Projekte erscheinen auf der Website.
+   */
+  status: 'aktiv' | 'archiviert';
+  /**
+   * Kleinere Zahlen zuerst.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team".
+ */
+export interface Team {
+  id: number;
+  name: string;
+  role: string;
+  /**
+   * Quadratisch, mindestens 400 × 400 Pixel. Ohne Foto erscheinen die Initialen.
+   */
+  photo?: (number | null) | Media;
+  /**
+   * Kleinere Zahlen zuerst.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -318,6 +394,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'partners';
+        value: number | Partner;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'team';
+        value: number | Team;
       } | null)
     | ({
         relationTo: 'users';
@@ -442,6 +530,44 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  name?: T;
+  website?: T;
+  logo?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  title?: T;
+  tagline?: T;
+  description?: T;
+  category?: T;
+  status?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team_select".
+ */
+export interface TeamSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  photo?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -530,6 +656,22 @@ export interface EmailVorlagen {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "startseite".
+ */
+export interface Startseite {
+  id: number;
+  kennzahlen: {
+    aktiveMitglieder: string;
+    /**
+     * Text, damit auch „3–5“ möglich ist.
+     */
+    projekteProSemester: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "email-vorlagen_select".
  */
 export interface EmailVorlagenSelect<T extends boolean = true> {
@@ -544,6 +686,21 @@ export interface EmailVorlagenSelect<T extends boolean = true> {
     | {
         betreff?: T;
         text?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "startseite_select".
+ */
+export interface StartseiteSelect<T extends boolean = true> {
+  kennzahlen?:
+    | T
+    | {
+        aktiveMitglieder?: T;
+        projekteProSemester?: T;
       };
   updatedAt?: T;
   createdAt?: T;

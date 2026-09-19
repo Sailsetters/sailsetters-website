@@ -43,10 +43,12 @@ npm run lint                # eslint
 npm run typecheck           # tsc --noEmit
 npm run generate:types      # regenerate payload-types.ts after schema changes
 npm run generate:importmap  # regenerate the admin import map
+npm run seed                # fill an empty database with the homepage content
 ```
 
 `payload-types.ts` and `app/(payload)/admin/importMap.js` are generated but
-**committed**, so the project builds without a database connection.
+**committed**. Note that `npm run build` needs a reachable database since the
+homepage is rendered from Payload at build time.
 
 ## Struktur
 
@@ -75,12 +77,29 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 | `applications`        | Bewerbungen als Sailsetter:in    | öffentlich anlegen, intern lesen |
 | `emails`              | E-Mails an Bewerber:innen        | nur intern                       |
 | `contact-submissions` | Kontaktanfragen                  | öffentlich anlegen, intern lesen |
+| `projects`            | Projekte auf der Startseite      | öffentlich lesen                 |
+| `partners`            | Havens & Partner (Logowand)      | öffentlich lesen                 |
+| `team`                | Vorstand auf der Startseite      | öffentlich lesen                 |
 | `media`               | Bilder und PDFs                  | öffentlich lesen                 |
 | `users`               | Team-Logins für das Admin-Panel  | nur intern                       |
 
-| Global           | Zweck                                          |
-| ---------------- | ---------------------------------------------- |
+| Global           | Zweck                                                  |
+| ---------------- | ------------------------------------------------------ |
 | `email-vorlagen` | Vorlagen für Einladung und Zusage, im Admin editierbar |
+| `startseite`     | Kennzahlen (aktive Mitglieder, Projekte pro Semester)  |
+
+### Startseite
+
+Projekte, Havens & Partner, der Vorstand und die Kennzahlen kommen aus
+Payload. Die Seite wird statisch gerendert; jede Änderung an diesen
+Collections ruft `revalidatePath('/')` auf (siehe `lib/revalidate.ts`), sodass
+sie sofort sichtbar ist, ohne dass jemand deployen muss. Alte Projekte werden
+archiviert, nicht gelöscht.
+
+`npm run seed` befüllt eine leere Datenbank mit dem Stand der alten Website
+(Logos aus `scripts/seed-assets/`). Der Befehl überspringt Collections, die
+schon Inhalte haben, und ist beim ersten Produktivgang einmal gegen die
+Produktionsdatenbank auszuführen.
 
 ### Bewerbungsprozess
 
@@ -143,9 +162,9 @@ Still open before this can serve real traffic:
 - **Database**: point `DATABASE_URI` at the Neon (Frankfurt) instance from the
   Vercel Marketplace. Use the **pooled** connection string — serverless
   functions exhaust an unpooled one.
-- **Media storage**: `media` currently writes to local disk. Vercel's filesystem
-  is ephemeral, so uploads need `@payloadcms/storage-vercel-blob` with a store
-  created in `fra1`.
+- **Media storage**: add the Vercel Blob integration (store in `fra1`); its
+  `BLOB_READ_WRITE_TOKEN` switches `media` from local disk to Blob
+  automatically. Then `npm run seed` once against the production database.
 - **Email**: set the `SMTP_*` variables to the IONOS mailbox that should send
   (see `.env.example`). Without them nothing is sent — drafts can still be
   written, but „Jetzt senden“ only logs to the console.

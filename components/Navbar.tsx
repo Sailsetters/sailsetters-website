@@ -1,61 +1,96 @@
-"use client";
+'use client'
 
-import React, {useEffect, useState} from 'react';
-import Link from 'next/link';
-import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
-import Image from "next/image";
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const links = [
-    {href: '/#statements', text: 'Über uns'},
-    {href: '/#join', text: 'Mitmachen'},
-    {href: '/#projects', text: 'Projekte'},
-    {href: '/#havens', text: 'Havens'},
-    {href: '/kontakt', text: 'Kontakt'},
-];
+  { href: '/#ueber-uns', text: 'Über uns' },
+  { href: '/#projekte', text: 'Projekte' },
+  { href: '/#partner', text: 'Partner' },
+  { href: '/#verein', text: 'Verein' },
+  { href: '/kontakt', text: 'Kontakt' },
+]
 
-const baseClassMobile = "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center backdrop-blur-md w-full h-screen text-center ease-in duration-200";
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-const Navbar = () => {
-    const [nav, setNav] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY >= 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
-    useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY >= 90);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-20 transition-colors duration-200 ${
+        scrolled || open ? 'bg-sand/85 backdrop-blur-xl' : 'bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-5 sm:px-8 lg:h-[88px]">
+        <Link href="/" className="flex items-center gap-3 text-ink" aria-label="Sailsetters Startseite">
+          <Image src="/logo_ink.png" alt="" width={36} height={49} className="h-[38px] w-7 lg:h-[49px] lg:w-9" priority />
+          <span className="font-display text-xl font-semibold tracking-tight lg:text-2xl">Sailsetters</span>
+        </Link>
 
-    return (
-        <div
-            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-xl bg-sand/60' : 'bg-transparent'}`}>
-            <div className="max-w-[1240px] m-auto flex justify-between items-center p-4">
-                <Link href='/' className='z-10'>
-                    <Image src='/logo_ink.png' alt='Sailsetters' width={44} height={60}/>
-                </Link>
-                <ul className={`hidden sm:flex text-ink text-lg`}>
-                    {links.map(link => (
-                        <Link key={link.href} href={link.href} className="cursor-pointer p-4 hover:text-port ease-in duration-100">{link.text}</Link>
-                    ))}
-                </ul>
-                <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
-                    {nav ?
-                        <XMarkIcon className={`h-8 w-8 text-ink`}/> :
-                        <Bars3Icon className={`h-8 w-8 text-ink`}/>
-                    }
-                </div>
-                <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
-                    {links.map(link => (
-                        <Link key={link.href} href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-port text-ink ease-in duration-100">{link.text}</Link>
-                        // <Link href={link.href} onClick={() => setNav(false)}
-                        //       className='p-4 text-2xl hover:text-port text-ink ease-in duration-100'>
-                        //     {link.text}
-                        // </Link>
-                    ))}
-                </ul>
-                
-            </div>
-        </div>
-    );
-};
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Hauptnavigation">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="font-medium text-ink transition-colors hover:text-port">
+              {l.text}
+            </Link>
+          ))}
+          <Link
+            href="/bewerbung"
+            className="rounded-full bg-port px-5 py-3 text-[15px] font-semibold text-paper transition-colors hover:bg-ink"
+          >
+            Sailsetter:in werden
+          </Link>
+        </nav>
 
-export default Navbar;
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
+          className="flex h-11 w-11 items-center justify-center text-ink lg:hidden"
+        >
+          {open ? <XMarkIcon className="h-7 w-7" /> : <Bars3Icon className="h-7 w-7" />}
+        </button>
+      </div>
+
+      <nav
+        id="mobile-nav"
+        aria-label="Hauptnavigation"
+        hidden={!open}
+        className="border-t border-ink/10 px-5 pt-2 pb-6 lg:hidden"
+      >
+        <ul className="flex flex-col">
+          {links.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-3 text-lg font-medium text-ink hover:text-port"
+              >
+                {l.text}
+              </Link>
+            </li>
+          ))}
+          <li className="pt-3">
+            <Link
+              href="/bewerbung"
+              onClick={() => setOpen(false)}
+              className="block rounded-full bg-port px-5 py-3 text-center font-semibold text-paper hover:bg-ink"
+            >
+              Sailsetter:in werden
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
+}
