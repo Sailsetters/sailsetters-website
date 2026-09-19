@@ -120,11 +120,13 @@ and is available as normal Tailwind utilities (`bg-blood`, `text-linen`, …):
 
 Still open before this can serve real traffic:
 
-- **Database**: point `DATABASE_URI` at the Supabase (Frankfurt) instance from
-  the Vercel Marketplace. Use the **pooled** connection string — serverless
+- **Hosting**: Vercel Pro (the Hobby plan is not covered by Vercel's DPA).
+- **Database**: point `DATABASE_URI` at the Neon (Frankfurt) instance from the
+  Vercel Marketplace. Use the **pooled** connection string — serverless
   functions exhaust an unpooled one.
 - **Media storage**: `media` currently writes to local disk. Vercel's filesystem
-  is ephemeral, so uploads need a storage adapter pointed at Supabase Storage.
+  is ephemeral, so uploads need `@payloadcms/storage-vercel-blob` with a store
+  created in `fra1`.
 - **Email**: set the `SMTP_*` variables to the IONOS mailbox that should send
   (see `.env.example`). Without them nothing is sent — drafts can still be
   written, but „Jetzt senden“ only logs to the console.
