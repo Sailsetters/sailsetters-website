@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import MediaImage from '@/components/MediaImage'
 import Container from '@/components/ui/Container'
@@ -31,9 +32,10 @@ function Arrow() {
   )
 }
 
-export default function Verein({ team }: { team: Team[] }) {
+/** Organe, Vorstand und Teamfoto. */
+export default function Struktur({ team }: { team: Team[] }) {
   return (
-    <section id="verein" className="relative overflow-hidden py-16 lg:py-24">
+    <section id="vorstand" className="relative overflow-hidden bg-dune py-16 lg:py-24">
       <Image
         src="/blob_cool_a.png"
         alt=""
@@ -44,7 +46,17 @@ export default function Verein({ team }: { team: Team[] }) {
       <Container className="relative flex flex-col gap-10 lg:gap-14">
         <SectionHeading
           eyebrow="Verein"
-          intro="Sailsetters e.V. ist gemeinnützig und wird von Studierenden geführt. Die Mitgliederversammlung wählt jedes Jahr den Vorstand, der die Projektteams koordiniert und den Verein nach außen vertritt."
+          intro={
+            <>
+              Sailsetters e.V. ist gemeinnützig und wird von Studierenden geführt. Die
+              Mitgliederversammlung wählt jedes Jahr den Vorstand, der die Projektteams koordiniert
+              und den Verein nach außen vertritt. Die Details stehen in der{' '}
+              <Link href="/satzung" className="underline hover:text-port">
+                Satzung
+              </Link>
+              .
+            </>
+          }
         >
           Ein eingetragener Verein, getragen von seinen Mitgliedern
         </SectionHeading>

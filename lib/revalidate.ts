@@ -2,16 +2,18 @@ import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, GlobalAfterC
 import { revalidatePath } from 'next/cache'
 
 /**
- * The homepage is statically rendered and shows projects, partners, the
- * board and the key figures. Whenever one of those changes in the admin,
- * rebuild it in place. Scripts (e.g. the seed) pass
+ * The homepage, /projekte and /verein are statically rendered from Payload.
+ * Whenever projects, partners, the board or the key figures change in the
+ * admin, rebuild them in place. Scripts (e.g. the seed) pass
  * `context: { disableRevalidate: true }` because there is no Next request to
  * revalidate from.
  */
+const PAGES = ['/', '/projekte', '/verein']
+
 function revalidateHome(context: Record<string, unknown>) {
   if (context?.disableRevalidate) return
   try {
-    revalidatePath('/')
+    for (const path of PAGES) revalidatePath(path)
   } catch {
     // Outside a Next request (CLI, tests) there is nothing to revalidate.
   }

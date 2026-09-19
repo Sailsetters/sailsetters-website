@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    'application-files': ApplicationFile;
     applications: Application;
     'contact-submissions': ContactSubmission;
     emails: Email;
@@ -86,6 +87,7 @@ export interface Config {
     };
   };
   collectionsSelect: {
+    'application-files': ApplicationFilesSelect<false> | ApplicationFilesSelect<true>;
     applications: ApplicationsSelect<false> | ApplicationsSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     emails: EmailsSelect<false> | EmailsSelect<true>;
@@ -140,6 +142,26 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Lebensläufe aus dem Bewerbungsformular. Nur mit Login abrufbar.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "application-files".
+ */
+export interface ApplicationFile {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "applications".
  */
@@ -158,6 +180,10 @@ export interface Application {
    * Wie viel Zeit kannst du pro Semester einbringen?
    */
   availability?: string | null;
+  /**
+   * Optional, PDF. Wird über das Formular hochgeladen.
+   */
+  cv?: (number | null) | ApplicationFile;
   /**
    * Wird beim Absenden des Formulars gesetzt. Ohne Einwilligung darf die Bewerbung nicht gespeichert werden.
    */
@@ -330,6 +356,10 @@ export interface Project {
    */
   status: 'aktiv' | 'archiviert';
   /**
+   * Die Startseite zeigt drei Projekte. Sind mehr markiert, gelten die ersten drei nach Reihenfolge; ist keines markiert, die ersten drei aktiven.
+   */
+  featured?: boolean | null;
+  /**
    * Kleinere Zahlen zuerst.
    */
   order?: number | null;
@@ -379,6 +409,10 @@ export interface PayloadKv {
 export interface PayloadLockedDocument {
   id: number;
   document?:
+    | ({
+        relationTo: 'application-files';
+        value: number | ApplicationFile;
+      } | null)
     | ({
         relationTo: 'applications';
         value: number | Application;
@@ -455,6 +489,23 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "application-files_select".
+ */
+export interface ApplicationFilesSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "applications_select".
  */
 export interface ApplicationsSelect<T extends boolean = true> {
@@ -465,6 +516,7 @@ export interface ApplicationsSelect<T extends boolean = true> {
   semester?: T;
   motivation?: T;
   availability?: T;
+  cv?: T;
   consent?: T;
   status?: T;
   assignee?: T;
@@ -550,6 +602,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   category?: T;
   status?: T;
+  featured?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

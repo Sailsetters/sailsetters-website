@@ -6,10 +6,9 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '/#ueber-uns', text: 'Über uns' },
-  { href: '/#projekte', text: 'Projekte' },
+  { href: '/verein', text: 'Über uns' },
+  { href: '/projekte', text: 'Projekte' },
   { href: '/#partner', text: 'Partner' },
-  { href: '/#verein', text: 'Verein' },
   { href: '/kontakt', text: 'Kontakt' },
 ]
 

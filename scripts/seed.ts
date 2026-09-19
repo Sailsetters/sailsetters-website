@@ -173,7 +173,11 @@ if (await isEmpty('partners')) {
 
 if (await isEmpty('projects')) {
   for (const [i, p] of projects.entries()) {
-    await payload.create({ collection: 'projects', data: { ...p, status: 'aktiv', order: i }, context })
+    await payload.create({
+      collection: 'projects',
+      data: { ...p, status: 'aktiv', order: i, featured: i < 3 },
+      context,
+    })
   }
   console.log(`${projects.length} Projekte angelegt`)
 } else {

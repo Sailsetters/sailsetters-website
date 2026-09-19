@@ -13,7 +13,7 @@ export const Projects: CollectionConfig = {
   labels: { singular: 'Projekt', plural: 'Projekte' },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'status', 'order'],
+    defaultColumns: ['title', 'category', 'status', 'featured', 'order'],
     group: 'Website',
   },
   access: {
@@ -66,6 +66,17 @@ export const Projects: CollectionConfig = {
         { label: 'Archiviert', value: 'archiviert' },
       ],
       admin: { position: 'sidebar', description: 'Nur aktive Projekte erscheinen auf der Website.' },
+    },
+    {
+      name: 'featured',
+      type: 'checkbox',
+      label: 'Auf der Startseite zeigen',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar',
+        description:
+          'Die Startseite zeigt drei Projekte. Sind mehr markiert, gelten die ersten drei nach Reihenfolge; ist keines markiert, die ersten drei aktiven.',
+      },
     },
     {
       name: 'order',

@@ -88,13 +88,17 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 | `email-vorlagen` | Vorlagen für Einladung und Zusage, im Admin editierbar |
 | `startseite`     | Kennzahlen (aktive Mitglieder, Projekte pro Semester)  |
 
-### Startseite
+### Seiten aus Payload
 
-Projekte, Havens & Partner, der Vorstand und die Kennzahlen kommen aus
-Payload. Die Seite wird statisch gerendert; jede Änderung an diesen
-Collections ruft `revalidatePath('/')` auf (siehe `lib/revalidate.ts`), sodass
-sie sofort sichtbar ist, ohne dass jemand deployen muss. Alte Projekte werden
-archiviert, nicht gelöscht.
+Die Startseite (drei Projekte, Havens & Partner, Kennzahlen), `/projekte`
+(alle aktiven Projekte mit Filter) und `/verein` (Vorstand) werden statisch
+aus Payload gerendert. Jede Änderung an diesen Collections ruft
+`revalidatePath` für die drei Seiten auf (siehe `lib/revalidate.ts`), sodass
+sie sofort sichtbar ist, ohne dass jemand deployen muss.
+
+Welche drei Projekte auf der Startseite stehen, entscheidet das Häkchen
+„Auf der Startseite zeigen“; ohne Häkchen sind es die ersten drei nach
+Reihenfolge. Alte Projekte werden archiviert, nicht gelöscht.
 
 `npm run seed` befüllt eine leere Datenbank mit dem Stand der alten Website
 (Logos aus `scripts/seed-assets/`). Der Befehl überspringt Collections, die

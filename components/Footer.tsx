@@ -8,10 +8,10 @@ const columns = [
   {
     title: 'Sailsetters',
     links: [
-      { href: '/#ueber-uns', text: 'Über uns' },
-      { href: '/#projekte', text: 'Projekte' },
+      { href: '/verein', text: 'Über uns' },
+      { href: '/projekte', text: 'Projekte' },
       { href: '/#partner', text: 'Havens & Partner' },
-      { href: '/#verein', text: 'Verein' },
+      { href: '/verein#vorstand', text: 'Vorstand' },
     ],
   },
   {

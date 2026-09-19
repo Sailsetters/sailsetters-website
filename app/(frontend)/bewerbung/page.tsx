@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { semesterSteps } from '@/components/home/Semester'
+import { semesterSteps } from '@/lib/semester'
 import FormPage from '@/components/forms/FormPage'
 import PageHeader from '@/components/ui/PageHeader'
 import { verein } from '@/lib/verein'
