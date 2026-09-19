@@ -21,7 +21,7 @@ export default function Hero() {
           </h1>
           <p className="max-w-[580px] text-lg leading-relaxed lg:text-xl">
             Wir sind Studierende der TUM und LMU und begleiten Kinder und Jugendliche in
-            München bei ihrer schulischen und sozialen Entwicklung – in Projekten, die wir
+            München bei ihrer schulischen und sozialen Entwicklung: in Projekten, die wir
             selbst entwickeln, und an der Seite unserer Havens.
           </p>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4">

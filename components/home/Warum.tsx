@@ -21,7 +21,7 @@ const stats = [
   {
     big: '6,9',
     small: '%',
-    text: 'eines Jahrgangs verlassen die Schule ohne Hauptschulabschluss – seit 2018 nahezu unverändert.',
+    text: 'eines Jahrgangs verlassen die Schule ohne Hauptschulabschluss, seit 2018 nahezu unverändert.',
     source: 'Statistisches Bundesamt, Abgangsjahr 2024',
   },
 ]
@@ -32,7 +32,7 @@ export default function Warum() {
       <Container className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading
           eyebrow="Warum es uns gibt"
-          intro="In Deutschland hängt der Bildungsweg eines Kindes eng mit der sozialen Herkunft zusammen. Das ist ungerecht für die Einzelnen – und es kostet die Gesellschaft Talente, die sie braucht. Wir setzen dort an, wo die Weichen gestellt werden: in der Grundschule, beim Übertritt und in den Jahren danach."
+          intro="In Deutschland hängt der Bildungsweg eines Kindes eng mit der sozialen Herkunft zusammen. Das ist ungerecht für die Einzelnen, und es kostet die Gesellschaft Talente, die sie braucht. Wir setzen dort an, wo die Weichen gestellt werden: in der Grundschule, beim Übertritt und in den Jahren danach."
         >
           Bildung darf nicht vom Elternhaus abhängen
         </SectionHeading>

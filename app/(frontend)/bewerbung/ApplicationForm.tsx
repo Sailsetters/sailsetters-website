@@ -50,7 +50,7 @@ export default function ApplicationForm() {
       <TextAreaField
         name="motivation"
         label="Motivation"
-        hint="Warum möchtest du bei Sailsetters mitmachen? Ein paar Sätze reichen – wir wollen dich kennenlernen, nicht bewerten."
+        hint="Warum möchtest du bei Sailsetters mitmachen? Ein paar Sätze reichen. Wir wollen dich kennenlernen, nicht bewerten."
         rows={10}
         required
         error={errors.motivation}

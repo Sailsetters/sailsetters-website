@@ -6,7 +6,7 @@ import Prose from '@/components/ui/Prose'
 import { verein } from '@/lib/verein'
 
 export const metadata: Metadata = {
-  title: 'Impressum — Sailsetters',
+  title: 'Impressum · Sailsetters',
   description: 'Anbieterkennzeichnung des Sailsetters e.V.',
 }
 

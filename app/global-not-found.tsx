@@ -12,7 +12,7 @@ import { fraunces, inter } from './(frontend)/fonts'
  */
 
 export const metadata: Metadata = {
-  title: 'Seite nicht gefunden — Sailsetters',
+  title: 'Seite nicht gefunden · Sailsetters',
   robots: { index: false },
 }
 

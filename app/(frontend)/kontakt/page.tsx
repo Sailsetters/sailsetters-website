@@ -7,8 +7,8 @@ import { verein } from '@/lib/verein'
 import ContactForm from './ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Kontakt — Sailsetters',
-  description: 'Schreib uns eine Nachricht — wir freuen uns auf deine Anfrage.',
+  title: 'Kontakt · Sailsetters',
+  description: 'Schreib uns eine Nachricht. Wir freuen uns auf deine Anfrage.',
 }
 
 // Known prefills, keyed by the ?betreff= value the homepage links with.

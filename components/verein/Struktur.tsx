@@ -10,7 +10,7 @@ import type { Team } from '@/payload-types'
 const organe = [
   { title: 'Mitgliederversammlung', text: 'Alle aktiven Mitglieder. Wählt den Vorstand, beschließt Haushalt und Satzung.' },
   { title: 'Vorstand', text: 'Aktive Mitglieder, für ein Jahr gewählt. Vertritt den Verein und führt die Geschäfte.' },
-  { title: 'Projektteams', text: 'Sailsetter:innen, die ein Projekt über ein Semester gemeinsam tragen.' },
+  { title: 'Projektteams und Taskforces', text: 'Sailsetter:innen, die ein Projekt über ein Semester tragen oder in einer der vier Taskforces mitarbeiten.' },
 ]
 
 function initials(name: string) {

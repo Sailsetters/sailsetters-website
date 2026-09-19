@@ -9,9 +9,9 @@ import LinkButton from '@/components/ui/LinkButton'
 import PageHeader from '@/components/ui/PageHeader'
 
 export const metadata: Metadata = {
-  title: 'Projekte — Sailsetters',
+  title: 'Projekte · Sailsetters',
   description:
-    'Eigene Projekte und 1-zu-1-Förderung mit unseren Havens in München – woran Sailsetter:innen dieses Semester arbeiten.',
+    'Eigene Projekte und 1-zu-1-Förderung mit unseren Havens in München: Woran Sailsetter:innen dieses Semester arbeiten.',
 }
 
 // Static; the projects collection revalidates this page on every change.
@@ -78,7 +78,7 @@ export default async function ProjektePage() {
         <div className="flex flex-col items-start gap-4 rounded-[20px] bg-dune p-7 lg:flex-row lg:items-center lg:justify-between lg:p-10">
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl">Eines davon passt zu dir?</h2>
-            <p className="text-driftwood">Bewirb dich – im Kennenlerngespräch finden wir gemeinsam das richtige Projekt.</p>
+            <p className="text-driftwood">Bewirb dich. Im Kennenlerngespräch finden wir gemeinsam das richtige Projekt.</p>
           </div>
           <LinkButton href="/bewerbung">Sailsetter:in werden</LinkButton>
         </div>

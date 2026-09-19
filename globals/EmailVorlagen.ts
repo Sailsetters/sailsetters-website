@@ -41,7 +41,7 @@ export const EmailVorlagen: GlobalConfig = {
       admin: { description: 'Wird als Entwurf angelegt, sobald eine Bewerbung auf „Eingeladen“ gesetzt wird.' },
       fields: [
         ...templateFields({
-          betreff: 'Deine Bewerbung bei Sailsetters – Einladung zum Kennenlernen',
+          betreff: 'Deine Bewerbung bei Sailsetters: Einladung zum Kennenlernen',
           text: `Hallo {{name}},
 
 vielen Dank für deine Bewerbung bei Sailsetters! Wir würden dich gerne persönlich kennenlernen und laden dich zu einem kurzen Gespräch ein.
@@ -68,7 +68,7 @@ Sailsetters e.V.`,
           betreff: 'Willkommen bei Sailsetters!',
           text: `Hallo {{name}},
 
-wir freuen uns sehr, dich als Sailsetter:in an Bord zu haben – herzlich willkommen im Team!
+wir freuen uns sehr, dich als Sailsetter:in an Bord zu haben. Herzlich willkommen im Team!
 
 Über diesen Link kommst du in unseren Slack, in dem unsere gesamte Kommunikation läuft: {{slackLink}}
 

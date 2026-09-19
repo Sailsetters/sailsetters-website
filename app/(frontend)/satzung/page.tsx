@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
 export const metadata: Metadata = {
-  title: 'Satzung — Sailsetters',
+  title: 'Satzung · Sailsetters',
   description: 'Die Satzung des Sailsetters e.V.',
 }
 

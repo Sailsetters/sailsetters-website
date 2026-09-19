@@ -49,7 +49,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: ' — Sailsetters',
+      titleSuffix: ' · Sailsetters',
     },
   },
   // The team is German-speaking and the site is German only, so the admin

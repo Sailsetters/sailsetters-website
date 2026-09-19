@@ -5,7 +5,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
 export const metadata: Metadata = {
-  title: 'Datenschutz — Sailsetters',
+  title: 'Datenschutz · Sailsetters',
   description: 'Informationen zur Verarbeitung personenbezogener Daten auf sailsetters.de.',
 }
 

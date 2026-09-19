@@ -13,7 +13,7 @@ export default function NotFound() {
       <div className="relative flex flex-col items-center text-center">
         <h1 className="mb-4 text-7xl text-ink sm:text-8xl">404</h1>
         <p className="mb-8 max-w-md text-xl text-driftwood">
-          Diese Seite gibt es nicht – vielleicht ist sie in See gestochen.
+          Diese Seite gibt es nicht. Vielleicht ist sie in See gestochen.
         </p>
         <Link
           href="/"

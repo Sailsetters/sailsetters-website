@@ -40,14 +40,14 @@ const projects: { title: string; tagline: string; description: string; category:
     title: 'Projekt Wellenbrecher',
     tagline: 'Perspektiven schaffen',
     description:
-      'Berufliche Orientierung und Soft Skills für Jugendliche im Mittelschulalter – mit Workshops, Besuchen bei Unternehmen und langfristiger Begleitung. Ziel ist, dass gerade benachteiligte Jugendliche ihre Talente entdecken und ihre Zukunft selbstbestimmt gestalten.',
+      'Berufliche Orientierung und Soft Skills für Jugendliche im Mittelschulalter, mit Workshops, Besuchen bei Unternehmen und langfristiger Begleitung. Ziel ist, dass gerade benachteiligte Jugendliche ihre Talente entdecken und ihre Zukunft selbstbestimmt gestalten.',
     category: 'eigenes-projekt',
   },
   {
     title: 'Übertrittsnachhilfe',
     tagline: 'Individuelle Nachhilfe für den Schulübertritt',
     description:
-      'Wöchentliche Wiederholungsstunden in 1-zu-1-Betreuung, damit Viertklässler:innen den Notenschnitt für ihre Wunschschule erreichen – inklusive Lernstrategien für die Zeit danach.',
+      'Wöchentliche Wiederholungsstunden in 1-zu-1-Betreuung, damit Viertklässler:innen den Notenschnitt für ihre Wunschschule erreichen, inklusive Lernstrategien für die Zeit danach.',
     category: 'eigenes-projekt',
   },
   {
@@ -61,14 +61,14 @@ const projects: { title: string; tagline: string; description: string; category:
     title: 'Naturwissenschaftliche Experimente',
     tagline: 'Haus für Kinder Perlach & Lichtblick Hasenbergl',
     description:
-      'Sailsetter:innen bereiten Experimente für Kindergartenkinder vor und führen sie alle zwei Wochen mit wechselnden Gruppen durch – ein spielerischer erster Kontakt mit den Naturwissenschaften.',
+      'Sailsetter:innen bereiten Experimente für Kindergartenkinder vor und führen sie alle zwei Wochen mit wechselnden Gruppen durch: ein spielerischer erster Kontakt mit den Naturwissenschaften.',
     category: 'eigenes-projekt',
   },
   {
     title: 'Handwerken mit Kindergartenkindern',
     tagline: 'Haus für Kinder Perlach',
     description:
-      'An der Werkbank des Havens bauen Sailsetter:innen alle zwei Wochen kleine Dinge mit Kindergartenkindern – Ideen und Anleitung entwickeln unsere Mitglieder selbst.',
+      'An der Werkbank des Havens bauen Sailsetter:innen alle zwei Wochen kleine Dinge mit Kindergartenkindern. Ideen und Anleitung entwickeln unsere Mitglieder selbst.',
     category: 'eigenes-projekt',
   },
   {
@@ -82,7 +82,7 @@ const projects: { title: string; tagline: string; description: string; category:
     title: 'Get-to-know München',
     tagline: 'Diakonie',
     description:
-      'Stadttouren für Geflüchtete, vorbereitet und geführt von Sailsetter:innen, damit das Ankommen in München leichter wird – an mehreren Terminen mit derselben Gruppe.',
+      'Stadttouren für Geflüchtete, vorbereitet und geführt von Sailsetter:innen, damit das Ankommen in München leichter wird, an mehreren Terminen mit derselben Gruppe.',
     category: 'eigenes-projekt',
   },
   {
@@ -110,14 +110,14 @@ const projects: { title: string; tagline: string; description: string; category:
     title: 'Nachhilfe',
     tagline: 'Diakonie, Adelgundenheim, Gesellschaft macht Schule',
     description:
-      'Klassische Nachhilfe für Kinder und Jugendliche – an mehreren unserer Havens gibt es dafür laufend Bedarf.',
+      'Klassische Nachhilfe für Kinder und Jugendliche. An mehreren unserer Havens gibt es dafür laufend Bedarf.',
     category: 'foerderung',
   },
   {
     title: 'Deutsch lernen durch Konversation',
     tagline: 'Adelgundenheim',
     description:
-      'Alle zwei Wochen üben Sailsetter:innen mit Kindern im 1-zu-1-Gespräch Deutsch – ohne Arbeitsblätter, mit viel Reden.',
+      'Alle zwei Wochen üben Sailsetter:innen mit Kindern im 1-zu-1-Gespräch Deutsch, ohne Arbeitsblätter und mit viel Reden.',
     category: 'foerderung',
   },
   {
@@ -172,20 +172,20 @@ if (await isEmpty('partners')) {
   }
   console.log(`${partners.length} Partner angelegt`)
 } else {
-  console.log('Partner vorhanden – übersprungen')
+  console.log('Partner vorhanden, übersprungen')
 }
 
 if (await isEmpty('projects')) {
   for (const [i, p] of projects.entries()) {
     await payload.create({
       collection: 'projects',
-      data: { ...p, status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert', order: i, featured: i < 3 },
+      data: { ...p, status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert', order: i },
       context,
     })
   }
   console.log(`${projects.length} Projekte angelegt`)
 } else {
-  console.log('Projekte vorhanden – übersprungen')
+  console.log('Projekte vorhanden, übersprungen')
 }
 
 if (await isEmpty('team')) {
@@ -194,7 +194,7 @@ if (await isEmpty('team')) {
   }
   console.log(`${team.length} Vorstandsmitglieder angelegt`)
 } else {
-  console.log('Vorstand vorhanden – übersprungen')
+  console.log('Vorstand vorhanden, übersprungen')
 }
 
 await payload.updateGlobal({

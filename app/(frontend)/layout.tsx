@@ -7,7 +7,7 @@ import {Analytics} from "@vercel/analytics/next";
 import {fraunces, inter} from "./fonts"
 
 export const metadata: Metadata = {
-  title: 'Sailsetters – Gemeinsam für ein bildungsgerechtes Deutschland',
+  title: 'Sailsetters: Gemeinsam für ein bildungsgerechtes Deutschland',
   description:
     'Sailsetters ist ein studentischer Verein, der sich für Bildungsgerechtigkeit in Deutschland einsetzt.',
 }

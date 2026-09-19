@@ -45,7 +45,7 @@ export default function PartnerSection({ partners }: { partners: Partner[] }) {
             <p className="leading-relaxed lg:text-[17px]">
               Du arbeitest an einer Schule, in einer Einrichtung der Kinder- und Jugendhilfe oder in
               einem Verein in München und könntest Unterstützung durch Studierende gebrauchen? Wir
-              entwickeln gemeinsam ein Angebot, das zu euch passt – von einmaligen Workshops bis zur
+              entwickeln gemeinsam ein Angebot, das zu euch passt, von einmaligen Workshops bis zur
               wöchentlichen Begleitung über ein ganzes Semester.
             </p>
           </div>

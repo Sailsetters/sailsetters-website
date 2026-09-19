@@ -27,13 +27,13 @@ export default function Werte() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
             <Block title="Vision">
               Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder und Jugendlichen
-              Zugang zu schulischer und sozialer Bildung haben – und damit die Chance auf ein
+              Zugang zu schulischer und sozialer Bildung haben und damit die Chance auf ein
               selbstbestimmtes Leben.
             </Block>
             <Block title="Mission">
               Als Studierende aller Fachrichtungen entwickeln wir eigenständige Projekte, die Kinder
-              und Jugendliche auf Augenhöhe begleiten. Jede:r Sailsetter:in bringt dafür etwa 20
-              Stunden pro Semester ein und erhält ein Zertifikat für das Engagement.
+              und Jugendliche auf Augenhöhe begleiten. Jede:r Sailsetter:in bringt dafür im Schnitt
+              ein bis zwei Stunden pro Woche ein und erhält ein Zertifikat für das Engagement.
             </Block>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Werte() {
               }
             >
               heißt: Jedes Kind bekommt die Unterstützung, die es braucht, um seine Möglichkeiten
-              auszuschöpfen – unabhängig davon, was seine Eltern verdienen, gelernt haben oder woher
+              auszuschöpfen, unabhängig davon, was seine Eltern verdienen, gelernt haben oder woher
               sie kommen.
             </Block>
             <Block
@@ -67,7 +67,7 @@ export default function Werte() {
                 </svg>
               }
             >
-              heißt: Der Weg zu Abschluss, Ausbildung oder Studium steht allen offen – nicht nur
+              heißt: Der Weg zu Abschluss, Ausbildung oder Studium steht allen offen, nicht nur
               denen, die Nachhilfe, Bücher und Rückenwind von zu Hause mitbekommen.
             </Block>
           </div>

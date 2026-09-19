@@ -17,7 +17,7 @@ export default function Mitmachen() {
             <Eyebrow tone="dune">Für Studierende</Eyebrow>
             <h3 className="text-2xl text-sand lg:text-[28px]">Werde Sailsetter:in</h3>
             <p className="leading-relaxed text-dune lg:text-[17px]">
-              Etwa 20 Stunden im Semester, ein Projektteam, echte Verantwortung – und ein Zertifikat
+              Ein bis zwei Stunden pro Woche, ein Projektteam, echte Verantwortung und ein Zertifikat
               für dein Engagement. Egal, was du studierst.
             </p>
             <LinkButton href="/bewerbung" variant="paper" className="mt-2">
