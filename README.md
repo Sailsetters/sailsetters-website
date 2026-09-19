@@ -91,16 +91,15 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 
 ### Seiten aus Payload
 
-Die Startseite (drei Projekte, Havens & Partner, Kennzahlen), `/projekte`
+Die Startseite (aktuelle Projekte, Havens & Partner, Kennzahlen), `/projekte`
 (alle aktiven Projekte mit Filter) und `/verein` (Vorstand) werden statisch
 aus Payload gerendert. Jede Änderung an diesen Collections ruft
 `revalidatePath` für die drei Seiten auf (siehe `lib/revalidate.ts`), sodass
 sie sofort sichtbar ist, ohne dass jemand deployen muss.
 
-Welche drei Projekte auf der Startseite stehen, entscheidet das Häkchen
-„Auf der Startseite zeigen“; ohne Häkchen sind es die ersten drei nach
-Reihenfolge. Abgeschlossene Projekte werden auf „Vergangen“ gesetzt, nicht
-gelöscht — sie erscheinen dann unter „Vergangene Projekte“ auf `/projekte`.
+Die Startseite zeigt alle aktuellen Projekte. Abgeschlossene Projekte werden
+auf „Vergangen“ gesetzt, nicht gelöscht: Sie verschwinden dann von der
+Startseite und erscheinen unter „Vergangene Projekte“ auf `/projekte`.
 
 `npm run seed` befüllt eine leere Datenbank mit dem Stand der alten Website
 (Logos aus `scripts/seed-assets/`). Der Befehl überspringt Collections, die

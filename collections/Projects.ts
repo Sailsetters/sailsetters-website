@@ -13,7 +13,7 @@ export const Projects: CollectionConfig = {
   labels: { singular: 'Projekt', plural: 'Projekte' },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'status', 'period', 'featured', 'order'],
+    defaultColumns: ['title', 'category', 'status', 'period', 'order'],
     group: 'Website',
   },
   access: {
@@ -67,7 +67,7 @@ export const Projects: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description:
-          'Aktuelle Projekte stehen oben auf /projekte und kommen für die Startseite infrage. Vergangene erscheinen darunter unter „Vergangene Projekte“.',
+          'Aktuelle Projekte stehen auf der Startseite und oben auf /projekte. Vergangene erscheinen dort unter „Vergangene Projekte“.',
       },
     },
     {
@@ -77,17 +77,6 @@ export const Projects: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description: 'Optional, z. B. „WiSe 2024/25“ oder „seit 2023“. Erscheint auf der Karte.',
-      },
-    },
-    {
-      name: 'featured',
-      type: 'checkbox',
-      label: 'Auf der Startseite zeigen',
-      defaultValue: false,
-      admin: {
-        position: 'sidebar',
-        description:
-          'Die Startseite zeigt drei Projekte. Sind mehr markiert, gelten die ersten drei nach Reihenfolge; ist keines markiert, die ersten drei aktiven.',
       },
     },
     {

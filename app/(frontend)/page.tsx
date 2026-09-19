@@ -16,8 +16,6 @@ import Warum from '@/components/home/Warum'
  */
 export const revalidate = 3600
 
-const TEASER_COUNT = 3
-
 export default async function Home() {
   const payload = await getPayload({ config })
   const [projects, partners, startseite] = await Promise.all([
@@ -32,10 +30,6 @@ export default async function Home() {
     payload.findGlobal({ slug: 'startseite' }),
   ])
 
-  // The ones marked "Auf der Startseite zeigen", else the first three by order.
-  const featured = projects.docs.filter((p) => p.featured)
-  const teaser = (featured.length > 0 ? featured : projects.docs).slice(0, TEASER_COUNT)
-
   return (
     <>
       <Hero />
@@ -45,7 +39,7 @@ export default async function Home() {
         projekteProSemester={startseite.kennzahlen.projekteProSemester}
         partnerCount={partners.totalDocs}
       />
-      <ProjekteTeaser projects={teaser} total={projects.totalDocs} />
+      <ProjekteTeaser projects={projects.docs} />
       <PartnerSection partners={partners.docs} />
       <Mitmachen />
     </>
