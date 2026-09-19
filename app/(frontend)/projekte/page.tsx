@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 
 import ProjectCard from '@/components/projects/ProjectCard'
-import ProjectGrid from '@/components/projects/ProjectGrid'
 import PageBody from '@/components/ui/PageBody'
 import LinkButton from '@/components/ui/LinkButton'
 import PageHeader from '@/components/ui/PageHeader'
@@ -50,7 +49,11 @@ export default async function ProjektePage() {
             Aktuelle Projekte
           </h2>
           {current.length > 0 ? (
-            <ProjectGrid projects={current} />
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              {current.map((p) => (
+                <ProjectCard key={p.id} project={p} />
+              ))}
+            </div>
           ) : (
             <p className="text-driftwood">Aktuell sind keine Projekte eingetragen.</p>
           )}

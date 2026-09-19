@@ -18,6 +18,7 @@ const columns = [
     title: 'Mitmachen',
     links: [
       { href: '/bewerbung', text: 'Bewerbung' },
+      { href: '/foerdern', text: 'Fördern' },
       { href: '/kontakt', text: 'Kontakt' },
     ],
   },

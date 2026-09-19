@@ -9,6 +9,7 @@ const links = [
   { href: '/verein', text: 'Über uns' },
   { href: '/projekte', text: 'Projekte' },
   { href: '/#partner', text: 'Partner' },
+  { href: '/foerdern', text: 'Fördern' },
   { href: '/kontakt', text: 'Kontakt' },
 ]
 
