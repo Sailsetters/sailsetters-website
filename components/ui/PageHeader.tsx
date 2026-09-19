@@ -1,13 +1,10 @@
-import Image from 'next/image'
 import type { ReactNode } from 'react'
 
+import Blob from '@/components/ui/Blob'
 import Container from '@/components/ui/Container'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 
-/**
- * Header for the inner pages. One blob at background opacity (the guide's
- * 12–20 %), never the full-opacity one — that is reserved for the homepage.
- */
+/** Header for the inner pages, with a full-colour blob bleeding off the top right. */
 export default function PageHeader({
   eyebrow,
   title,
@@ -19,13 +16,11 @@ export default function PageHeader({
 }) {
   return (
     <section className="relative overflow-hidden pt-28 pb-10 lg:pt-40 lg:pb-14">
-      <Image
-        src="/blob_warm_b.png"
-        alt=""
-        width={654}
-        height={828}
+      {/* Sized to end inside the header, so its lower edge is a curve and not a cut. */}
+      <Blob
+        name="warm-b"
         priority
-        className="pointer-events-none absolute -top-40 -right-40 w-[360px] opacity-[0.14] lg:-top-56 lg:-right-24 lg:w-[560px]"
+        className="-top-20 -right-24 w-[240px] sm:-top-24 sm:-right-20 sm:w-[300px] lg:-top-28 lg:-right-16 lg:w-[340px]"
       />
       <Container className="relative flex max-w-[1200px] flex-col gap-4">
         <Eyebrow tone="port">{eyebrow}</Eyebrow>

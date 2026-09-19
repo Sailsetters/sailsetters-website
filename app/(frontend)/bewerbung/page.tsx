@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import SemesterSteps from '@/components/SemesterSteps'
-import Container from '@/components/ui/Container'
+import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 
 import ApplicationForm from './ApplicationForm'
@@ -21,7 +21,7 @@ export default function BewerbungPage() {
         intro="Schön, dass du dabei sein möchtest. Erzähl uns kurz etwas über dich – wir melden uns danach für ein Kennenlerngespräch."
       />
 
-      <Container className="flex flex-col gap-14 pb-20 lg:gap-20 lg:pb-28">
+      <PageBody blob="cool-left" className="flex flex-col gap-14 pb-20 lg:gap-20 lg:pb-28">
         <section aria-labelledby="ablauf" className="flex flex-col gap-8">
           <h2 id="ablauf" className="text-2xl lg:text-[30px]">
             So geht es weiter
@@ -37,7 +37,7 @@ export default function BewerbungPage() {
             <ApplicationForm />
           </div>
         </section>
-      </Container>
+      </PageBody>
     </>
   )
 }

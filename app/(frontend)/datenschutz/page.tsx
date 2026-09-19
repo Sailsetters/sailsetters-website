@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import Container from '@/components/ui/Container'
+import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
@@ -19,9 +19,9 @@ export default function DatenschutzPage() {
   return (
     <>
       <PageHeader eyebrow="Rechtliches" title="Datenschutzerklärung" />
-      <Container className="pb-20 lg:pb-28">
+      <PageBody className="pb-20 lg:pb-28">
         <Prose>{null}</Prose>
-      </Container>
+      </PageBody>
     </>
   )
 }

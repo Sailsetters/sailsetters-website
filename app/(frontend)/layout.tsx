@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="de" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="font-sans">
         <Navbar />
-        {children}
+        <main className="overflow-x-clip">{children}</main>
         <Footer />
         <Analytics />
       </body>

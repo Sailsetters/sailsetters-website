@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import Container from '@/components/ui/Container'
+import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
@@ -58,7 +58,7 @@ export default function Satzung() {
   return (
     <>
       <PageHeader eyebrow="Rechtliches" title="Satzung" intro="Die Satzung des Sailsetters e.V. in der aktuellen Fassung." />
-      <Container className="pb-20 lg:pb-28">
+      <PageBody className="pb-20 lg:pb-28">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
           <nav aria-label="Inhalt" className="lg:sticky lg:top-28">
             <span className="text-sm font-semibold uppercase tracking-[0.08em] text-driftwood">Inhalt</span>
@@ -308,7 +308,7 @@ export default function Satzung() {
 
           </Prose>
         </div>
-      </Container>
+      </PageBody>
     </>
   )
 }

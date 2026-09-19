@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import MediaImage from '@/components/MediaImage'
+import Blob from '@/components/ui/Blob'
 import Container from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import type { Team } from '@/payload-types'
@@ -36,13 +37,7 @@ function Arrow() {
 export default function Struktur({ team }: { team: Team[] }) {
   return (
     <section id="vorstand" className="relative overflow-hidden bg-dune py-16 lg:py-24">
-      <Image
-        src="/blob_cool_a.png"
-        alt=""
-        width={654}
-        height={828}
-        className="pointer-events-none absolute -bottom-40 -left-52 w-[420px] opacity-[0.16] lg:-bottom-52 lg:-left-64 lg:w-[640px]"
-      />
+      <Blob name="cool-a" className="-bottom-40 -left-56 w-[440px] lg:-bottom-64 lg:-left-72 lg:w-[720px]" />
       <Container className="relative flex flex-col gap-10 lg:gap-14">
         <SectionHeading
           eyebrow="Verein"

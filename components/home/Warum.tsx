@@ -28,7 +28,7 @@ const stats = [
 
 export default function Warum() {
   return (
-    <section id="warum" className="py-16 lg:py-24">
+    <section id="warum" className="relative py-16 lg:py-24">
       <Container className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading
           eyebrow="Warum es uns gibt"

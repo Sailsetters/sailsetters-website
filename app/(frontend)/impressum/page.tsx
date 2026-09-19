@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import Container from '@/components/ui/Container'
+import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 import { verein } from '@/lib/verein'
@@ -23,7 +23,7 @@ export default function Impressum() {
   return (
     <>
       <PageHeader eyebrow="Rechtliches" title="Impressum" />
-      <Container className="pb-20 lg:pb-28">
+      <PageBody className="pb-20 lg:pb-28">
         <Prose>
           <h2>Angaben gemäß § 5 DDG</h2>
           <dl className="m-0 flex flex-col gap-3">
@@ -75,7 +75,7 @@ export default function Impressum() {
             Verbraucherschlichtungsstelle teilzunehmen.
           </p>
         </Prose>
-      </Container>
+      </PageBody>
     </>
   )
 }

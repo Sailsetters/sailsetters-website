@@ -4,7 +4,7 @@ import { getPayload } from 'payload'
 
 import ProjectCard from '@/components/projects/ProjectCard'
 import ProjectGrid from '@/components/projects/ProjectGrid'
-import Container from '@/components/ui/Container'
+import PageBody from '@/components/ui/PageBody'
 import LinkButton from '@/components/ui/LinkButton'
 import PageHeader from '@/components/ui/PageHeader'
 
@@ -44,7 +44,7 @@ export default async function ProjektePage() {
           </>
         }
       />
-      <Container className="flex flex-col gap-14 pb-20 lg:gap-20 lg:pb-28">
+      <PageBody blob="warm-right" className="flex flex-col gap-14 pb-20 lg:gap-20 lg:pb-28">
         <section aria-labelledby="aktuell" className="flex flex-col gap-8">
           <h2 id="aktuell" className="text-2xl lg:text-[30px]">
             Aktuelle Projekte
@@ -82,7 +82,7 @@ export default async function ProjektePage() {
           </div>
           <LinkButton href="/bewerbung">Sailsetter:in werden</LinkButton>
         </div>
-      </Container>
+      </PageBody>
     </>
   )
 }

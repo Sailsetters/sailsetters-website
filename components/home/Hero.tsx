@@ -1,20 +1,17 @@
-import Image from 'next/image'
-
+import Blob from '@/components/ui/Blob'
 import Container from '@/components/ui/Container'
 import LinkButton from '@/components/ui/LinkButton'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 
 export default function Hero() {
+  // No overflow-hidden on the section: the blob is meant to run on into the
+  // next one. The horizontal bleed is clipped by <main> in the layout.
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-32">
-      {/* The one blob at full opacity on this page (design guide: one per view). */}
-      <Image
-        src="/blob_warm_a.png"
-        alt=""
-        width={654}
-        height={828}
+    <section id="top" className="relative pt-32 pb-20 lg:pt-44 lg:pb-32">
+      <Blob
+        name="warm-a"
         priority
-        className="pointer-events-none absolute -top-16 -right-44 w-[400px] sm:-top-24 sm:-right-36 sm:w-[560px] lg:-top-32 lg:w-[820px]"
+        className="-top-16 -right-44 w-[400px] sm:-top-24 sm:-right-36 sm:w-[560px] lg:-top-32 lg:w-[820px]"
       />
       <Container className="relative">
         <div className="flex max-w-[700px] flex-col gap-6 lg:gap-7">
