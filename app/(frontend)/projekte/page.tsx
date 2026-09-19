@@ -75,12 +75,24 @@ export default async function ProjektePage() {
           </section>
         )}
 
-        <div className="flex flex-col items-start gap-4 rounded-[20px] bg-dune p-7 lg:flex-row lg:items-center lg:justify-between lg:p-10">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-2xl">Eines davon passt zu dir?</h2>
-            <p className="text-driftwood">Bewirb dich. Im Kennenlerngespräch finden wir gemeinsam das richtige Projekt.</p>
+        <div className="grid grid-cols-1 gap-8 rounded-[20px] bg-dune p-7 md:grid-cols-2 lg:gap-12 lg:p-10">
+          <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-col gap-2">
+              <h2 className="text-2xl">Eines davon passt zu dir?</h2>
+              <p className="leading-relaxed text-driftwood">
+                Bewirb dich. Im Kennenlerngespräch finden wir gemeinsam das richtige Projekt.
+              </p>
+            </div>
+            <LinkButton href="/bewerbung">Sailsetter:in werden</LinkButton>
           </div>
-          <LinkButton href="/bewerbung">Sailsetter:in werden</LinkButton>
+          <div className="flex flex-col gap-2 border-t border-ink/10 pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-12">
+            <h2 className="text-2xl">Oder eine eigene Idee?</h2>
+            <p className="leading-relaxed text-driftwood">
+              Sailsetters lebt von Studierenden, die eigene Ideen für Projekte mitbringen. Jede:r
+              kann ein neues Projekt starten, und wir unterstützen auf dem Weg: mit einem Haven,
+              einem Team und der Erfahrung aus den bisherigen Projekten.
+            </p>
+          </div>
         </div>
       </PageBody>
     </>

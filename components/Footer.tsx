@@ -25,7 +25,6 @@ const columns = [
     title: 'Rechtliches',
     links: [
       { href: '/impressum', text: 'Impressum' },
-      { href: '/satzung', text: 'Satzung' },
       { href: '/datenschutz', text: 'Datenschutz' },
     ],
   },
@@ -76,9 +75,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-1.5 border-t border-sand/15 pt-6 text-sm text-dune sm:flex-row sm:justify-between">
-          <span>
-            © {year} {verein.name} · {verein.street} · {verein.city}
-          </span>
+          <span>© {year} {verein.name}</span>
           <a href={`mailto:${verein.email}`} className="hover:text-paper">
             {verein.email}
           </a>

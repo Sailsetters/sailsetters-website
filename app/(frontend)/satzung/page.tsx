@@ -4,9 +4,12 @@ import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
+// Reachable by URL but not linked anywhere and not indexed, until the
+// registered version has been checked against this text.
 export const metadata: Metadata = {
   title: 'Satzung · Sailsetters',
   description: 'Die Satzung des Sailsetters e.V.',
+  robots: { index: false, follow: false },
 }
 
 /** Anchor id for a section title like "§ 12 Mitgliederversammlung" → "p12". */
@@ -57,7 +60,7 @@ function SectionTitle({ title }: { title: string }) {
 export default function Satzung() {
   return (
     <>
-      <PageHeader eyebrow="Rechtliches" title="Satzung" intro="Die Satzung des Sailsetters e.V. in der aktuellen Fassung." />
+      <PageHeader eyebrow="Rechtliches" title="Satzung" intro="Die Satzung des Sailsetters e.V." />
       <PageBody className="pb-20 lg:pb-28">
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
           <nav aria-label="Inhalt" className="lg:sticky lg:top-28">
@@ -73,6 +76,11 @@ export default function Satzung() {
             </ol>
           </nav>
           <Prose>
+            <div className="rounded-2xl bg-dune p-5 text-[15px] leading-relaxed lg:p-6" role="note">
+              <strong>Hinweis:</strong> Diese Wiedergabe dient der Information. Rechtlich
+              maßgeblich ist allein die im Vereinsregister beim Amtsgericht München (VR 210317)
+              hinterlegte Fassung. Bei Abweichungen gilt die eingetragene Fassung.
+            </div>
         <SectionTitle title="§ 1 Name, Sitz, Geschäftsjahr" />
         <Paragraph
           number={1}

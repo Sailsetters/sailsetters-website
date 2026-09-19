@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import MediaImage from '@/components/MediaImage'
 import Blob from '@/components/ui/Blob'
@@ -45,11 +44,7 @@ export default function Struktur({ team }: { team: Team[] }) {
             <>
               Sailsetters e.V. ist gemeinnützig und wird von Studierenden geführt. Die
               Mitgliederversammlung wählt jedes Jahr den Vorstand, der die Projektteams koordiniert
-              und den Verein nach außen vertritt. Die Details stehen in der{' '}
-              <Link href="/satzung" className="underline hover:text-port">
-                Satzung
-              </Link>
-              .
+              und den Verein nach außen vertritt.
             </>
           }
         >

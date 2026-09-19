@@ -13,6 +13,7 @@ export default function ProjekteTeaser({ projects }: { projects: Project[] }) {
           <SectionHeading eyebrow="Projekte">Woran wir dieses Semester arbeiten</SectionHeading>
           <p className="max-w-[380px] leading-relaxed text-driftwood">
             Eigene Projekte und 1-zu-1-Förderung, gemeinsam mit unseren Havens in ganz München.
+            Neue Ideen sind willkommen: Jede:r Sailsetter:in kann ein Projekt starten.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">

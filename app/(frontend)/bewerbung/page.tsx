@@ -52,7 +52,8 @@ export default async function BewerbungPage() {
           </p>
           <p className="text-lg leading-relaxed">
             Erfahrung brauchst du keine. Verantwortung bekommst du trotzdem, und ein Team, das
-            dich dabei nicht allein lässt.
+            dich dabei nicht allein lässt. Das gilt auch für eigene Ideen: Sailsetters lebt von
+            Studierenden, die neue Projekte anstoßen, und wir unterstützen sie auf dem Weg.
           </p>
           <p className="text-lg leading-relaxed">
             Nicht jede:r muss in ein Projekt. Wer lieber Erfahrung in unseren Taskforces sammeln
