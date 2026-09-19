@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-const authenticated = ({ req }: { req: { user?: unknown } }) => Boolean(req.user)
+import { authenticated } from '../lib/access'
 
 export const Users: CollectionConfig = {
   slug: 'users',

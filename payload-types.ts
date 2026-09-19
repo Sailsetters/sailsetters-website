@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     applications: Application;
     'contact-submissions': ContactSubmission;
+    emails: Email;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -76,10 +77,15 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {};
+  collectionsJoins: {
+    applications: {
+      emails: 'emails';
+    };
+  };
   collectionsSelect: {
     applications: ApplicationsSelect<false> | ApplicationsSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
+    emails: EmailsSelect<false> | EmailsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -91,8 +97,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'email-vorlagen': EmailVorlagen;
+  };
+  globalsSelect: {
+    'email-vorlagen': EmailVorlagenSelect<false> | EmailVorlagenSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -144,8 +154,91 @@ export interface Application {
    * Wird beim Absenden des Formulars gesetzt. Ohne Einwilligung darf die Bewerbung nicht gespeichert werden.
    */
   consent: boolean;
-  status: 'neu' | 'in-pruefung' | 'eingeladen' | 'angenommen' | 'abgelehnt';
-  internalNotes?: string | null;
+  /**
+   * „Eingeladen“ und „Angenommen“ legen automatisch einen E-Mail-Entwurf an (siehe unten). Gesendet wird erst nach Durchsicht.
+   */
+  status:
+    | 'neu'
+    | 'in-pruefung'
+    | 'eingeladen'
+    | 'gespraech-geplant'
+    | 'angenommen'
+    | 'onboarding'
+    | 'mitglied'
+    | 'abgelehnt'
+    | 'zurueckgezogen';
+  /**
+   * Wer diese Bewerbung betreut.
+   */
+  assignee?: (number | null) | User;
+  /**
+   * Nur intern sichtbar. Wer und wann wird beim Speichern automatisch ergänzt.
+   */
+  notes?:
+    | {
+        text: string;
+        author?: (number | null) | User;
+        createdAt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Entwürfe hier öffnen, prüfen und über den Status senden.
+   */
+  emails?: {
+    docs?: (number | Email)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
+  collection: 'users';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "emails".
+ */
+export interface Email {
+  id: number;
+  application: number | Application;
+  /**
+   * Vorlage wählen und Betreff und Text leer lassen – beim Speichern wird der Entwurf aus der Vorlage gefüllt.
+   */
+  vorlage?: ('einladung' | 'zusage') | null;
+  /**
+   * Auf „Jetzt senden“ stellen und speichern. Die E-Mail geht raus, sobald das Speichern erfolgreich war.
+   */
+  status: 'entwurf' | 'senden' | 'gesendet';
+  sentAt?: string | null;
+  sentBy?: (number | null) | User;
+  to?: string | null;
+  subject?: string | null;
+  body?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -188,32 +281,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: number;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
-  password?: string | null;
-  collection: 'users';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -243,6 +310,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'contact-submissions';
         value: number | ContactSubmission;
+      } | null)
+    | ({
+        relationTo: 'emails';
+        value: number | Email;
       } | null)
     | ({
         relationTo: 'media';
@@ -308,7 +379,16 @@ export interface ApplicationsSelect<T extends boolean = true> {
   availability?: T;
   consent?: T;
   status?: T;
-  internalNotes?: T;
+  assignee?: T;
+  notes?:
+    | T
+    | {
+        text?: T;
+        author?: T;
+        createdAt?: T;
+        id?: T;
+      };
+  emails?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -323,6 +403,22 @@ export interface ContactSubmissionsSelect<T extends boolean = true> {
   message?: T;
   consent?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "emails_select".
+ */
+export interface EmailsSelect<T extends boolean = true> {
+  application?: T;
+  vorlage?: T;
+  status?: T;
+  sentAt?: T;
+  sentBy?: T;
+  to?: T;
+  subject?: T;
+  body?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -406,6 +502,52 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * Platzhalter: {{name}} = Name der bewerbenden Person, {{bearbeiter}} = dein Name. Beide werden automatisch eingesetzt. Alles andere in doppelten geschweiften Klammern (z. B. {{meetingLink}}) bleibt im Entwurf stehen und muss vor dem Senden ersetzt werden.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "email-vorlagen".
+ */
+export interface EmailVorlagen {
+  id: number;
+  /**
+   * Wird als Entwurf angelegt, sobald eine Bewerbung auf „Eingeladen“ gesetzt wird.
+   */
+  einladung: {
+    betreff: string;
+    text: string;
+  };
+  /**
+   * Wird als Entwurf angelegt, sobald eine Bewerbung auf „Angenommen“ gesetzt wird.
+   */
+  zusage: {
+    betreff: string;
+    text: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "email-vorlagen_select".
+ */
+export interface EmailVorlagenSelect<T extends boolean = true> {
+  einladung?:
+    | T
+    | {
+        betreff?: T;
+        text?: T;
+      };
+  zusage?:
+    | T
+    | {
+        betreff?: T;
+        text?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

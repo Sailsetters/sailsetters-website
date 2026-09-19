@@ -68,12 +68,35 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 
 ## Datenmodell
 
-| Collection            | Zweck                          | Zugriff                          |
-| --------------------- | ------------------------------ | -------------------------------- |
-| `applications`        | Bewerbungen als Sailsetter:in  | öffentlich anlegen, intern lesen |
-| `contact-submissions` | Kontaktanfragen                | öffentlich anlegen, intern lesen |
-| `media`               | Bilder und PDFs                | öffentlich lesen                 |
-| `users`               | Team-Logins für das Admin-Panel | nur intern                       |
+| Collection            | Zweck                            | Zugriff                          |
+| --------------------- | -------------------------------- | -------------------------------- |
+| `applications`        | Bewerbungen als Sailsetter:in    | öffentlich anlegen, intern lesen |
+| `emails`              | E-Mails an Bewerber:innen        | nur intern                       |
+| `contact-submissions` | Kontaktanfragen                  | öffentlich anlegen, intern lesen |
+| `media`               | Bilder und PDFs                  | öffentlich lesen                 |
+| `users`               | Team-Logins für das Admin-Panel  | nur intern                       |
+
+| Global           | Zweck                                          |
+| ---------------- | ---------------------------------------------- |
+| `email-vorlagen` | Vorlagen für Einladung und Zusage, im Admin editierbar |
+
+### Bewerbungsprozess
+
+Der `status` einer Bewerbung ist die Pipeline:
+`neu → in-pruefung → eingeladen → gespraech-geplant → angenommen → onboarding → mitglied`,
+mit `abgelehnt` und `zurueckgezogen` als Ausstiege.
+
+Zwei Übergänge legen automatisch einen E-Mail-Entwurf aus der jeweiligen
+Vorlage an: **Eingeladen** (Einladung mit Meeting-Link) und **Angenommen**
+(Zusage mit Slack-Link). `{{name}}` und `{{bearbeiter}}` werden dabei
+eingesetzt; alle anderen Platzhalter — etwa `{{meetingLink}}` — bleiben stehen
+und müssen von der bearbeitenden Person ersetzt werden. Der Entwurf erscheint
+unten auf der Bewerbung, wird dort geöffnet, geprüft und mit Status
+„Jetzt senden“ gespeichert. Gesendete E-Mails sind eingefroren und dienen als
+Nachweis, was der Person mitgeteilt wurde.
+
+Notizen zu einer Bewerbung sind nur intern sichtbar und werden beim Speichern
+automatisch mit Autor:in und Zeitpunkt versehen.
 
 Applicant and contact data is personal data under the DSGVO. Both form
 collections require an explicit `consent` checkbox, and neither is readable
@@ -102,8 +125,9 @@ Still open before this can serve real traffic:
   functions exhaust an unpooled one.
 - **Media storage**: `media` currently writes to local disk. Vercel's filesystem
   is ephemeral, so uploads need a storage adapter pointed at Supabase Storage.
-- **Email**: no email adapter is configured, so password resets and form
-  notifications will not send.
+- **Email**: set the `SMTP_*` variables to the IONOS mailbox that should send
+  (see `.env.example`). Without them nothing is sent — drafts can still be
+  written, but „Jetzt senden“ only logs to the console.
 - **Migrations**: the schema is currently pushed automatically in dev. Generate
   real migrations (`payload migrate:create`) before deploying.
 - **Datenschutzerklärung**: legally required once the forms collect data.

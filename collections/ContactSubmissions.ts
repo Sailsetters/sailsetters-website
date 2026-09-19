@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { authenticated } from '../lib/access'
+
 /**
  * Nachrichten aus dem Kontaktformular. Same access model as Applications:
  * public create, authenticated everything else.
@@ -14,9 +16,9 @@ export const ContactSubmissions: CollectionConfig = {
   },
   access: {
     create: () => true,
-    read: ({ req }) => Boolean(req.user),
-    update: ({ req }) => Boolean(req.user),
-    delete: ({ req }) => Boolean(req.user),
+    read: authenticated,
+    update: authenticated,
+    delete: authenticated,
   },
   fields: [
     {
@@ -45,6 +47,8 @@ export const ContactSubmissions: CollectionConfig = {
       label: 'Status',
       defaultValue: 'neu',
       required: true,
+      // Public-create collection: see Applications.status.
+      access: { create: authenticated },
       options: [
         { label: 'Neu', value: 'neu' },
         { label: 'In Bearbeitung', value: 'in-bearbeitung' },
