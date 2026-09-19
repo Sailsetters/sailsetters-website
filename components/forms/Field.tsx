@@ -86,6 +86,23 @@ export function TextAreaField({
   )
 }
 
+export function FileField({ accept, ...props }: BaseProps & { accept: string }) {
+  return (
+    <Wrapper {...props}>
+      <input
+        id={props.name}
+        name={props.name}
+        type="file"
+        accept={accept}
+        required={props.required}
+        aria-invalid={Boolean(props.error)}
+        aria-describedby={props.error ? `${props.name}-error` : undefined}
+        className="w-full rounded-xl border border-driftwood/30 bg-paper p-2 text-[15px] text-ink file:mr-4 file:rounded-full file:border-0 file:bg-dune file:px-4 file:py-2 file:font-medium file:text-ink hover:file:bg-sand focus:border-port focus:outline-none focus:ring-2 focus:ring-port/25 aria-[invalid=true]:border-port"
+      />
+    </Wrapper>
+  )
+}
+
 export function ConsentField({ error }: { error?: string }) {
   return (
     <div className="flex flex-col gap-1.5">

@@ -47,6 +47,12 @@ export const Applications: CollectionConfig = {
           where: { application: { equals: id } },
           req,
         })
+        // The CV is personal data too; it leaves with the application.
+        const doc = await req.payload.findByID({ collection: 'applications', id, depth: 0, req })
+        if (doc.cv) {
+          const cvId = typeof doc.cv === 'object' ? doc.cv.id : doc.cv
+          await req.payload.delete({ collection: 'application-files', id: cvId, req })
+        }
       },
     ],
     beforeChange: [
@@ -118,6 +124,14 @@ export const Applications: CollectionConfig = {
       admin: {
         description: 'Wie viel Zeit kannst du pro Semester einbringen?',
       },
+    },
+    {
+      name: 'cv',
+      type: 'upload',
+      relationTo: 'application-files',
+      label: 'Lebenslauf',
+      access: { create: authenticated },
+      admin: { description: 'Optional, PDF. Wird über das Formular hochgeladen.' },
     },
     {
       name: 'consent',

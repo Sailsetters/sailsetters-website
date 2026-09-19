@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 
-import { semesterSteps } from '@/lib/semester'
-import FormPage from '@/components/forms/FormPage'
+import SemesterSteps from '@/components/SemesterSteps'
+import Container from '@/components/ui/Container'
 import PageHeader from '@/components/ui/PageHeader'
-import { verein } from '@/lib/verein'
 
 import ApplicationForm from './ApplicationForm'
 
@@ -21,41 +20,24 @@ export default function BewerbungPage() {
         title="Sailsetter:in werden"
         intro="Schön, dass du dabei sein möchtest. Erzähl uns kurz etwas über dich – wir melden uns danach für ein Kennenlerngespräch."
       />
-      <FormPage
-        form={<ApplicationForm />}
-        aside={
-          <>
-            <div className="flex flex-col gap-4 rounded-[20px] bg-dune p-6">
-              <h2 className="text-xl">So geht es weiter</h2>
-              <ol className="flex flex-col gap-3">
-                {semesterSteps.map((s, i) => (
-                  <li key={s.title} className="flex gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-port font-display text-sm font-semibold text-paper">
-                      {i + 1}
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="font-medium">{s.title}</span>
-                      <span className="text-sm text-driftwood">{s.text}</span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <div className="flex flex-col gap-2 px-1 text-[15px] text-driftwood">
-              <span>
-                Etwa 20 Stunden pro Semester, ein Zertifikat für dein Engagement, an der TUM 3 ECTS
-                möglich.
-              </span>
-              <span>
-                Fragen vorab?{' '}
-                <a href={`mailto:${verein.email}`} className="underline hover:text-port">
-                  {verein.email}
-                </a>
-              </span>
-            </div>
-          </>
-        }
-      />
+
+      <Container className="flex flex-col gap-14 pb-20 lg:gap-20 lg:pb-28">
+        <section aria-labelledby="ablauf" className="flex flex-col gap-8">
+          <h2 id="ablauf" className="text-2xl lg:text-[30px]">
+            So geht es weiter
+          </h2>
+          <SemesterSteps />
+        </section>
+
+        <section aria-labelledby="formular" className="flex flex-col gap-6">
+          <h2 id="formular" className="text-2xl lg:text-[30px]">
+            Deine Bewerbung
+          </h2>
+          <div className="rounded-[20px] bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] sm:p-8 lg:p-12">
+            <ApplicationForm />
+          </div>
+        </section>
+      </Container>
     </>
   )
 }

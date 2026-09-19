@@ -7,6 +7,8 @@ const nextConfig = {
     remotePatterns: [{ protocol: 'https', hostname: '*.public.blob.vercel-storage.com' }],
   },
   experimental: {
+    // The application form uploads a CV (max 5 MB) through a server action.
+    serverActions: { bodySizeLimit: '6mb' },
     // Custom 404 for unmatched URLs. Needed because (frontend) and (payload)
     // are separate root layouts — see app/global-not-found.tsx.
     globalNotFound: true,

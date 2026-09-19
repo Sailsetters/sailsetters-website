@@ -2,7 +2,7 @@
 
 import { useActionState } from 'react'
 
-import { ConsentField, TextAreaField, TextField } from '@/components/forms/Field'
+import { ConsentField, FileField, TextAreaField, TextField } from '@/components/forms/Field'
 import SubmitButton from '@/components/forms/SubmitButton'
 import { initialFormState } from '@/lib/forms'
 
@@ -50,7 +50,8 @@ export default function ApplicationForm() {
       <TextAreaField
         name="motivation"
         label="Motivation"
-        hint="Warum möchtest du bei Sailsetters mitmachen?"
+        hint="Warum möchtest du bei Sailsetters mitmachen? Ein paar Sätze reichen – wir wollen dich kennenlernen, nicht bewerten."
+        rows={10}
         required
         error={errors.motivation}
       />
@@ -61,6 +62,14 @@ export default function ApplicationForm() {
         hint="Wie viel Zeit kannst du pro Semester einbringen?"
         rows={3}
         error={errors.availability}
+      />
+
+      <FileField
+        name="cv"
+        label="Lebenslauf"
+        hint="Optional. PDF, maximal 5 MB."
+        accept="application/pdf,.pdf"
+        error={errors.cv}
       />
 
       <ConsentField error={errors.consent} />

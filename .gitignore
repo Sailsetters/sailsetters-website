@@ -42,5 +42,7 @@ next-env.d.ts
 # are not committed. payload-types.ts and admin/importMap.js ARE committed so
 # the project builds without a database connection.
 /public/media
+# Applicants' CVs: private, served through the API with login only.
+/uploads
 
 /Sailsetters_Design_Paket

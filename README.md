@@ -75,6 +75,7 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 | Collection            | Zweck                            | Zugriff                          |
 | --------------------- | -------------------------------- | -------------------------------- |
 | `applications`        | Bewerbungen als Sailsetter:in    | öffentlich anlegen, intern lesen |
+| `application-files`   | Lebensläufe aus dem Formular     | nur intern (auch die Dateien)    |
 | `emails`              | E-Mails an Bewerber:innen        | nur intern                       |
 | `contact-submissions` | Kontaktanfragen                  | öffentlich anlegen, intern lesen |
 | `projects`            | Projekte auf der Startseite      | öffentlich lesen                 |
@@ -125,7 +126,11 @@ automatisch mit Autor:in und Zeitpunkt versehen.
 
 Applicant and contact data is personal data under the DSGVO. Both form
 collections require an explicit `consent` checkbox, and neither is readable
-without a login.
+without a login. Uploaded CVs (`application-files`) are never public: locally
+they live in `uploads/` outside `public/` and are served through the API with
+login only; in production they are stored as *private* Vercel blobs via
+`lib/privateBlobAdapter.ts` (the official plugin only supports public blobs).
+Deleting an application deletes its emails and its CV.
 
 ### Design
 
@@ -167,8 +172,9 @@ Still open before this can serve real traffic:
   Vercel Marketplace. Use the **pooled** connection string — serverless
   functions exhaust an unpooled one.
 - **Media storage**: add the Vercel Blob integration (store in `fra1`); its
-  `BLOB_READ_WRITE_TOKEN` switches `media` from local disk to Blob
-  automatically. Then `npm run seed` once against the production database.
+  `BLOB_READ_WRITE_TOKEN` switches `media` (public) and `application-files`
+  (private) from local disk to Blob automatically. Then `npm run seed` once
+  against the production database.
 - **Email**: set the `SMTP_*` variables to the IONOS mailbox that should send
   (see `.env.example`). Without them nothing is sent — drafts can still be
   written, but „Jetzt senden“ only logs to the console.

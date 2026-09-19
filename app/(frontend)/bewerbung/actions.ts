@@ -1,9 +1,12 @@
 'use server'
 
+import { randomUUID } from 'crypto'
+
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
 import {
+  optionalPdf,
   optionalText,
   requiredConsent,
   requiredEmail,
@@ -21,6 +24,7 @@ export async function submitApplication(
   const email = requiredEmail(formData, 'email', errors)
   const motivation = requiredText(formData, 'motivation', 'Motivation', errors)
   const consent = requiredConsent(formData, errors)
+  const cv = await optionalPdf(formData, 'cv', errors)
 
   if (Object.keys(errors).length > 0) {
     return {
@@ -30,8 +34,25 @@ export async function submitApplication(
     }
   }
 
+  const payload = await getPayload({ config })
+  let cvId: number | undefined
+
   try {
-    const payload = await getPayload({ config })
+    if (cv) {
+      // Stored under a random name: the original one is usually the
+      // applicant's own name and would end up in URLs, logs and blob keys.
+      const uploaded = await payload.create({
+        collection: 'application-files',
+        data: {},
+        file: {
+          data: cv.data,
+          mimetype: 'application/pdf',
+          name: `lebenslauf-${randomUUID()}.pdf`,
+          size: cv.data.length,
+        },
+      })
+      cvId = uploaded.id
+    }
     await payload.create({
       collection: 'applications',
       data: {
@@ -42,11 +63,16 @@ export async function submitApplication(
         semester: optionalText(formData, 'semester'),
         motivation,
         availability: optionalText(formData, 'availability'),
+        cv: cvId,
         consent,
         status: 'neu',
       },
     })
   } catch (error) {
+    // Don't leave an orphaned CV behind if the application itself failed.
+    if (cvId) {
+      await payload.delete({ collection: 'application-files', id: cvId }).catch(() => {})
+    }
     // The applicant should never see a stack trace, but we do want it in the logs.
     console.error('Bewerbung konnte nicht gespeichert werden:', error)
     return {

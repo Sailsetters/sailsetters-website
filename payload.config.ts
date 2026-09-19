@@ -2,6 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
@@ -10,6 +11,7 @@ import { en } from '@payloadcms/translations/languages/en'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { ApplicationFiles } from './collections/ApplicationFiles'
 import { Applications } from './collections/Applications'
 import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Emails } from './collections/Emails'
@@ -20,6 +22,7 @@ import { Team } from './collections/Team'
 import { Users } from './collections/Users'
 import { EmailVorlagen } from './globals/EmailVorlagen'
 import { Startseite } from './globals/Startseite'
+import { privateVercelBlobAdapter } from './lib/privateBlobAdapter'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -55,7 +58,17 @@ export default buildConfig({
     supportedLanguages: { de, en },
     fallbackLanguage: 'de',
   },
-  collections: [Applications, ContactSubmissions, Emails, Media, Partners, Projects, Team, Users],
+  collections: [
+    ApplicationFiles,
+    Applications,
+    ContactSubmissions,
+    Emails,
+    Media,
+    Partners,
+    Projects,
+    Team,
+    Users,
+  ],
   globals: [EmailVorlagen, Startseite],
   email,
   editor: lexicalEditor(),
@@ -70,14 +83,23 @@ export default buildConfig({
   },
   sharp,
   plugins: [
-    // Vercel's filesystem is ephemeral, so in production uploads (partner
-    // logos, board photos) go to Vercel Blob. Locally, without the token,
-    // they land in public/media as before.
+    // Vercel's filesystem is ephemeral, so in production uploads go to
+    // Vercel Blob: public media (logos, photos) through the official plugin,
+    // applicants' CVs as private blobs through our own adapter. Locally,
+    // without the token, both land on disk.
     ...(process.env.BLOB_READ_WRITE_TOKEN
       ? [
           vercelBlobStorage({
             collections: { media: true },
             token: process.env.BLOB_READ_WRITE_TOKEN,
+          }),
+          cloudStoragePlugin({
+            collections: {
+              'application-files': {
+                adapter: privateVercelBlobAdapter({ token: process.env.BLOB_READ_WRITE_TOKEN }),
+                disableLocalStorage: true,
+              },
+            },
           }),
         ]
       : []),
