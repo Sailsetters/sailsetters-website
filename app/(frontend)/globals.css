@@ -1,21 +1,51 @@
 @import "tailwindcss";
 
-/* Sailsetters brand palette. Exposed as bg-*, text-*, border-* utilities. */
+/*
+ * Sailsetters brand tokens, from docs/Sailsetters_Design_Guide.md.
+ * Exposed as bg-, text-, border- and gradient utilities.
+ *
+ * Sunrise and Coral only reach 2.7:1 / 3.4:1 against Sand — they are surface
+ * and accent colours, never text on a light background. Readable text is
+ * Ink, Driftwood, Port or Harbour.
+ */
 @theme {
-  --color-blood: #5c0905;
-  --color-burnt: #f87e60;
-  --color-tangerine: #e59d76;
-  --color-tawny: #ce6127;
-  --color-linen: #f7e8de;
-  --color-powder: #fefefa;
+  --color-sand: #f7f1e7;
+  --color-dune: #ede3d3;
+  --color-paper: #ffffff;
+  --color-ink: #1f1a17;
+  --color-driftwood: #6a5f57;
+  --color-sunrise: #ee6c3e;
+  --color-coral: #d9527a;
+  --color-port: #8c2f39;
+  --color-harbour: #21414f;
+  --color-tide: #5c8a8c;
+
+  /* Set by next/font in app/(frontend)/fonts.ts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
-html {
-  /* !important is needed to beat Tailwind's preflight reset. */
-  scroll-behavior: smooth !important;
-}
+@layer base {
+  html {
+    /* !important is needed to beat Tailwind's preflight reset. */
+    scroll-behavior: smooth !important;
+  }
 
-body {
-  background: var(--color-powder);
-  color: var(--color-gray-900);
+  body {
+    background: var(--color-sand);
+    color: var(--color-ink);
+  }
+
+  /*
+   * Headings are Fraunces at 600, and deliberately not heavier: the guide's
+   * "Regular" is already the 600 cut. Fraunces is a variable font, so the
+   * browser picks the optical size from font-size automatically.
+   */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
 }

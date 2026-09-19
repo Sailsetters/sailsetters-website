@@ -16,23 +16,19 @@ import Link from "next/link";
 
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center h-screen bg-linen text-gray-800">
+    <section className="relative flex items-center justify-center h-screen bg-sand text-ink">
       <div className="w-full h-full overflow-hidden">
         <Image src="/background.png" alt="Hero" fill />
       </div>
-      <div className="absolute flex flex-col space-y-1 sm:space-y-4 px-4">
-        <Image
-          src="/sailsetters_wordmark.png"
-          alt="wordmark"
-          width={800}
-          height={100}
-        />
-        <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-gray-900">
+      <div className="absolute flex flex-col items-center space-y-1 sm:space-y-4 px-4">
+        <Image src="/logo_ink.png" alt="" width={110} height={150} priority />
+        <h1 className="text-5xl sm:text-7xl text-ink">Sailsetters</h1>
+        <h2 className="text-2xl font-medium tracking-wide sm:text-4xl text-ink">
           GEMEINSAM FÜR EIN BILDUNGSGERECHTES DEUTSCHLAND
         </h2>
         <div className="w-1/2 self-center pt-12">
           <Link href="/bewerbung">
-            <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-blood/60 hover:bg-blood/80 hover:text-linen transition-all duration-200 w-full">
+            <div className="text-lg sm:text-xl text-center text-paper p-2 sm:p-4 rounded-lg shadow-md bg-port hover:bg-ink transition-all duration-200 w-full">
               <div>Sailsetter:in werden!</div>
             </div>
           </Link>
@@ -76,14 +72,14 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
     <div className="relative sm:px-6">
       {/* Blue orb */}
       <div
-        className="absolute w-16 h-16 bg-burnt/70 blur-xl rounded-full opacity-20"
+        className="absolute w-16 h-16 bg-sunrise/70 blur-xl rounded-full opacity-20"
         style={{ top, left }}
       ></div>
 
       {/* Main Card with backdrop-blur */}
       <div className="flex flex-col space-y-4 rounded-lg p-4">
         <div className="flex items-center space-x-4">
-          <Icon className="w-8 h-8 text-burnt" />
+          <Icon className="w-8 h-8 text-sunrise" />
           <h3 className="text-3xl">{title}</h3>
         </div>
         <p className="text-start text-lg">{text}</p>
@@ -95,7 +91,7 @@ function StatementCard({ title, text, Icon }: StatementCardProps) {
 function Statements() {
   return (
     <Section>
-      <div className="grid grid-cols-1 md:grid-cols-2 text-gray-800 gap-5 sm:gap-10 text-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 text-ink gap-5 sm:gap-10 text-center">
         <StatementCard
           title="Vision"
           text="Unsere Vision ist ein bildungsgerechtes Deutschland, in dem alle Kinder und Jugendliche einen Zugang zu schulischer und sozialer Bildung haben, welcher ihnen ein selbstbestimmtes Leben ermöglicht."
@@ -144,14 +140,14 @@ function ProjectCard({
     <div className="group relative max-w-xl p-6 flex flex-col justify-between rounded-lg backdrop-blur-md shadow-lg">
       {/* Red orb */}
       <div
-        className="absolute w-16 h-16 bg-burnt/30 blur-xl rounded-full opacity-40"
+        className="absolute w-16 h-16 bg-sunrise/30 blur-xl rounded-full opacity-40"
         style={{ top, left }}
       ></div>
 
       <div className="mb-4">
-        <h4 className="text-xl text-gray-800 font-semibold mb-4">{title}</h4>
-        <h5 className=" text-gray-800 italic mb-4">{subttitle}</h5>
-        <p className="text-gray-700">{description}</p>
+        <h4 className="text-xl text-ink font-semibold mb-4">{title}</h4>
+        <h5 className=" text-ink italic mb-4">{subttitle}</h5>
+        <p className="text-ink">{description}</p>
       </div>
 
       {buttonText &&
@@ -167,17 +163,17 @@ function Projects() {
     <Section>
       <h2
         id="projects"
-        className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-8 sm:mb-16 font-semibold"
+        className="text-4xl sm:text-5xl text-ink text-center uppercase tracking-widest mb-8 sm:mb-16 font-semibold"
       >
         Projekte
       </h2>
-      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold">
+      <h3 className="text-2xl text-ink text-center mb-8 font-semibold">
         Entwicklung eigenständiger Projekte (
         <a
           href="https://www.sot.tum.de/wtg/tuminspiriert-studentische-projekte/"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-blue-600 transition-all duration-300"
+          className="underline hover:text-port transition-all duration-300"
         >
           An der TUM 3 ECTS möglich
         </a>{" "}
@@ -251,7 +247,7 @@ function Projects() {
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         /> */}
       </div>
-      {/* <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
+      {/* <h3 className="text-2xl text-ink text-center mb-8 font-semibold pt-10">
         Unterstützung bei Projekten in ganz München
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
@@ -270,7 +266,7 @@ function Projects() {
           // href="https://h47ugi7vs69.typeform.com/to/Du70lKoV"
         />
       </div>
-      <h3 className="text-2xl text-gray-800 text-center mb-8 font-semibold pt-10">
+      <h3 className="text-2xl text-ink text-center mb-8 font-semibold pt-10">
         1-zu-1 Förderung von Kindern und Jugendlichen
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center mb-10">
@@ -362,7 +358,7 @@ function Havens() {
     <Section>
       <h2
         id="havens"
-        className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest® mb-8 sm:mb-16 font-semibold"
+        className="text-4xl sm:text-5xl text-ink text-center uppercase tracking-widest® mb-8 sm:mb-16 font-semibold"
       >
         Unsere Haven und Partner
       </h2>
@@ -382,12 +378,12 @@ function TimelineEvent({ start, end, title, description }: TimelineEventProps) {
   return (
     <div className="grid grid-cols-2">
       <div className="mr-0 mb-6">
-        <h4 className="text-gray-800 text-right text-lg">{start}</h4>
-        <h4 className="text-gray-800  text-right pb-8 text-lg"> {end}</h4>
+        <h4 className="text-ink text-right text-lg">{start}</h4>
+        <h4 className="text-ink  text-right pb-8 text-lg"> {end}</h4>
       </div>
       <div className="pb-4 ml-4 pl-2 border-l-2 border-black">
-        <h5 className="text-gray-800  text-lg font-semibold">{title}</h5>
-        <p className="text-gray-700">{description}</p>
+        <h5 className="text-ink  text-lg font-semibold">{title}</h5>
+        <p className="text-ink">{description}</p>
       </div>
     </div>
   );
@@ -445,16 +441,16 @@ function SailsettersAbout() {
     <Section>
       <h2
         id="join"
-        className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold"
+        className="text-4xl sm:text-5xl text-ink text-center uppercase tracking-widest mb-10 font-semibold"
       >
         Wer sind wir?
       </h2>
-      <div className="flex flex-col text-gray-800 justify-center items-center">
-        <div className="flex flex-col justify-center items-center first-line:max-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-8">
+      <div className="flex flex-col text-ink justify-center items-center">
+        <div className="flex flex-col justify-center items-center first-line:max-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-ink space-y-8">
           <div className="relative w-8/10 h-full">
             <img src="/team-picture-bolder.png" alt="Team picture" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 items-end font-semibold text-center text-blood space-y-4 tracking-wide">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end font-semibold text-center text-port space-y-4 tracking-wide">
             <p>LEIDENSCHAFTLICH ENGAGIERT</p>
             <p>DYNAMISCH</p>
             <p>GEMEINSCHAFTLICH</p>
@@ -475,13 +471,13 @@ function SailsetterDescription() {
     <Section>
       <h2
         id="join"
-        className="text-4xl sm:text-5xl text-gray-800 text-center uppercase tracking-widest mb-10 font-semibold"
+        className="text-4xl sm:text-5xl text-ink text-center uppercase tracking-widest mb-10 font-semibold"
       >
         Werde jetzt Sailsetter:in!
       </h2>
 
-      <div className="flex flex-col text-gray-800 justify-center items-center">
-        <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-gray-800 space-y-6">
+      <div className="flex flex-col text-ink justify-center items-center">
+        <div className="flex flex-col justify-center items-centermax-w-[800px] sm:w-3/4 md:w1/2 text-center text-lg text-ink space-y-6">
           {/* <p>
             Sprich noch heute mit uns und starte auf deine Reise als
             Sailsetter:in. Das heißt du engagierst du dich während dem Semester
@@ -514,7 +510,7 @@ function SailsetterDescription() {
           <div className="flex justify-center pt-8">
             <div className="w-4/5 sm:w-1/2">
               <Link href="/bewerbung">
-                <div className="text-lg sm:text-xl text-center text-linen p-2 sm:p-4 rounded-lg shadow-md bg-burnt/80 hover:bg-burnt hover:text-linen transition-all duration-200 w-full">
+                <div className="text-lg sm:text-xl text-center text-paper p-2 sm:p-4 rounded-lg shadow-md bg-port hover:bg-ink transition-all duration-200 w-full">
                   <div>Werde jetzt Sailsetter:in!</div>
                 </div>
               </Link>

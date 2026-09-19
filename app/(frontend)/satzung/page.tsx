@@ -8,7 +8,7 @@ interface ParagraphProps {
 
 function Paragraph({ number, text }: ParagraphProps) {
   return (
-    <p className="mb-3 text-black">
+    <p className="mb-3 text-ink">
       <span className="font-semibold">({number})</span> {text}
     </p>
   );
@@ -20,21 +20,21 @@ interface SubParagraphProps {
 
 function SubParagraph({ number, text }: SubParagraphProps) {
   return (
-    <p className="pl-8 mb-3 text-black">
+    <p className="pl-8 mb-3 text-ink">
       <span className="font-semibold">{number}</span> {text}
     </p>
   );
 }
 
 function SectionTitle({ title }: { title: string }) {
-  return <h1 className="text-lg font-bold text-black my-4">{title}</h1>;
+  return <h1 className="text-lg text-ink my-4">{title}</h1>;
 }
 
 function Satzung() {
   return (
     <Section>
       <div className="max-w-2xl mx-auto mt-10 p-6  bg-opacity-60">
-        <h1 className="text-2xl font-bold text-black mb-5">Satzung</h1>
+        <h1 className="text-2xl text-ink mb-5">Satzung</h1>
         <SectionTitle title="§ 1 Name, Sitz, Geschäftsjahr" />
         <Paragraph
           number={1}

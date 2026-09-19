@@ -4,7 +4,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {Analytics} from "@vercel/analytics/next";
-import {inter} from "./fonts"
+import {fraunces, inter} from "./fonts"
 
 export const metadata: Metadata = {
   title: 'Sailsetters – Gemeinsam für ein bildungsgerechtes Deutschland',
@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de">
-      <body className={inter.className}>
+    <html lang="de" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="font-sans">
         <Navbar />
         {children}
         <Footer />

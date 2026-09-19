@@ -27,27 +27,27 @@ const Navbar = () => {
 
     return (
         <div
-            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-xl bg-linen/30' : 'bg-transparent'}`}>
+            className={`fixed left-0 top-0 w-full z-10 ease-in duration-200 ${isScrolled ? 'backdrop-blur-xl bg-sand/60' : 'bg-transparent'}`}>
             <div className="max-w-[1240px] m-auto flex justify-between items-center p-4">
                 <Link href='/' className='z-10'>
-                    <Image src='/sailsetters_logo.png' alt='Sailsetters' width={70} height={80}/>
+                    <Image src='/logo_ink.png' alt='Sailsetters' width={44} height={60}/>
                 </Link>
-                <ul className={`hidden sm:flex text-gray-800 text-lg`}>
+                <ul className={`hidden sm:flex text-ink text-lg`}>
                     {links.map(link => (
-                        <Link key={link.href} href={link.href} className="cursor-pointer p-4 hover:text-gray-500 ease-in duration-100">{link.text}</Link>
+                        <Link key={link.href} href={link.href} className="cursor-pointer p-4 hover:text-port ease-in duration-100">{link.text}</Link>
                     ))}
                 </ul>
                 <div onClick={() => setNav(!nav)} className="block sm:hidden z-10">
                     {nav ?
-                        <XMarkIcon className={`h-8 w-8 text-gray-800`}/> :
-                        <Bars3Icon className={`h-8 w-8 text-gray-800`}/>
+                        <XMarkIcon className={`h-8 w-8 text-ink`}/> :
+                        <Bars3Icon className={`h-8 w-8 text-ink`}/>
                     }
                 </div>
                 <ul className={`${baseClassMobile} ${nav ? 'opacity-100' : 'opacity-0 collapse'}`}>
                     {links.map(link => (
-                        <Link key={link.href} href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-gray-500 text-gray-800 ease-in duration-100">{link.text}</Link>
+                        <Link key={link.href} href={link.href} onClick={() => setNav(false)} className="p-4 text-2xl hover:cursor-pointer hover:text-port text-ink ease-in duration-100">{link.text}</Link>
                         // <Link href={link.href} onClick={() => setNav(false)}
-                        //       className='p-4 text-2xl hover:text-gray-500 text-gray-800 ease-in duration-100'>
+                        //       className='p-4 text-2xl hover:text-port text-ink ease-in duration-100'>
                         //     {link.text}
                         // </Link>
                     ))}

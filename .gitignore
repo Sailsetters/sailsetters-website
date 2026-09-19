@@ -42,3 +42,5 @@ next-env.d.ts
 # are not committed. payload-types.ts and admin/importMap.js ARE committed so
 # the project builds without a database connection.
 /public/media
+
+/Sailsetters_Design_Paket

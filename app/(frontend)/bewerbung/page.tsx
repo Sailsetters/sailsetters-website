@@ -14,10 +14,10 @@ export default function BewerbungPage() {
   return (
     <Section className="pt-32">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl font-bold text-blood sm:text-4xl">
+        <h1 className="text-3xl text-ink sm:text-4xl">
           Sailsetter:in werden
         </h1>
-        <p className="mt-4 text-lg text-gray-800">
+        <p className="mt-4 text-lg text-ink">
           Schön, dass du dabei sein möchtest! Erzähl uns kurz etwas über dich — wir
           melden uns danach bei dir für ein Kennenlerngespräch.
         </p>

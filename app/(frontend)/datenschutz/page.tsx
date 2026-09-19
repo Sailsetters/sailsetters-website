@@ -17,7 +17,7 @@ export default function DatenschutzPage() {
   return (
     <Section className="pt-32">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl font-bold text-blood sm:text-4xl">Datenschutz</h1>
+        <h1 className="text-3xl text-ink sm:text-4xl">Datenschutz</h1>
       </div>
     </Section>
   )

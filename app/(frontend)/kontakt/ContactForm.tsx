@@ -13,9 +13,9 @@ export default function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <div role="status" className="rounded-lg bg-powder p-6 shadow-md">
-        <h2 className="text-xl font-semibold text-blood">Nachricht gesendet</h2>
-        <p className="mt-2 text-gray-800">{state.message}</p>
+      <div role="status" className="rounded-lg bg-paper p-6 shadow-md">
+        <h2 className="text-xl font-semibold text-ink">Nachricht gesendet</h2>
+        <p className="mt-2 text-ink">{state.message}</p>
       </div>
     )
   }
@@ -25,7 +25,7 @@ export default function ContactForm() {
   return (
     <form action={formAction} className="flex flex-col space-y-6">
       {state.status === 'error' && state.message && (
-        <p role="alert" className="rounded-lg bg-tawny/10 p-4 text-tawny">
+        <p role="alert" className="rounded-lg bg-port/10 p-4 text-port">
           {state.message}
         </p>
       )}

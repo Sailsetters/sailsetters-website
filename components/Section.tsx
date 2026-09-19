@@ -5,12 +5,13 @@ import Image from "next/image";
 const styles = cva("relative p-8 sm:py-16 lg:py-32", {
     variants: {
         background: {
-            lblue: "bg-linen",
-            inverted: "bg-gradient-to-b from-blue-700 to-blue-800 text-white",
+            sand: "bg-sand",
+            dune: "bg-dune",
+            ink: "bg-ink text-sand",
         },
     },
     defaultVariants: {
-        background: "lblue",
+        background: "sand",
     },
 });
 

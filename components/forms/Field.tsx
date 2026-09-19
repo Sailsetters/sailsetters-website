@@ -1,9 +1,9 @@
 import React from 'react'
 
 const inputStyle =
-  'w-full rounded-lg border border-blood/20 bg-powder px-3 py-2 text-gray-900 ' +
-  'focus:border-blood focus:outline-none focus:ring-2 focus:ring-blood/30 ' +
-  'aria-[invalid=true]:border-tawny aria-[invalid=true]:ring-tawny/30'
+  'w-full rounded-lg border border-driftwood/30 bg-paper px-3 py-2 text-ink ' +
+  'focus:border-port focus:outline-none focus:ring-2 focus:ring-port/30 ' +
+  'aria-[invalid=true]:border-port aria-[invalid=true]:ring-port/30'
 
 type BaseProps = {
   name: string
@@ -23,14 +23,14 @@ function Wrapper({
 }: BaseProps & { children: React.ReactNode }) {
   return (
     <div className="flex flex-col space-y-1">
-      <label htmlFor={name} className="font-medium text-gray-900">
+      <label htmlFor={name} className="font-medium text-ink">
         {label}
-        {required && <span className="text-tawny"> *</span>}
+        {required && <span className="text-port"> *</span>}
       </label>
-      {hint && <p className="text-sm text-gray-700">{hint}</p>}
+      {hint && <p className="text-sm text-ink">{hint}</p>}
       {children}
       {error && (
-        <p id={`${name}-error`} role="alert" className="text-sm text-tawny">
+        <p id={`${name}-error`} role="alert" className="text-sm text-port">
           {error}
         </p>
       )}
@@ -91,19 +91,19 @@ export function ConsentField({ error }: { error?: string }) {
           required
           aria-invalid={Boolean(error)}
           aria-describedby={error ? 'consent-error' : undefined}
-          className="mt-1 h-4 w-4 shrink-0 accent-blood"
+          className="mt-1 h-4 w-4 shrink-0 accent-port"
         />
-        <span className="text-sm text-gray-800">
+        <span className="text-sm text-ink">
           Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
           Anfrage gespeichert werden. Weitere Informationen findest du in der{' '}
-          <a href="/datenschutz" className="underline hover:text-blood">
+          <a href="/datenschutz" className="underline hover:text-port">
             Datenschutzerklärung
           </a>
           .
         </span>
       </label>
       {error && (
-        <p id="consent-error" role="alert" className="text-sm text-tawny">
+        <p id="consent-error" role="alert" className="text-sm text-port">
           {error}
         </p>
       )}
