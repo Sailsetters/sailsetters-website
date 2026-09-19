@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
-import Section from '@/components/Section'
+import FormPage from '@/components/forms/FormPage'
+import PageHeader from '@/components/ui/PageHeader'
+import { verein } from '@/lib/verein'
 
 import ContactForm from './ContactForm'
 
@@ -21,32 +23,40 @@ export default async function KontaktPage({
 }) {
   const { betreff } = await searchParams
   const defaultSubject = betreff ? SUBJECTS[betreff] : undefined
+  const partnerIntro = betreff === 'partnerschaft'
+
   return (
-    <Section className="pt-32">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl text-ink sm:text-4xl">Kontakt</h1>
-        <p className="mt-4 text-lg text-ink">
-          Du hast eine Frage, möchtest mit uns zusammenarbeiten oder uns
-          unterstützen? Schreib uns — wir melden uns so bald wie möglich.
-        </p>
-
-        <div className="mt-8 rounded-lg bg-paper p-6 shadow-md">
-          <h2 className="font-semibold text-ink">Sailsetters e.V.</h2>
-          <p className="mt-2 text-ink">
-            Zedernweg 6
-            <br />
-            80939 München
-            <br />
-            <a href="mailto:contact@sailsetters.de" className="underline hover:text-port">
-              contact@sailsetters.de
-            </a>
-          </p>
-        </div>
-
-        <div className="mt-10">
-          <ContactForm defaultSubject={defaultSubject} />
-        </div>
-      </div>
-    </Section>
+    <>
+      <PageHeader
+        eyebrow="Kontakt"
+        title={partnerIntro ? 'Werde unser Haven' : 'Schreib uns'}
+        intro={
+          partnerIntro
+            ? 'Erzähl uns, wo Studierende bei euch etwas bewegen könnten. Wir entwickeln gemeinsam ein Angebot, das zu eurer Einrichtung passt.'
+            : 'Du hast eine Frage, möchtest mit uns zusammenarbeiten oder uns unterstützen? Wir melden uns so bald wie möglich.'
+        }
+      />
+      <FormPage
+        form={<ContactForm defaultSubject={defaultSubject} />}
+        aside={
+          <>
+            <div className="flex flex-col gap-3 rounded-[20px] bg-dune p-6">
+              <h2 className="text-xl">{verein.name}</h2>
+              <address className="not-italic leading-relaxed">
+                {verein.street}
+                <br />
+                {verein.city}
+              </address>
+              <a href={`mailto:${verein.email}`} className="underline hover:text-port">
+                {verein.email}
+              </a>
+            </div>
+            <p className="px-1 text-[15px] text-driftwood">
+              Wir sind ehrenamtlich unterwegs und antworten meist innerhalb weniger Tage.
+            </p>
+          </>
+        }
+      />
+    </>
   )
 }

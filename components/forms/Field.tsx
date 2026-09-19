@@ -1,9 +1,10 @@
 import React from 'react'
 
 const inputStyle =
-  'w-full rounded-lg border border-driftwood/30 bg-paper px-3 py-2 text-ink ' +
-  'focus:border-port focus:outline-none focus:ring-2 focus:ring-port/30 ' +
-  'aria-[invalid=true]:border-port aria-[invalid=true]:ring-port/30'
+  'w-full rounded-xl border border-driftwood/30 bg-paper px-4 py-3 text-ink ' +
+  'placeholder:text-driftwood/70 transition-colors ' +
+  'focus:border-port focus:outline-none focus:ring-2 focus:ring-port/25 ' +
+  'aria-[invalid=true]:border-port aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-port/25'
 
 type BaseProps = {
   name: string
@@ -22,12 +23,17 @@ function Wrapper({
   children,
 }: BaseProps & { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col space-y-1">
-      <label htmlFor={name} className="font-medium text-ink">
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor={name} className="text-[15px] font-medium text-ink">
         {label}
-        {required && <span className="text-port"> *</span>}
+        {required && (
+          <span className="text-port" aria-hidden="true">
+            {' '}
+            *
+          </span>
+        )}
       </label>
-      {hint && <p className="text-sm text-ink">{hint}</p>}
+      {hint && <p className="text-sm text-driftwood">{hint}</p>}
       {children}
       {error && (
         <p id={`${name}-error`} role="alert" className="text-sm text-port">
@@ -82,8 +88,8 @@ export function TextAreaField({
 
 export function ConsentField({ error }: { error?: string }) {
   return (
-    <div className="flex flex-col space-y-1">
-      <label htmlFor="consent" className="flex items-start space-x-2">
+    <div className="flex flex-col gap-1.5">
+      <label htmlFor="consent" className="flex items-start gap-3">
         <input
           id="consent"
           name="consent"
@@ -91,9 +97,9 @@ export function ConsentField({ error }: { error?: string }) {
           required
           aria-invalid={Boolean(error)}
           aria-describedby={error ? 'consent-error' : undefined}
-          className="mt-1 h-4 w-4 shrink-0 accent-port"
+          className="mt-1 h-5 w-5 shrink-0 accent-port"
         />
-        <span className="text-sm text-ink">
+        <span className="text-sm leading-relaxed text-ink">
           Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
           Anfrage gespeichert werden. Weitere Informationen findest du in der{' '}
           <a href="/datenschutz" className="underline hover:text-port">

@@ -1,6 +1,8 @@
-import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
+
+import { verein } from '@/lib/verein'
 
 const columns = [
   {
@@ -32,7 +34,6 @@ const columns = [
 const social = [
   { href: 'https://www.instagram.com/sailsetters/', label: 'Instagram', icon: faInstagram },
   { href: 'https://www.linkedin.com/company/sailsetters', label: 'LinkedIn', icon: faLinkedin },
-  { href: 'https://www.facebook.com/sailsetters', label: 'Facebook', icon: faFacebook },
 ]
 
 /*
@@ -75,9 +76,11 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-1.5 border-t border-sand/15 pt-6 text-sm text-dune sm:flex-row sm:justify-between">
-          <span>© {year} Sailsetters e.V. · Zedernweg 6 · 80939 München</span>
-          <a href="mailto:contact@sailsetters.de" className="hover:text-paper">
-            contact@sailsetters.de
+          <span>
+            © {year} {verein.name} · {verein.street} · {verein.city}
+          </span>
+          <a href={`mailto:${verein.email}`} className="hover:text-paper">
+            {verein.email}
           </a>
         </div>
       </div>

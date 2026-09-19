@@ -1,7 +1,7 @@
 import Container from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
-const steps = [
+export const semesterSteps = [
   { title: 'Bewerbung', text: 'Über unser Online-Formular – Name, Studium, Motivation. Mehr brauchen wir am Anfang nicht.' },
   { title: 'Kennenlernen', text: 'Ein Gespräch mit zwei Sailsetter:innen. Wir wollen wissen, was dich antreibt – nicht deinen Lebenslauf.' },
   { title: 'Onboarding Day', text: 'Alle neuen Sailsetter:innen lernen den Verein, die Havens und ihre Projektteams kennen.' },
@@ -17,7 +17,7 @@ export default function Semester() {
         <ol className="relative grid grid-cols-1 gap-6 md:grid-cols-5 md:gap-6">
           {/* connecting line: vertical on mobile, horizontal from md */}
           <span aria-hidden="true" className="absolute top-5 bottom-5 left-5 w-0.5 bg-dune md:top-6 md:right-6 md:bottom-auto md:left-6 md:h-0.5 md:w-auto" />
-          {steps.map((s, i) => (
+          {semesterSteps.map((s, i) => (
             <li key={s.title} className="relative flex gap-4 md:flex-col md:gap-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-port font-display text-[17px] font-semibold text-paper md:h-12 md:w-12 md:text-xl">
                 {i + 1}

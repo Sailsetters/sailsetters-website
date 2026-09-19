@@ -1,40 +1,78 @@
-import React from "react";
-import Section from "@/components/Section";
+import type { Metadata } from 'next'
 
-interface ParagraphProps {
-  number: number;
-  text: string;
+import Container from '@/components/ui/Container'
+import PageHeader from '@/components/ui/PageHeader'
+import Prose from '@/components/ui/Prose'
+
+export const metadata: Metadata = {
+  title: 'Satzung — Sailsetters',
+  description: 'Die Satzung des Sailsetters e.V.',
 }
 
-function Paragraph({ number, text }: ParagraphProps) {
+/** Anchor id for a section title like "§ 12 Mitgliederversammlung" → "p12". */
+const anchor = (title: string) => 'p' + (title.match(/§ (\d+)/)?.[1] ?? '')
+
+const sections = [
+  '§ 1 Name, Sitz, Geschäftsjahr',
+  '§ 2 Zweck, Gemeinnützigkeit',
+  '§ 3 Erwerb der Mitgliedschaft',
+  '§ 4 Beendigung der Mitgliedschaft',
+  '§ 5 Mitgliedsbeiträge',
+  '§ 6 Rechte und Pflichten der Mitglieder',
+  '§ 7 Organe des Vereins',
+  '§ 8 Vorstand',
+  '§ 9 Zuständigkeit des Vorstands',
+  '§ 10 Wahl und Amtsdauer des Vorstands',
+  '§ 11 Sitzung und Beschlüsse des Vorstands',
+  '§ 12 Mitgliederversammlung',
+  '§ 13 Einberufung der Mitgliederversammlung',
+  '§ 14 Ablauf der Mitgliederversammlung',
+  '§ 15 Auflösung des Vereins',
+]
+
+function Paragraph({ number, text }: { number: number; text: string }) {
   return (
-    <p className="mb-3 text-ink">
+    <p>
       <span className="font-semibold">({number})</span> {text}
     </p>
-  );
-}
-interface SubParagraphProps {
-  number: string;
-  text: string;
+  )
 }
 
-function SubParagraph({ number, text }: SubParagraphProps) {
+function SubParagraph({ number, text }: { number: string; text: string }) {
   return (
-    <p className="pl-8 mb-3 text-ink">
+    <p className="pl-8">
       <span className="font-semibold">{number}</span> {text}
     </p>
-  );
+  )
 }
 
 function SectionTitle({ title }: { title: string }) {
-  return <h1 className="text-lg text-ink my-4">{title}</h1>;
+  return (
+    <h2 id={anchor(title)} className="scroll-mt-28">
+      {title}
+    </h2>
+  )
 }
 
-function Satzung() {
+export default function Satzung() {
   return (
-    <Section>
-      <div className="max-w-2xl mx-auto mt-10 p-6  bg-opacity-60">
-        <h1 className="text-2xl text-ink mb-5">Satzung</h1>
+    <>
+      <PageHeader eyebrow="Rechtliches" title="Satzung" intro="Die Satzung des Sailsetters e.V. in der aktuellen Fassung." />
+      <Container className="pb-20 lg:pb-28">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-16">
+          <nav aria-label="Inhalt" className="lg:sticky lg:top-28">
+            <span className="text-sm font-semibold uppercase tracking-[0.08em] text-driftwood">Inhalt</span>
+            <ol className="mt-3 flex flex-col gap-1.5 text-[15px]">
+              {sections.map((t) => (
+                <li key={t}>
+                  <a href={`#${anchor(t)}`} className="text-ink hover:text-port">
+                    {t}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+          <Prose>
         <SectionTitle title="§ 1 Name, Sitz, Geschäftsjahr" />
         <Paragraph
           number={1}
@@ -267,9 +305,10 @@ function Satzung() {
           number={2}
           text="Falls die Mitgliederversammlung mit einfacher Mehrheit nichts anderes beschließt, sind der Vorsitzende und der Stellvertretende Vorsitzende gemeinsam vertretungsberechtigte Liquidatoren."
         />
-      </div>
-    </Section>
-  );
-}
 
-export default Satzung;
+          </Prose>
+        </div>
+      </Container>
+    </>
+  )
+}

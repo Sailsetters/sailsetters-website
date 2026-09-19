@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
-import Section from '@/components/Section'
+import Container from '@/components/ui/Container'
+import PageHeader from '@/components/ui/PageHeader'
+import Prose from '@/components/ui/Prose'
 
 export const metadata: Metadata = {
   title: 'Datenschutz — Sailsetters',
@@ -15,10 +17,11 @@ export const metadata: Metadata = {
  */
 export default function DatenschutzPage() {
   return (
-    <Section className="pt-32">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl text-ink sm:text-4xl">Datenschutz</h1>
-      </div>
-    </Section>
+    <>
+      <PageHeader eyebrow="Rechtliches" title="Datenschutzerklärung" />
+      <Container className="pb-20 lg:pb-28">
+        <Prose>{null}</Prose>
+      </Container>
+    </>
   )
 }
