@@ -93,7 +93,7 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 ### Seiten aus Payload
 
 Die Startseite (aktuelle Projekte, Havens & Partner, Kennzahlen), `/projekte`
-(alle aktiven Projekte mit Filter) und `/verein` (Vorstand) werden statisch
+(aktuelle und vergangene Projekte) und `/verein` (Vorstand) werden statisch
 aus Payload gerendert. Jede Änderung an diesen Collections ruft
 `revalidatePath` für die drei Seiten auf (siehe `lib/revalidate.ts`), sodass
 sie sofort sichtbar ist, ohne dass jemand deployen muss.

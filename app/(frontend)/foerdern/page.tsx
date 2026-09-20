@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import InfoCard from '@/components/ui/InfoCard'
 import LinkButton from '@/components/ui/LinkButton'
 import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
@@ -39,10 +40,7 @@ export default function FoerdernPage() {
           </div>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {kosten.map((k) => (
-              <li key={k.title} className="flex flex-col gap-3 rounded-2xl bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] lg:p-7">
-                <h3 className="text-xl lg:text-[22px]">{k.title}</h3>
-                <p className="text-[15px] leading-relaxed text-driftwood">{k.text}</p>
-              </li>
+              <InfoCard key={k.title} title={k.title} text={k.text} />
             ))}
           </ul>
         </section>
@@ -69,7 +67,7 @@ export default function FoerdernPage() {
                   Weitere von uns.
                 </p>
               </div>
-              <LinkButton href="/kontakt?betreff=spende">Kontakt aufnehmen</LinkButton>
+              <LinkButton href="/kontakt?betreff=spende">Spenden: Kontakt aufnehmen</LinkButton>
             </div>
             <div className="flex flex-col items-start gap-5 rounded-[20px] bg-dune p-6 sm:p-8">
               <div className="flex flex-col gap-2">
@@ -80,7 +78,7 @@ export default function FoerdernPage() {
                 </p>
               </div>
               <LinkButton href="/kontakt?betreff=foerderung" variant="secondary">
-                Kontakt aufnehmen
+                Förderung anfragen
               </LinkButton>
             </div>
           </div>

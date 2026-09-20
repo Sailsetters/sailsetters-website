@@ -11,23 +11,32 @@ export const metadata: Metadata = {
   description: 'Schreib uns eine Nachricht. Wir freuen uns auf deine Anfrage.',
 }
 
-// Known prefills, keyed by the ?betreff= value the homepage links with.
-const SUBJECTS: Record<string, string> = {
-  partnerschaft: 'Partnerschaft mit Sailsetters',
-  foerderung: 'Förderung von Sailsetters',
-  spende: 'Spende an Sailsetters',
-}
+// Prefills keyed by the ?betreff= value that /, /foerdern and /verein link
+// with. Looked up with Object.hasOwn so ?betreff=constructor (an inherited
+// key) falls through to the default instead of rendering an empty header.
+type Prefill = { subject: string; title?: string; intro?: string }
 
-// Header copy per prefill; anything else gets the default.
-const HEADERS: Record<string, { title: string; intro: string }> = {
+const PREFILLS: Record<string, Prefill> = {
   partnerschaft: {
+    subject: 'Partnerschaft mit Sailsetters',
     title: 'Werde unser Haven',
     intro: 'Erzähl uns, wo Studierende bei euch etwas bewegen könnten. Wir entwickeln gemeinsam ein Angebot, das zu eurer Einrichtung passt.',
   },
   spende: {
+    subject: 'Spende an Sailsetters',
     title: 'Danke, dass du uns unterstützen willst',
     intro: 'Schreib uns kurz, und wir schicken dir alles, was du für deine Spende brauchst: die Bankverbindung und auf Wunsch eine Zuwendungsbestätigung.',
   },
+  foerderung: {
+    subject: 'Förderung von Sailsetters',
+    title: 'Sailsetters dauerhaft fördern',
+    intro: 'Unternehmen und Stiftungen, die uns über eine einzelne Spende hinaus unterstützen möchten: Schreib uns, was ihr euch vorstellt. Unsere Outreach-Taskforce meldet sich.',
+  },
+}
+
+const DEFAULT_HEADER = {
+  title: 'Schreib uns',
+  intro: 'Du hast eine Frage, möchtest mit uns zusammenarbeiten oder uns unterstützen? Wir melden uns so bald wie möglich.',
 }
 
 export default async function KontaktPage({
@@ -36,17 +45,14 @@ export default async function KontaktPage({
   searchParams: Promise<{ betreff?: string }>
 }) {
   const { betreff } = await searchParams
-  const defaultSubject = betreff ? SUBJECTS[betreff] : undefined
-  const header = (betreff && HEADERS[betreff]) || {
-    title: 'Schreib uns',
-    intro: 'Du hast eine Frage, möchtest mit uns zusammenarbeiten oder uns unterstützen? Wir melden uns so bald wie möglich.',
-  }
+  const prefill = betreff && Object.hasOwn(PREFILLS, betreff) ? PREFILLS[betreff] : undefined
+  const header = prefill?.title ? { title: prefill.title, intro: prefill.intro } : DEFAULT_HEADER
 
   return (
     <>
       <PageHeader eyebrow="Kontakt" title={header.title} intro={header.intro} />
       <FormPage
-        form={<ContactForm defaultSubject={defaultSubject} />}
+        form={<ContactForm defaultSubject={prefill?.subject} />}
         aside={
           <>
             <div className="flex flex-col gap-3 rounded-[20px] bg-dune p-6">

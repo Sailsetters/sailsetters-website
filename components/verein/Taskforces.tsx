@@ -1,4 +1,5 @@
 import Container from '@/components/ui/Container'
+import InfoCard from '@/components/ui/InfoCard'
 import LinkButton from '@/components/ui/LinkButton'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
@@ -35,10 +36,7 @@ export default function Taskforces() {
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {taskforces.map((t) => (
-            <li key={t.title} className="flex flex-col gap-3 rounded-2xl bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] lg:p-7">
-              <h3 className="text-xl lg:text-[22px]">{t.title}</h3>
-              <p className="text-[15px] leading-relaxed text-driftwood">{t.text}</p>
-            </li>
+            <InfoCard key={t.title} title={t.title} text={t.text} />
           ))}
         </ul>
 
