@@ -174,9 +174,15 @@ follows it:
 Still open before this can serve real traffic:
 
 - **Hosting**: Vercel Pro (the Hobby plan is not covered by Vercel's DPA).
-- **Database**: point `DATABASE_URI` at the Neon (Frankfurt) instance from the
-  Vercel Marketplace. Use the **pooled** connection string — serverless
-  functions exhaust an unpooled one.
+- **Database**: point `DATABASE_URI` at the Neon (Frankfurt) instance. Use the
+  **pooled** connection string (host contains `-pooler`) — serverless functions
+  exhaust an unpooled one. Neon's Vercel integration injects `DATABASE_URL`
+  instead of `DATABASE_URI`; the config accepts either.
+- **Schema**: Payload only pushes the schema automatically when
+  `NODE_ENV !== 'production'`, so a fresh production database starts empty and
+  the build fails. Either generate migrations (`payload migrate:create`, then
+  `payload migrate`) or, for a test deployment, point `.env.local` at the new
+  database and run `npm run dev` once to create the tables, then `npm run seed`.
 - **Media storage**: add the Vercel Blob integration (store in `fra1`); its
   `BLOB_READ_WRITE_TOKEN` switches `media` (public) and `application-files`
   (private) from local disk to Blob automatically. Then `npm run seed` once

@@ -75,7 +75,9 @@ export default buildConfig({
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      // DATABASE_URL is what Neon's Vercel integration injects (pooled);
+      // DATABASE_URI is what .env.example and local development use.
+      connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || '',
     },
   }),
   secret: process.env.PAYLOAD_SECRET || '',
