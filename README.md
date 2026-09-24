@@ -186,7 +186,9 @@ Still open before this can serve real traffic:
 - **Media storage**: two Vercel Blob stores in `fra1`, since a store is public
   or private for its whole lifetime: a public one for `media` (partner logos,
   board photos) as `BLOB_READ_WRITE_TOKEN`, and a private one for
-  `application-files` (CVs) as `PRIVATE_BLOB_READ_WRITE_TOKEN`. Setting the
+  `application-files` (CVs) as `PRIVATE_BLOB_READ_WRITE_TOKEN` (or
+  `PRIVATE_READ_WRITE_TOKEN`, the name Vercel generates for a second store
+  connected with the prefix `PRIVATE`). Setting the
   first without the second fails the build on purpose, so CVs never land on
   Vercel's ephemeral filesystem. Then `npm run seed` once against the
   production database.

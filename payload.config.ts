@@ -29,14 +29,18 @@ const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // Vercel Blob: one public store for media, one private store for CVs.
 const publicBlobToken = process.env.BLOB_READ_WRITE_TOKEN
-const privateBlobToken = process.env.PRIVATE_BLOB_READ_WRITE_TOKEN
+// Connecting a second Blob store with the prefix PRIVATE makes Vercel name the
+// variable PRIVATE_READ_WRITE_TOKEN; the longer name is what .env.example uses.
+const privateBlobToken =
+  process.env.PRIVATE_BLOB_READ_WRITE_TOKEN || process.env.PRIVATE_READ_WRITE_TOKEN
 
 // Fail loudly rather than write applicants' CVs to Vercel's ephemeral
 // filesystem, where they would vanish on the next deploy.
 if (process.env.VERCEL && publicBlobToken && !privateBlobToken) {
   throw new Error(
-    'PRIVATE_BLOB_READ_WRITE_TOKEN is missing. Create a Vercel Blob store with ' +
-      'private access for applicants\' CVs and set its token, or remove ' +
+    'No private Blob token (PRIVATE_BLOB_READ_WRITE_TOKEN or ' +
+      'PRIVATE_READ_WRITE_TOKEN). Create a Vercel Blob store with private ' +
+      'access for applicants\' CVs and set its token, or remove ' +
       'BLOB_READ_WRITE_TOKEN to keep uploads on disk.',
   )
 }
