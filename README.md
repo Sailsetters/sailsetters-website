@@ -183,10 +183,13 @@ Still open before this can serve real traffic:
   the build fails. Either generate migrations (`payload migrate:create`, then
   `payload migrate`) or, for a test deployment, point `.env.local` at the new
   database and run `npm run dev` once to create the tables, then `npm run seed`.
-- **Media storage**: add the Vercel Blob integration (store in `fra1`); its
-  `BLOB_READ_WRITE_TOKEN` switches `media` (public) and `application-files`
-  (private) from local disk to Blob automatically. Then `npm run seed` once
-  against the production database.
+- **Media storage**: two Vercel Blob stores in `fra1`, since a store is public
+  or private for its whole lifetime: a public one for `media` (partner logos,
+  board photos) as `BLOB_READ_WRITE_TOKEN`, and a private one for
+  `application-files` (CVs) as `PRIVATE_BLOB_READ_WRITE_TOKEN`. Setting the
+  first without the second fails the build on purpose, so CVs never land on
+  Vercel's ephemeral filesystem. Then `npm run seed` once against the
+  production database.
 - **Email**: set the `SMTP_*` variables to the IONOS mailbox that should send
   (see `.env.example`). Without them nothing is sent — drafts can still be
   written, but „Jetzt senden“ only logs to the console.

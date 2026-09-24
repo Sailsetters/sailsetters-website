@@ -27,6 +27,20 @@ import { privateVercelBlobAdapter } from './lib/privateBlobAdapter'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
+// Vercel Blob: one public store for media, one private store for CVs.
+const publicBlobToken = process.env.BLOB_READ_WRITE_TOKEN
+const privateBlobToken = process.env.PRIVATE_BLOB_READ_WRITE_TOKEN
+
+// Fail loudly rather than write applicants' CVs to Vercel's ephemeral
+// filesystem, where they would vanish on the next deploy.
+if (process.env.VERCEL && publicBlobToken && !privateBlobToken) {
+  throw new Error(
+    'PRIVATE_BLOB_READ_WRITE_TOKEN is missing. Create a Vercel Blob store with ' +
+      'private access for applicants\' CVs and set its token, or remove ' +
+      'BLOB_READ_WRITE_TOKEN to keep uploads on disk.',
+  )
+}
+
 // Mail goes out through the Verein's existing IONOS mailbox over SMTP, so no
 // additional processor is involved. Without SMTP_HOST (local dev) Payload
 // falls back to logging emails to the console instead of sending them.
@@ -86,20 +100,26 @@ export default buildConfig({
   },
   sharp,
   plugins: [
-    // Vercel's filesystem is ephemeral, so in production uploads go to
-    // Vercel Blob: public media (logos, photos) through the official plugin,
-    // applicants' CVs as private blobs through our own adapter. Locally,
-    // without the token, both land on disk.
-    ...(process.env.BLOB_READ_WRITE_TOKEN
+    // Vercel's filesystem is ephemeral, so in production uploads go to Vercel
+    // Blob. Two stores, because the site has two kinds of file: public media
+    // (logos, board photos) through the official plugin, and applicants' CVs
+    // as private blobs through our own adapter. A Blob store is public or
+    // private for its whole lifetime, so one store cannot serve both.
+    // Without the tokens — local development — both land on disk.
+    ...(publicBlobToken
       ? [
           vercelBlobStorage({
             collections: { media: true },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
+            token: publicBlobToken,
           }),
+        ]
+      : []),
+    ...(privateBlobToken
+      ? [
           cloudStoragePlugin({
             collections: {
               'application-files': {
-                adapter: privateVercelBlobAdapter({ token: process.env.BLOB_READ_WRITE_TOKEN }),
+                adapter: privateVercelBlobAdapter({ token: privateBlobToken }),
                 disableLocalStorage: true,
               },
             },
