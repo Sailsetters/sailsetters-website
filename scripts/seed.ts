@@ -15,8 +15,15 @@ import config from '@payload-config'
 import { getPayload } from 'payload'
 
 const assets = path.join(path.dirname(fileURLToPath(import.meta.url)), 'seed-assets')
-// Nothing to revalidate outside a Next request.
-const context = { disableRevalidate: true }
+
+/**
+ * Nothing to revalidate outside a Next request.
+ *
+ * A fresh object per call, never a shared one: Payload's cloud-storage hooks
+ * write their own flags into `req.context`, and reusing one object across
+ * creates makes every upload after the first silently do nothing.
+ */
+const context = () => ({ disableRevalidate: true })
 
 const partners = [
   { name: 'Lichtblick Hasenbergl', website: 'https://lichtblick-hasenbergl.org', logo: 'logo_lichtblickHasenbergl.png' },
@@ -162,12 +169,12 @@ if (await isEmpty('partners')) {
       collection: 'media',
       data: { alt: `Logo ${p.name}` },
       filePath: path.join(assets, p.logo),
-      context,
+      context: context(),
     })
     await payload.create({
       collection: 'partners',
       data: { name: p.name, website: p.website, logo: logo.id, order: i },
-      context,
+      context: context(),
     })
   }
   console.log(`${partners.length} Partner angelegt`)
@@ -180,7 +187,7 @@ if (await isEmpty('projects')) {
     await payload.create({
       collection: 'projects',
       data: { ...p, status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert', order: i },
-      context,
+      context: context(),
     })
   }
   console.log(`${projects.length} Projekte angelegt`)
@@ -190,7 +197,7 @@ if (await isEmpty('projects')) {
 
 if (await isEmpty('team')) {
   for (const [i, m] of team.entries()) {
-    await payload.create({ collection: 'team', data: { ...m, order: i }, context })
+    await payload.create({ collection: 'team', data: { ...m, order: i }, context: context() })
   }
   console.log(`${team.length} Vorstandsmitglieder angelegt`)
 } else {
@@ -200,7 +207,7 @@ if (await isEmpty('team')) {
 await payload.updateGlobal({
   slug: 'startseite',
   data: { kennzahlen: { aktiveMitglieder: '30', projekteProSemester: '3–5' } },
-  context,
+  context: context(),
 })
 console.log('Kennzahlen gesetzt')
 
