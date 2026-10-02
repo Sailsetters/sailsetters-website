@@ -65,6 +65,11 @@ const email = process.env.SMTP_HOST
   : undefined
 
 export default buildConfig({
+  // Without it, password-reset emails link to a bare /admin/reset/… path.
+  // Payload also adds it to its CSRF allowlist, which would reject admin
+  // logins from any other origin — hence production only, not locally or on
+  // preview URLs. It makes upload URLs absolute, see next.config.mjs.
+  serverURL: process.env.VERCEL_ENV === 'production' ? 'https://sailsetters.de' : '',
   admin: {
     user: Users.slug,
     meta: {
