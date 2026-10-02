@@ -132,7 +132,11 @@ export const Applications: CollectionConfig = {
       relationTo: 'application-files',
       label: 'Lebenslauf',
       access: { create: authenticated },
-      admin: { description: 'Optional, PDF. Wird über das Formular hochgeladen.' },
+      // Required in the form (see bewerbung/actions.ts), deliberately not
+      // here: NOT NULL on cv_id would clash with its ON DELETE SET NULL
+      // foreign key and break the beforeDelete hook above, which removes the
+      // CV before the application.
+      admin: { description: 'PDF. Pflichtfeld im Bewerbungsformular, wird dort hochgeladen.' },
     },
     {
       name: 'consent',

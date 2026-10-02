@@ -149,8 +149,8 @@ export default function DatenschutzPage() {
           <List>
             <li>Name, E-Mail-Adresse und Alter</li>
             <li>deine Motivation</li>
+            <li>deinen Lebenslauf als PDF</li>
             <li>freiwillig: Hochschule, Studiengang, Fachsemester und Verfügbarkeit</li>
-            <li>freiwillig: deinen Lebenslauf als PDF</li>
           </List>
           <p>
             Wir nutzen diese Angaben, um deine Bewerbung zu prüfen, dich zu einem Kennenlerngespräch

@@ -185,7 +185,7 @@ export interface Application {
    */
   availability?: string | null;
   /**
-   * Optional, PDF. Wird über das Formular hochgeladen.
+   * PDF. Pflichtfeld im Bewerbungsformular, wird dort hochgeladen.
    */
   cv?: (number | null) | ApplicationFile;
   /**

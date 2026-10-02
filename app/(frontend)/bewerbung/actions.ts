@@ -7,11 +7,11 @@ import { getPayload } from 'payload'
 
 import { bewerbungsphase } from '@/lib/bewerbungsphase'
 import {
-  optionalPdf,
   optionalText,
   requiredAge,
   requiredConsent,
   requiredEmail,
+  requiredPdf,
   requiredText,
   type FormState,
 } from '@/lib/forms'
@@ -27,9 +27,10 @@ export async function submitApplication(
   const age = requiredAge(formData, 'age', errors)
   const motivation = requiredText(formData, 'motivation', 'Motivation', errors)
   const consent = requiredConsent(formData, errors)
-  const cv = await optionalPdf(formData, 'cv', errors)
+  const cv = await requiredPdf(formData, 'cv', 'Lebenslauf', errors)
 
-  if (Object.keys(errors).length > 0) {
+  // A missing cv always comes with an error; `!cv` is only for the type checker.
+  if (Object.keys(errors).length > 0 || !cv) {
     return {
       status: 'error',
       message: 'Bitte überprüfe die markierten Felder.',
@@ -51,21 +52,19 @@ export async function submitApplication(
   let cvId: number | undefined
 
   try {
-    if (cv) {
-      // Stored under a random name: the original one is usually the
-      // applicant's own name and would end up in URLs, logs and blob keys.
-      const uploaded = await payload.create({
-        collection: 'application-files',
-        data: {},
-        file: {
-          data: cv.data,
-          mimetype: 'application/pdf',
-          name: `lebenslauf-${randomUUID()}.pdf`,
-          size: cv.data.length,
-        },
-      })
-      cvId = uploaded.id
-    }
+    // Stored under a random name: the original one is usually the
+    // applicant's own name and would end up in URLs, logs and blob keys.
+    const uploaded = await payload.create({
+      collection: 'application-files',
+      data: {},
+      file: {
+        data: cv.data,
+        mimetype: 'application/pdf',
+        name: `lebenslauf-${randomUUID()}.pdf`,
+        size: cv.data.length,
+      },
+    })
+    cvId = uploaded.id
     await payload.create({
       collection: 'applications',
       data: {

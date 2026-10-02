@@ -68,8 +68,9 @@ export default function ApplicationForm() {
       <FileField
         name="cv"
         label="Lebenslauf"
-        hint="Optional. PDF, maximal 5 MB."
+        hint="PDF, maximal 5 MB."
         accept="application/pdf,.pdf"
+        required
         error={errors.cv}
       />
 

@@ -106,3 +106,15 @@ export async function optionalPdf(
   }
   return { name: file.name, data }
 }
+
+/** Like optionalPdf, but no file chosen is an error too. */
+export async function requiredPdf(
+  formData: FormData,
+  field: string,
+  label: string,
+  errors: Record<string, string>,
+): Promise<UploadedPdf | undefined> {
+  const pdf = await optionalPdf(formData, field, errors)
+  if (!pdf && !errors[field]) errors[field] = `${label} ist ein Pflichtfeld.`
+  return pdf
+}
