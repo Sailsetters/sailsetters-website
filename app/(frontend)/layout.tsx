@@ -3,7 +3,6 @@ import type {Metadata} from 'next'
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {Analytics} from "@vercel/analytics/next";
 import {fraunces, inter} from "./fonts"
 
 export const metadata: Metadata = {
@@ -23,7 +22,6 @@ export default function RootLayout({
         <Navbar />
         <main className="overflow-x-clip">{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   )

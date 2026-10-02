@@ -138,6 +138,13 @@ login only; in production they are stored as *private* Vercel blobs via
 `lib/privateBlobAdapter.ts` (the official plugin only supports public blobs).
 Deleting an application deletes its emails and its CV.
 
+**Aufbewahrung** — the Datenschutzerklärung promises these periods, and nothing
+deletes automatically, so someone has to do it by hand:
+
+- Bewerbungen `abgelehnt` / `zurueckgezogen`: delete 6 months after the decision.
+- Accepted applicants: keep while they are active, delete 6 months after they leave.
+- Kontaktanfragen: delete once `erledigt`, at the latest 6 months after the last exchange.
+
 ### Design
 
 The brand is documented in `docs/Sailsetters_Design_Guide.md` (colours,
@@ -174,6 +181,9 @@ follows it:
 Still open before this can serve real traffic:
 
 - **Hosting**: Vercel Pro (the Hobby plan is not covered by Vercel's DPA).
+  `vercel.json` pins functions to `fra1` (Frankfurt), next to the database;
+  Vercel's default for new projects is Washington, D.C., and the
+  Datenschutzerklärung says form data is processed in Frankfurt.
 - **Database**: point `DATABASE_URI` at the Neon (Frankfurt) instance. Use the
   **pooled** connection string (host contains `-pooler`) — serverless functions
   exhaust an unpooled one. Neon's Vercel integration injects `DATABASE_URL`
@@ -197,7 +207,11 @@ Still open before this can serve real traffic:
   written, but „Jetzt senden“ only logs to the console.
 - **Migrations**: the schema is currently pushed automatically in dev. Generate
   real migrations (`payload migrate:create`) before deploying.
-- **Datenschutzerklärung**: legally required once the forms collect data.
+- **Datenschutzerklärung**: written in `app/(frontend)/datenschutz/page.tsx`
+  against the code as it stands; have it reviewed before launch. It names
+  Vercel, Neon and IONOS as processors and says there are no cookies and no
+  analytics — update it whenever that changes. Also conclude the AVV with
+  IONOS in its control centre (unlike Vercel's and Neon's, it is not automatic).
 
 ## Branches
 
