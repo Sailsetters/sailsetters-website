@@ -56,6 +56,11 @@ export default async function BewerbungPage() {
             Studierenden, die neue Projekte anstoßen, und wir unterstützen sie auf dem Weg.
           </p>
           <p className="text-lg leading-relaxed">
+            Sailsetters ist dabei mehr als Projektarbeit. Bei unseren sozialen Events lernst du
+            Mitglieder aus anderen Projekten und Fachrichtungen kennen, knüpfst Kontakte und wirst
+            Teil einer Gemeinschaft, die über dein eigenes Projekt hinausreicht.
+          </p>
+          <p className="text-lg leading-relaxed">
             Nicht jede:r muss in ein Projekt. Wer lieber Erfahrung in unseren Taskforces sammeln
             will, in Marketing, Outreach, Community oder Recruiting, ist genauso willkommen, auch
             ohne aktive Projektarbeit. Schreib es einfach in deine Motivation.

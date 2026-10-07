@@ -4,5 +4,5 @@ export const semesterSteps = [
   { title: 'Kennenlernen', text: 'Ein Gespräch mit zwei Sailsetter:innen. Wir wollen wissen, was dich antreibt.' },
   { title: 'Onboarding Day', text: 'Alle neuen Sailsetter:innen lernen den Verein, die Havens und ihre Projektteams kennen.' },
   { title: 'Projektphase', text: 'Im Schnitt ein bis zwei Stunden pro Woche, in einem oder mehreren Projekten, in der Prüfungszeit deutlich weniger.' },
-  { title: 'Reflection Day', text: 'Alle Aktiven tauschen in einem Workshop aus, was sie in ihren Projekten erlebt haben.' },
+  { title: 'Gemeinsame Events', text: 'Neben den Projekten gibt es soziale Events, bei denen du Sailsetter:innen aus anderen Projekten und Fachrichtungen kennenlernst.' },
 ]
