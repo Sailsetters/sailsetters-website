@@ -13,6 +13,7 @@ const STYLE: Record<string, PillStyle> = {
   'in-pruefung': 'light',
   eingeladen: 'warning',
   'gespraech-geplant': 'warning',
+  vermittelt: 'warning',
   angenommen: 'success',
   onboarding: 'success',
   mitglied: 'dark',

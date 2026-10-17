@@ -1,4 +1,5 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, SelectFieldSingleValidation } from 'payload'
+import { validations } from 'payload'
 
 import { authenticated } from '../lib/access'
 import type { EmailTemplateKey } from './Emails'
@@ -124,12 +125,12 @@ export const Applications: CollectionConfig = {
       type: 'checkbox',
       label: 'Einwilligung zur Weitergabe an den Projektpartner erteilt',
       // Proof of consent (Art. 7 Abs. 1 DSGVO). Without it, nothing is passed
-      // on, even if the team later moves the application to a partner project.
+      // on, and the status „vermittelt“ is refused (see status below). Not
+      // read-only: someone who picked „Noch offen“ may agree later by email.
       admin: {
-        readOnly: true,
         condition: (data) => Boolean(data?.project),
         description:
-          'Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben.',
+          'Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben. Von Hand nur ankreuzen, wenn die Person auf anderem Weg schriftlich eingewilligt hat (z. B. per E-Mail), und das in den Notizen festhalten.',
       },
     },
     {
@@ -188,6 +189,8 @@ export const Applications: CollectionConfig = {
         { label: 'In Prüfung', value: 'in-pruefung' },
         { label: 'Eingeladen', value: 'eingeladen' },
         { label: 'Gespräch geplant', value: 'gespraech-geplant' },
+        // Partner projects skip our own interview: the partner does it.
+        { label: 'An LESEZEICHEN vermittelt', value: 'vermittelt' },
         { label: 'Angenommen', value: 'angenommen' },
         { label: 'Onboarding', value: 'onboarding' },
         { label: 'Mitglied', value: 'mitglied' },
@@ -198,10 +201,15 @@ export const Applications: CollectionConfig = {
       // the REST API could open an application at any stage; denied field
       // access strips the value so the default `neu` applies.
       access: { create: authenticated },
+      // Passing someone on to a partner needs their consent to it.
+      validate: ((value, options) =>
+        value === 'vermittelt' && !(options.data as { partnerConsent?: boolean | null })?.partnerConsent
+          ? 'Ohne Einwilligung zur Weitergabe an den Projektpartner darf die Bewerbung nicht vermittelt werden.'
+          : validations.select(value, options)) as SelectFieldSingleValidation,
       admin: {
         position: 'sidebar',
         description:
-          '„Eingeladen“ und „Angenommen“ legen automatisch einen E-Mail-Entwurf an (siehe unten). Gesendet wird erst nach Durchsicht.',
+          '„Eingeladen“ und „Angenommen“ legen automatisch einen E-Mail-Entwurf an (siehe unten). Gesendet wird erst nach Durchsicht. „An LESEZEICHEN vermittelt“ geht nur mit Einwilligung zur Weitergabe.',
         components: { Cell: '@/components/admin/StatusCell#StatusCell' },
       },
     },

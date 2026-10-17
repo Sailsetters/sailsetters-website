@@ -112,7 +112,10 @@ Produktionsdatenbank auszuführen.
 
 Der `status` einer Bewerbung ist die Pipeline:
 `neu → in-pruefung → eingeladen → gespraech-geplant → angenommen → onboarding → mitglied`,
-mit `abgelehnt` und `zurueckgezogen` als Ausstiege.
+mit `abgelehnt` und `zurueckgezogen` als Ausstiege. Bei Projekten mit Partner
+ersetzt `vermittelt` („An LESEZEICHEN vermittelt“) Einladung und Gespräch, denn
+das Kennenlernen übernimmt der Partner. Der Status lässt sich nur setzen, wenn
+die Einwilligung zur Weitergabe gesetzt ist.
 
 Zwei Übergänge legen automatisch einen E-Mail-Entwurf aus der jeweiligen
 Vorlage an: **Eingeladen** (Einladung mit Meeting-Link) und **Angenommen**

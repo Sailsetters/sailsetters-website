@@ -181,7 +181,7 @@ export interface Application {
    */
   project?: (number | null) | Project;
   /**
-   * Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben.
+   * Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben. Von Hand nur ankreuzen, wenn die Person auf anderem Weg schriftlich eingewilligt hat (z. B. per E-Mail), und das in den Notizen festhalten.
    */
   partnerConsent?: boolean | null;
   /**
@@ -201,13 +201,14 @@ export interface Application {
    */
   consent: boolean;
   /**
-   * „Eingeladen“ und „Angenommen“ legen automatisch einen E-Mail-Entwurf an (siehe unten). Gesendet wird erst nach Durchsicht.
+   * „Eingeladen“ und „Angenommen“ legen automatisch einen E-Mail-Entwurf an (siehe unten). Gesendet wird erst nach Durchsicht. „An LESEZEICHEN vermittelt“ geht nur mit Einwilligung zur Weitergabe.
    */
   status:
     | 'neu'
     | 'in-pruefung'
     | 'eingeladen'
     | 'gespraech-geplant'
+    | 'vermittelt'
     | 'angenommen'
     | 'onboarding'
     | 'mitglied'
