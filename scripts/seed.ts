@@ -34,15 +34,32 @@ const partners = [
   { name: 'Condrobs', website: 'https://www.condrobs.de/', logo: 'logo_condrobs.png' },
   { name: 'Diakonie Bayern', website: 'https://www.diakonie-bayern.de/', logo: 'diakonie_logo.png' },
   { name: 'TUM Think Tank', website: 'https://tumthinktank.de/', logo: 'logo_tumThinkTank.svg' },
+  { name: 'LESEZEICHEN München', website: 'https://lesezeichen-muenchen.de/', logo: 'logo_lesezeichen.png' },
 ]
 
 type Category = 'eigenes-projekt' | 'foerderung'
 
-// Current as of September 2026: Wellenbrecher, Übertrittsnachhilfe, Kinderuni,
-// Naturwissenschaftliche Experimente. Everything else is a past project.
-const CURRENT = new Set(['Projekt Wellenbrecher', 'Übertrittsnachhilfe', 'Kinderuni', 'Naturwissenschaftliche Experimente'])
+// Current as of October 2026: Wellenbrecher, Übertrittsnachhilfe, Kinderuni,
+// Naturwissenschaftliche Experimente, Lesepatenschaft. Everything else is a
+// past project.
+const CURRENT = new Set([
+  'Projekt Wellenbrecher',
+  'Übertrittsnachhilfe',
+  'Kinderuni',
+  'Naturwissenschaftliche Experimente',
+  'Lesepatenschaft',
+])
 
-const projects: { title: string; tagline: string; description: string; category: Category }[] = [
+type SeedProject = {
+  title: string
+  tagline: string
+  description: string
+  category: Category
+  /** As in the collection, but `partner` is the partner's name. */
+  bewerbung?: { hinweis: string; bestaetigung: string; partner: string }
+}
+
+const projects: SeedProject[] = [
   {
     title: 'Projekt Wellenbrecher',
     tagline: 'Perspektiven schaffen',
@@ -70,6 +87,22 @@ const projects: { title: string; tagline: string; description: string; category:
     description:
       'Sailsetter:innen bereiten Experimente für Kindergartenkinder vor und führen sie alle zwei Wochen mit wechselnden Gruppen durch: ein spielerischer erster Kontakt mit den Naturwissenschaften.',
     category: 'eigenes-projekt',
+  },
+  {
+    title: 'Lesepatenschaft',
+    tagline: 'Gemeinsam mit LESEZEICHEN',
+    description:
+      'Als Lesepat:in liest du ein Schuljahr lang jede Woche 45 Minuten mit einem Grundschulkind, an einer Schule möglichst nah bei dir. Es geht nicht um Nachhilfe, sondern um Freude am Lesen und Selbstvertrauen. Eingearbeitet und begleitet wirst du von unserem Partner LESEZEICHEN.',
+    category: 'foerderung',
+    bewerbung: {
+      hinweis: `Die Lesepatenschaft ist ein fester Termin: 45 Minuten jede Woche, fast ein ganzes Schuljahr lang. LESEZEICHEN legt großen Wert auf Kontinuität, denn das Kind braucht eine verlässliche Bezugsperson, und Vertrauen entsteht nur, wenn du regelmäßig da bist. In den Schulferien finden keine Lesestunden statt, und natürlich kannst du auch während der Schulzeit einmal Urlaub machen. Lange Lücken passen dagegen nicht: Vier Monate in Costa Rica oder sechs Wochen Pause in der Prüfungszeit gehen leider nicht. Es zählt das große Ganze.
+
+Nach deiner Bewerbung melden wir uns bei LESEZEICHEN und stellen den Kontakt zu dir her. Das Kennenlerngespräch und die Beantragung des erweiterten Führungszeugnisses laufen dann über LESEZEICHEN. Lesepat:in kannst du ab 18 Jahren werden.
+
+Bei Sailsetters bist du trotzdem voll dabei: Du wirst Sailsetter:in wie alle anderen auch, mit Zugang zu unserer Community-Plattform, unseren sozialen Events und allem anderen, was unsere Mitglieder haben.`,
+      bestaetigung: 'Ich kann mich für fast ein ganzes Schuljahr auf einen festen wöchentlichen Termin festlegen.',
+      partner: 'LESEZEICHEN München',
+    },
   },
   {
     title: 'Handwerken mit Kindergartenkindern',
@@ -183,10 +216,19 @@ if (await isEmpty('partners')) {
 }
 
 if (await isEmpty('projects')) {
-  for (const [i, p] of projects.entries()) {
+  for (const [i, { bewerbung, ...p }] of projects.entries()) {
+    const partner = bewerbung
+      ? (await payload.find({ collection: 'partners', where: { name: { equals: bewerbung.partner } }, limit: 1 }))
+          .docs[0]
+      : undefined
     await payload.create({
       collection: 'projects',
-      data: { ...p, status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert', order: i },
+      data: {
+        ...p,
+        ...(bewerbung && { bewerbung: { ...bewerbung, partner: partner?.id } }),
+        status: CURRENT.has(p.title) ? 'aktiv' : 'archiviert',
+        order: i,
+      },
       context: context(),
     })
   }

@@ -25,7 +25,7 @@ export const Applications: CollectionConfig = {
   labels: { singular: 'Bewerbung', plural: 'Bewerbungen' },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'age', 'status', 'assignee', 'email', 'createdAt'],
+    defaultColumns: ['name', 'age', 'project', 'status', 'assignee', 'email', 'createdAt'],
     group: 'Bewerbungen',
   },
   access: {
@@ -108,6 +108,29 @@ export const Applications: CollectionConfig = {
         { name: 'studySubject', type: 'text', label: 'Studiengang' },
         { name: 'semester', type: 'text', label: 'Fachsemester' },
       ],
+    },
+    {
+      name: 'project',
+      type: 'relationship',
+      relationTo: 'projects',
+      label: 'Wunschprojekt',
+      admin: {
+        description:
+          'Das Projekt, das die Person im Formular gewählt hat. Leer = „Noch offen“ (unentschieden, Taskforce oder eigene Idee, siehe Motivation).',
+      },
+    },
+    {
+      name: 'partnerConsent',
+      type: 'checkbox',
+      label: 'Einwilligung zur Weitergabe an den Projektpartner erteilt',
+      // Proof of consent (Art. 7 Abs. 1 DSGVO). Without it, nothing is passed
+      // on, even if the team later moves the application to a partner project.
+      admin: {
+        readOnly: true,
+        condition: (data) => Boolean(data?.project),
+        description:
+          'Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben.',
+      },
     },
     {
       name: 'motivation',

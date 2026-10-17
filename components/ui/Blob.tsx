@@ -13,6 +13,10 @@ const BLOBS = {
  * A decorative blob, absolutely positioned inside a `relative overflow-hidden`
  * parent. Put it before the content and give the content `relative` so it
  * paints on top.
+ *
+ * Never a scroll anchor: coming first in the DOM, Chrome would pick it, and
+ * since most blobs sit at the bottom of their section, content opening above
+ * them (e.g. a project's note in the application form) would scroll the page.
  */
 export default function Blob({
   name,
@@ -31,7 +35,7 @@ export default function Blob({
       width={b.width}
       height={b.height}
       priority={priority}
-      className={`pointer-events-none absolute ${className}`}
+      className={`pointer-events-none absolute [overflow-anchor:none] ${className}`}
     />
   )
 }

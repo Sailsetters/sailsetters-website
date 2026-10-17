@@ -2,13 +2,14 @@ import type { CollectionAfterChangeHook, CollectionAfterDeleteHook, GlobalAfterC
 import { revalidatePath } from 'next/cache'
 
 /**
- * The homepage, /projekte and /verein are statically rendered from Payload.
- * Whenever projects, partners, the board or the key figures change in the
- * admin, rebuild them in place. Scripts (e.g. the seed) pass
+ * The homepage, /projekte, /verein and /bewerbung are statically rendered
+ * from Payload. Whenever projects, partners, the board or the key figures
+ * change in the admin, rebuild them in place. (/bewerbung lists the current
+ * projects and names a project's partner in the form.) Scripts (e.g. the seed) pass
  * `context: { disableRevalidate: true }` because there is no Next request to
  * revalidate from.
  */
-const PAGES = ['/', '/projekte', '/verein']
+const PAGES = ['/', '/projekte', '/verein', '/bewerbung']
 
 function revalidateHome(context: Record<string, unknown>) {
   if (context?.disableRevalidate) return

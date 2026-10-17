@@ -103,33 +103,48 @@ export function FileField({ accept, ...props }: BaseProps & { accept: string }) 
   )
 }
 
-export function ConsentField({ error }: { error?: string }) {
+/** A required checkbox with the label beside it: consents and confirmations. */
+export function CheckboxField({
+  name,
+  error,
+  children,
+}: {
+  name: string
+  error?: string
+  children: React.ReactNode
+}) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor="consent" className="flex items-start gap-3">
+      <label htmlFor={name} className="flex items-start gap-3">
         <input
-          id="consent"
-          name="consent"
+          id={name}
+          name={name}
           type="checkbox"
           required
           aria-invalid={Boolean(error)}
-          aria-describedby={error ? 'consent-error' : undefined}
+          aria-describedby={error ? `${name}-error` : undefined}
           className="mt-1 h-5 w-5 shrink-0 accent-port"
         />
-        <span className="text-sm leading-relaxed text-ink">
-          Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
-          Anfrage gespeichert werden. Weitere Informationen findest du in der{' '}
-          <a href="/datenschutz" className="underline hover:text-port">
-            Datenschutzerklärung
-          </a>
-          .
-        </span>
+        <span className="text-sm leading-relaxed text-ink">{children}</span>
       </label>
       {error && (
-        <p id="consent-error" role="alert" className="text-sm text-port">
+        <p id={`${name}-error`} role="alert" className="text-sm text-port">
           {error}
         </p>
       )}
     </div>
+  )
+}
+
+export function ConsentField({ error }: { error?: string }) {
+  return (
+    <CheckboxField name="consent" error={error}>
+      Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner
+      Anfrage gespeichert werden. Weitere Informationen findest du in der{' '}
+      <a href="/datenschutz" className="underline hover:text-port">
+        Datenschutzerklärung
+      </a>
+      .
+    </CheckboxField>
   )
 }

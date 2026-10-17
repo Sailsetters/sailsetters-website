@@ -4,9 +4,16 @@ import { authenticated } from '../lib/access'
 import { revalidateHomeAfterChange, revalidateHomeAfterDelete } from '../lib/revalidate'
 
 /**
- * Projekte auf der Startseite und unter /projekte. Öffentlich lesbar, nur
- * intern bearbeitbar. Abgeschlossene Projekte werden auf „Vergangen“ gesetzt
- * statt gelöscht — sie erscheinen dann unter „Vergangene Projekte“.
+ * Projekte auf der Startseite, unter /projekte und auf /bewerbung. Öffentlich
+ * lesbar, nur intern bearbeitbar. Abgeschlossene Projekte werden auf
+ * „Vergangen“ gesetzt statt gelöscht — sie erscheinen dann unter „Vergangene
+ * Projekte“.
+ *
+ * Every current project can be picked as the Wunschprojekt in the application
+ * form. The `bewerbung` group is for projects that work differently, e.g. the
+ * Lesepatenschaft, where a partner does the onboarding: a note shown when the
+ * project is picked, a sentence the applicant must confirm, and the partner
+ * we pass the application on to (which needs its own consent).
  */
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -44,6 +51,46 @@ export const Projects: CollectionConfig = {
       admin: { description: 'Zwei bis drei Sätze. Erscheint so auf der Startseite.' },
     },
     {
+      name: 'bewerbung',
+      type: 'group',
+      label: 'Bewerbung',
+      admin: {
+        description:
+          'Alles optional. Nur für Projekte, bei denen die Bewerbung anders läuft als sonst, z. B. weil ein Partner die Einarbeitung übernimmt.',
+      },
+      fields: [
+        {
+          name: 'hinweis',
+          type: 'textarea',
+          label: 'Hinweis für Bewerber:innen',
+          admin: {
+            rows: 8,
+            description:
+              'Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und aufklappbar auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen.',
+          },
+        },
+        {
+          name: 'bestaetigung',
+          type: 'text',
+          label: 'Pflicht-Bestätigung',
+          admin: {
+            description:
+              'Ein Satz, den Bewerber:innen für dieses Projekt ankreuzen müssen, z. B. „Ich kann mich für ein Schuljahr auf einen wöchentlichen Termin festlegen.“',
+          },
+        },
+        {
+          name: 'partner',
+          type: 'relationship',
+          relationTo: 'partners',
+          label: 'Bewerbungen weitergeben an',
+          admin: {
+            description:
+              'Der Partner, dem wir Name und E-Mail-Adresse der Bewerber:innen weitergeben, damit er sich bei ihnen meldet. Das Formular fragt dafür eine eigene Einwilligung ab, die den Partner nennt.',
+          },
+        },
+      ],
+    },
+    {
       name: 'category',
       type: 'select',
       label: 'Kategorie',
@@ -67,7 +114,7 @@ export const Projects: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description:
-          'Aktuelle Projekte stehen auf der Startseite und oben auf /projekte. Vergangene erscheinen dort unter „Vergangene Projekte“.',
+          'Aktuelle Projekte stehen auf der Startseite, oben auf /projekte und im Bewerbungsformular zur Auswahl. Vergangene erscheinen auf /projekte unter „Vergangene Projekte“.',
       },
     },
     {

@@ -2,8 +2,13 @@
 
 import { useFormStatus } from 'react-dom'
 
-export default function SubmitButton({ children }: { children: React.ReactNode }) {
-  const { pending } = useFormStatus()
+/**
+ * `pending` is for forms that submit through onSubmit instead of their
+ * `action` (see ApplicationForm); useFormStatus does not see those.
+ */
+export default function SubmitButton({ children, pending: pendingProp }: { children: React.ReactNode; pending?: boolean }) {
+  const status = useFormStatus()
+  const pending = pendingProp || status.pending
 
   return (
     <button

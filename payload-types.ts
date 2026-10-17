@@ -177,6 +177,14 @@ export interface Application {
   studySubject?: string | null;
   semester?: string | null;
   /**
+   * Das Projekt, das die Person im Formular gewählt hat. Leer = „Noch offen“ (unentschieden, Taskforce oder eigene Idee, siehe Motivation).
+   */
+  project?: (number | null) | Project;
+  /**
+   * Wird beim Absenden gesetzt, wenn das Wunschprojekt einen Partner hat (z. B. LESEZEICHEN bei der Lesepatenschaft). Nur dann dürfen Name und E-Mail-Adresse an den Partner gehen, und nur diese beiden Angaben.
+   */
+  partnerConsent?: boolean | null;
+  /**
    * Warum möchtest du bei Sailsetters mitmachen?
    */
   motivation: string;
@@ -230,6 +238,99 @@ export interface Application {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  title: string;
+  /**
+   * Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft.
+   */
+  tagline?: string | null;
+  /**
+   * Zwei bis drei Sätze. Erscheint so auf der Startseite.
+   */
+  description: string;
+  /**
+   * Alles optional. Nur für Projekte, bei denen die Bewerbung anders läuft als sonst, z. B. weil ein Partner die Einarbeitung übernimmt.
+   */
+  bewerbung?: {
+    /**
+     * Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und aufklappbar auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen.
+     */
+    hinweis?: string | null;
+    /**
+     * Ein Satz, den Bewerber:innen für dieses Projekt ankreuzen müssen, z. B. „Ich kann mich für ein Schuljahr auf einen wöchentlichen Termin festlegen.“
+     */
+    bestaetigung?: string | null;
+    /**
+     * Der Partner, dem wir Name und E-Mail-Adresse der Bewerber:innen weitergeben, damit er sich bei ihnen meldet. Das Formular fragt dafür eine eigene Einwilligung ab, die den Partner nennt.
+     */
+    partner?: (number | null) | Partner;
+  };
+  category: 'eigenes-projekt' | 'foerderung';
+  /**
+   * Aktuelle Projekte stehen auf der Startseite, oben auf /projekte und im Bewerbungsformular zur Auswahl. Vergangene erscheinen auf /projekte unter „Vergangene Projekte“.
+   */
+  status: 'aktiv' | 'archiviert';
+  /**
+   * Optional, z. B. „WiSe 2024/25“ oder „seit 2023“. Erscheint auf der Karte.
+   */
+  period?: string | null;
+  /**
+   * Kleinere Zahlen zuerst.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: number;
+  name: string;
+  /**
+   * Vollständige Adresse inklusive https://
+   */
+  website?: string | null;
+  /**
+   * PNG oder SVG mit transparentem Hintergrund, wenn möglich.
+   */
+  logo: number | Media;
+  /**
+   * Kleinere Zahlen zuerst.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  /**
+   * Bildbeschreibung für Screenreader und Suchmaschinen.
+   */
+  alt: string;
+  _objectKey?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -293,82 +394,6 @@ export interface ContactSubmission {
   message: string;
   consent: boolean;
   status: 'neu' | 'in-bearbeitung' | 'erledigt';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  /**
-   * Bildbeschreibung für Screenreader und Suchmaschinen.
-   */
-  alt: string;
-  _objectKey?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "partners".
- */
-export interface Partner {
-  id: number;
-  name: string;
-  /**
-   * Vollständige Adresse inklusive https://
-   */
-  website?: string | null;
-  /**
-   * PNG oder SVG mit transparentem Hintergrund, wenn möglich.
-   */
-  logo: number | Media;
-  /**
-   * Kleinere Zahlen zuerst.
-   */
-  order?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: number;
-  title: string;
-  /**
-   * Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft.
-   */
-  tagline?: string | null;
-  /**
-   * Zwei bis drei Sätze. Erscheint so auf der Startseite.
-   */
-  description: string;
-  category: 'eigenes-projekt' | 'foerderung';
-  /**
-   * Aktuelle Projekte stehen auf der Startseite und oben auf /projekte. Vergangene erscheinen dort unter „Vergangene Projekte“.
-   */
-  status: 'aktiv' | 'archiviert';
-  /**
-   * Optional, z. B. „WiSe 2024/25“ oder „seit 2023“. Erscheint auf der Karte.
-   */
-  period?: string | null;
-  /**
-   * Kleinere Zahlen zuerst.
-   */
-  order?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -522,6 +547,8 @@ export interface ApplicationsSelect<T extends boolean = true> {
   university?: T;
   studySubject?: T;
   semester?: T;
+  project?: T;
+  partnerConsent?: T;
   motivation?: T;
   availability?: T;
   cv?: T;
@@ -609,6 +636,13 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   tagline?: T;
   description?: T;
+  bewerbung?:
+    | T
+    | {
+        hinweis?: T;
+        bestaetigung?: T;
+        partner?: T;
+      };
   category?: T;
   status?: T;
   period?: T;

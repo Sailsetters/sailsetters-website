@@ -40,7 +40,9 @@ export default function DatenschutzPage() {
             Werbung oder zum Tracking ein. Personenbezogene Daten verarbeiten wir nur, soweit es für
             den Betrieb der Website technisch nötig ist und wenn du uns schreibst oder dich als
             Sailsetter:in bewirbst. Wir geben deine Daten nicht weiter, außer an die unten genannten
-            Dienstleister, die für uns Website, Datenbank und E-Mail betreiben.
+            Dienstleister, die für uns Website, Datenbank und E-Mail betreiben, und, wenn du dich für
+            ein Projekt mit einem Partner bewirbst und einwilligst, Name und E-Mail-Adresse an diesen
+            Partner.
           </p>
 
           <h2>Verantwortlich</h2>
@@ -148,7 +150,7 @@ export default function DatenschutzPage() {
           <p>Wenn du dich über unser Bewerbungsformular bewirbst, verarbeiten wir:</p>
           <List>
             <li>Name, E-Mail-Adresse und Alter</li>
-            <li>deine Motivation</li>
+            <li>dein Wunschprojekt und deine Motivation</li>
             <li>deinen Lebenslauf als PDF</li>
             <li>freiwillig: Hochschule, Studiengang, Fachsemester und Verfügbarkeit</li>
           </List>
@@ -164,6 +166,16 @@ export default function DatenschutzPage() {
             Beispiel per E-Mail an {mail}. Wir betrachten deine Bewerbung dann als zurückgezogen und
             löschen deine Daten. Wirst du Sailsetter:in, verarbeiten wir die Angaben, die wir für
             deine Mitarbeit brauchen, auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO weiter.
+          </p>
+          <p>
+            Manche Projekte führen wir gemeinsam mit einem Partner durch, der die Ehrenamtlichen
+            selbst einarbeitet, zum Beispiel die Lesepatenschaft mit LESEZEICHEN München (Verein für
+            Fraueninteressen e. V.). Wählst du ein solches Projekt, geben wir deinen Namen und deine
+            E-Mail-Adresse an diesen Partner weiter, damit er sich bei dir meldet. Weitere Angaben aus
+            deiner Bewerbung geben wir nicht weiter. Dafür bitten wir dich im Formular um eine eigene
+            Einwilligung, die den Partner nennt (Art. 6 Abs. 1 lit. a DSGVO). Auch sie kannst du
+            jederzeit widerrufen. Was du dem Partner danach selbst mitteilst, etwa im
+            Kennenlerngespräch oder für das Führungszeugnis, verarbeitet er in eigener Verantwortung.
           </p>
           <p>
             Bewerbungen liegen in unserer Datenbank, Lebensläufe in einem nicht öffentlichen
@@ -200,8 +212,9 @@ export default function DatenschutzPage() {
             </li>
           </List>
           <p>
-            Darüber hinaus geben wir deine Daten nicht an Dritte weiter, es sei denn, wir sind
-            gesetzlich dazu verpflichtet.
+            Darüber hinaus geben wir deine Daten nur an Dritte weiter, wenn du eingewilligt hast, wie
+            bei Projekten mit einem Partner (siehe Bewerbung), oder wenn wir gesetzlich dazu
+            verpflichtet sind.
           </p>
 
           <h3>Übermittlung in die USA</h3>

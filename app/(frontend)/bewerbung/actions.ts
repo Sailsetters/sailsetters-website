@@ -16,6 +16,8 @@ import {
   type FormState,
 } from '@/lib/forms'
 
+import { NO_PROJECT } from './projects'
+
 export async function submitApplication(
   _prev: FormState,
   formData: FormData,
@@ -29,6 +31,37 @@ export async function submitApplication(
   const consent = requiredConsent(formData, errors)
   const cv = await requiredPdf(formData, 'cv', 'Lebenslauf', errors)
 
+  const payload = await getPayload({ config })
+
+  // The Wunschprojekt: a current project or „Noch offen“ (stored as none).
+  // The rules a project sets in its `bewerbung` group are checked here as
+  // well as in the form, since the form is only the client's word for it.
+  const choice = String(formData.get('project') ?? '')
+  let projectId: number | undefined
+  let partnerConsent = false
+  if (!choice) {
+    errors.project = 'Bitte wähl ein Projekt oder „Noch offen“.'
+  } else if (choice !== NO_PROJECT) {
+    const project = /^\d+$/.test(choice)
+      ? await payload.findByID({ collection: 'projects', id: Number(choice), depth: 0, disableErrors: true })
+      : null
+    if (!project || project.status !== 'aktiv') {
+      errors.project = 'Dieses Projekt steht nicht mehr zur Auswahl. Bitte wähl ein anderes.'
+    } else {
+      projectId = project.id
+      if (project.bewerbung?.bestaetigung && formData.get('projectConfirmation') !== 'on') {
+        errors.projectConfirmation = 'Bitte bestätige das, um dich für dieses Projekt zu bewerben.'
+      }
+      if (project.bewerbung?.partner) {
+        partnerConsent = formData.get('partnerConsent') === 'on'
+        if (!partnerConsent) {
+          errors.partnerConsent =
+            'Für dieses Projekt stellen wir den Kontakt zu unserem Partner her. Ohne deine Einwilligung dürfen wir Name und E-Mail-Adresse nicht weitergeben.'
+        }
+      }
+    }
+  }
+
   // A missing cv always comes with an error; `!cv` is only for the type checker.
   if (Object.keys(errors).length > 0 || !cv) {
     return {
@@ -37,8 +70,6 @@ export async function submitApplication(
       fieldErrors: errors,
     }
   }
-
-  const payload = await getPayload({ config })
 
   // The page hides the form while closed; this covers a stale tab or a direct post.
   const phase = await payload.findGlobal({ slug: 'bewerbungsphase' })
@@ -74,6 +105,8 @@ export async function submitApplication(
         university: optionalText(formData, 'university'),
         studySubject: optionalText(formData, 'studySubject'),
         semester: optionalText(formData, 'semester'),
+        project: projectId,
+        partnerConsent,
         motivation,
         availability: optionalText(formData, 'availability'),
         cv: cvId,

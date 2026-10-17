@@ -51,7 +51,7 @@ export default async function ProjektePage() {
           {current.length > 0 ? (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {current.map((p) => (
-                <ProjectCard key={p.id} project={p} />
+                <ProjectCard key={p.id} project={p} withHinweis />
               ))}
             </div>
           ) : (
@@ -83,7 +83,8 @@ export default async function ProjektePage() {
             <div className="flex flex-col gap-2">
               <h2 className="text-2xl">Eines davon passt zu dir?</h2>
               <p className="leading-relaxed text-driftwood">
-                Bewirb dich. Im Kennenlerngespräch finden wir gemeinsam das richtige Projekt.
+                Bewirb dich und gib dein Wunschprojekt an. Bist du noch unsicher, finden wir im
+                Kennenlerngespräch gemeinsam das richtige.
               </p>
             </div>
             <LinkButton href="/bewerbung">Sailsetter:in werden</LinkButton>

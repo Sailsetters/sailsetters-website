@@ -1,15 +1,27 @@
 'use client'
 
-import { useActionState } from 'react'
+import { startTransition, useActionState, type FormEvent } from 'react'
 
 import { ConsentField, FileField, TextAreaField, TextField } from '@/components/forms/Field'
 import SubmitButton from '@/components/forms/SubmitButton'
 import { initialFormState } from '@/lib/forms'
 
 import { submitApplication } from './actions'
+import ProjectChoice from './ProjectChoice'
+import type { ProjectOption } from './projects'
 
-export default function ApplicationForm() {
-  const [state, formAction] = useActionState(submitApplication, initialFormState)
+export default function ApplicationForm({ projects }: { projects: ProjectOption[] }) {
+  const [state, formAction, pending] = useActionState(submitApplication, initialFormState)
+
+  // React resets a form after its `action` runs, also when it comes back with
+  // errors: the applicant would lose every entry, the CV and the chosen
+  // project. Submitting from onSubmit avoids that. `action` stays as the
+  // fallback for when JavaScript has not loaded.
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    startTransition(() => formAction(formData))
+  }
 
   if (state.status === 'success') {
     return (
@@ -23,7 +35,7 @@ export default function ApplicationForm() {
   const errors = state.fieldErrors ?? {}
 
   return (
-    <form action={formAction} className="flex flex-col space-y-6">
+    <form action={formAction} onSubmit={handleSubmit} className="flex flex-col space-y-6">
       {state.status === 'error' && state.message && (
         <p role="alert" className="rounded-lg bg-port/10 p-4 text-port">
           {state.message}
@@ -47,6 +59,8 @@ export default function ApplicationForm() {
         <TextField name="studySubject" label="Studiengang" error={errors.studySubject} />
         <TextField name="semester" label="Fachsemester" error={errors.semester} />
       </div>
+
+      <ProjectChoice projects={projects} errors={errors} />
 
       <TextAreaField
         name="motivation"
@@ -77,7 +91,7 @@ export default function ApplicationForm() {
       <ConsentField error={errors.consent} />
 
       <div>
-        <SubmitButton>Bewerbung absenden</SubmitButton>
+        <SubmitButton pending={pending}>Bewerbung absenden</SubmitButton>
       </div>
     </form>
   )

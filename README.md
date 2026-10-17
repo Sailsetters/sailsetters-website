@@ -78,7 +78,7 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 | `application-files`   | Lebensläufe aus dem Formular     | nur intern (auch die Dateien)    |
 | `emails`              | E-Mails an Bewerber:innen        | nur intern                       |
 | `contact-submissions` | Kontaktanfragen                  | öffentlich anlegen, intern lesen |
-| `projects`            | Projekte auf der Startseite      | öffentlich lesen                 |
+| `projects`            | Projekte, auch im Formular       | öffentlich lesen                 |
 | `partners`            | Havens & Partner (Logowand)      | öffentlich lesen                 |
 | `team`                | Vorstand auf der Startseite      | öffentlich lesen                 |
 | `media`               | Bilder und PDFs                  | öffentlich lesen                 |
@@ -93,10 +93,11 @@ URLs. The split exists because each group needs to own its own `<html>` element.
 ### Seiten aus Payload
 
 Die Startseite (aktuelle Projekte, Havens & Partner, Kennzahlen), `/projekte`
-(aktuelle und vergangene Projekte) und `/verein` (Vorstand) werden statisch
-aus Payload gerendert. Jede Änderung an diesen Collections ruft
-`revalidatePath` für die drei Seiten auf (siehe `lib/revalidate.ts`), sodass
-sie sofort sichtbar ist, ohne dass jemand deployen muss.
+(aktuelle und vergangene Projekte), `/verein` (Vorstand) und `/bewerbung`
+(aktuelle Projekte, Formular) werden statisch aus Payload gerendert. Jede
+Änderung an diesen Collections ruft `revalidatePath` für die vier Seiten auf
+(siehe `lib/revalidate.ts`), sodass sie sofort sichtbar ist, ohne dass jemand
+deployen muss.
 
 Die Startseite zeigt alle aktuellen Projekte. Abgeschlossene Projekte werden
 auf „Vergangen“ gesetzt, nicht gelöscht: Sie verschwinden dann von der
@@ -124,6 +125,16 @@ Nachweis, was der Person mitgeteilt wurde.
 
 Notizen zu einer Bewerbung sind nur intern sichtbar und werden beim Speichern
 automatisch mit Autor:in und Zeitpunkt versehen.
+
+Im Formular wählen Bewerber:innen ein **Wunschprojekt**: eines der aktuellen
+Projekte oder „Noch offen“ (gespeichert als leer). Ein Projekt kann in der
+Gruppe „Bewerbung“ einen Hinweis haben, der bei der Auswahl erscheint, einen
+Satz, der angekreuzt werden muss, und einen **Partner, an den wir Bewerbungen
+weitergeben** (derzeit die Lesepatenschaft mit LESEZEICHEN München). Für den
+Partner fragt das Formular eine eigene Einwilligung ab, die den Partner nennt;
+sie steht als „Einwilligung zur Weitergabe“ an der Bewerbung. Weitergegeben
+werden dann nur Name und E-Mail-Adresse, und nur wenn diese Einwilligung
+gesetzt ist. Genau das sagt die Datenschutzerklärung zu.
 
 Das Formular ist nur in den Bewerbungsfenstern offen: 1. bis 21. Oktober und
 1. bis 21. April (Berliner Zeit, siehe `lib/bewerbungsphase.ts`). Das Global
