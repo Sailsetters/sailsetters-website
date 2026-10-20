@@ -90,17 +90,20 @@ const projects: SeedProject[] = [
   },
   {
     title: 'Lesepatenschaft',
-    tagline: 'Gemeinsam mit LESEZEICHEN',
+    tagline: 'Gemeinsam mit [LESEZEICHEN](https://lesezeichen-muenchen.de/)',
     description:
-      'Als Lesepat:in liest du ein Schuljahr lang jede Woche 45 Minuten mit einem Grundschulkind, an einer Schule möglichst nah bei dir. Es geht nicht um Nachhilfe, sondern um Freude am Lesen und Selbstvertrauen. Eingearbeitet und begleitet wirst du von unserem Partner LESEZEICHEN.',
+      'Als Lesepat:in liest du ein Schuljahr lang jede Woche 45 Minuten mit einem Grundschulkind – an einer Schule in Wohnort- oder Uninähe. Es geht nicht um Nachhilfe, sondern um Freude am Lesen, Selbstvertrauen und bessere Bildungschancen für Kinder.',
     category: 'foerderung',
     bewerbung: {
-      hinweis: `Die Lesepatenschaft ist ein fester Termin: 45 Minuten jede Woche, fast ein ganzes Schuljahr lang. LESEZEICHEN legt großen Wert auf Kontinuität, denn das Kind braucht eine verlässliche Bezugsperson, und Vertrauen entsteht nur, wenn du regelmäßig da bist. In den Schulferien finden keine Lesestunden statt, und natürlich kannst du auch während der Schulzeit einmal Urlaub machen. Lange Lücken passen dagegen nicht: Vier Monate in Costa Rica oder sechs Wochen Pause in der Prüfungszeit gehen leider nicht. Es zählt das große Ganze.
+      hinweis: `45 Minuten pro Woche, ein ganzes Schuljahr lang. [LESEZEICHEN](https://lesezeichen-muenchen.de/) legt großen Wert auf Kontinuität, denn dein Lesekind braucht eine verlässliche Bezugsperson. Vertrauen entsteht, wenn du regelmäßig da bist.
+In den Schulferien finden keine Lesestunden statt. Natürlich kannst du auch während der Schulzeit mal in den Urlaub fahren, wenn du das vorher ankündigst. Längere Unterbrechungen passen dagegen leider nicht: Vier Monate Costa Rica oder sechs Wochen Pause in der Prüfungszeit gehen nicht.
 
-Nach deiner Bewerbung melden wir uns bei LESEZEICHEN und stellen den Kontakt zu dir her. Das Kennenlerngespräch und die Beantragung des erweiterten Führungszeugnisses laufen dann über LESEZEICHEN. Lesepat:in kannst du ab 18 Jahren werden.
+Wenn du dich über uns als Lesepat:in bewerben möchtest, stellen wir mit deinem Einverständnis den Kontakt zu LESEZEICHEN her. Dort findet ein Erstgespräch statt, in dem deine Rolle und Zuständigkeit als Lesepat:in geklärt werden und du erfährst, wie LESEZEICHEN dich bei deiner Aufgabe unterstützt. Auch das weitere Kennenlernen und die Beantragung des erweiterten Führungszeugnisses laufen über LESEZEICHEN. Lesepat:in kannst du ab 18 Jahren werden.
 
-Bei Sailsetters bist du trotzdem voll dabei: Du wirst Sailsetter:in wie alle anderen auch, mit Zugang zu unserer Community-Plattform, unseren sozialen Events und allem anderen, was unsere Mitglieder haben.`,
-      bestaetigung: 'Ich kann mich für fast ein ganzes Schuljahr auf einen festen wöchentlichen Termin festlegen.',
+LESEZEICHEN begleitet dich auch bei der Gestaltung deiner Lesestunden – unter anderem mit einer Einführungsveranstaltung und einem umfassenden Fortbildungsprogramm, an dem du freiwillig teilnehmen kannst.
+
+Bei Sailsetters bist du trotzdem voll dabei: Du wirst Sailsetter:in wie alle anderen auch, mit Zugang zu unserer Community-Plattform, unseren sozialen Events und allem, was unsere Mitglieder sonst haben.`,
+      bestaetigung: 'Ich kann mich für ein ganzes Schuljahr auf einen festen wöchentlichen Termin festlegen.',
       partner: 'LESEZEICHEN München',
     },
   },

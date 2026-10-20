@@ -248,11 +248,11 @@ export interface Project {
   id: number;
   title: string;
   /**
-   * Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft.
+   * Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)
    */
   tagline?: string | null;
   /**
-   * Zwei bis drei Sätze. Erscheint so auf der Startseite.
+   * Zwei bis drei Sätze. Erscheint so auf der Startseite. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)
    */
   description: string;
   /**
@@ -260,7 +260,7 @@ export interface Project {
    */
   bewerbung?: {
     /**
-     * Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und aufklappbar auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen.
+     * Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und unter „Mehr erfahren“ auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)
      */
     hinweis?: string | null;
     /**

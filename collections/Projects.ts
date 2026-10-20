@@ -40,7 +40,8 @@ export const Projects: CollectionConfig = {
       type: 'text',
       label: 'Untertitel',
       admin: {
-        description: 'Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft.',
+        description:
+          'Ein kurzer Claim („Perspektiven schaffen“) oder der Haven, bei dem das Projekt läuft. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)',
       },
     },
     {
@@ -48,7 +49,7 @@ export const Projects: CollectionConfig = {
       type: 'textarea',
       label: 'Beschreibung',
       required: true,
-      admin: { description: 'Zwei bis drei Sätze. Erscheint so auf der Startseite.' },
+      admin: { description: 'Zwei bis drei Sätze. Erscheint so auf der Startseite. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)' },
     },
     {
       name: 'bewerbung',
@@ -66,7 +67,7 @@ export const Projects: CollectionConfig = {
           admin: {
             rows: 8,
             description:
-              'Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und aufklappbar auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen.',
+              'Erscheint im Bewerbungsformular, sobald jemand dieses Projekt wählt, und unter „Mehr erfahren“ auf der Projektkarte unter /projekte und /bewerbung. Absätze durch eine Leerzeile trennen. Links so: [LESEZEICHEN](https://lesezeichen-muenchen.de/)',
           },
         },
         {

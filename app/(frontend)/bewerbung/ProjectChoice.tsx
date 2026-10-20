@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import { CheckboxField } from '@/components/forms/Field'
+import { stripLinks } from '@/components/projects/LinkedText'
 import ProjectHinweis from '@/components/projects/ProjectHinweis'
 
 import { NO_PROJECT, type ProjectOption } from './projects'
@@ -23,7 +24,8 @@ export default function ProjectChoice({
   const project = projects.find((p) => String(p.id) === selected)
 
   const options = [
-    ...projects.map((p) => ({ value: String(p.id), title: p.title, text: p.tagline })),
+    // A link inside a radio label would open instead of select: plain text here.
+    ...projects.map((p) => ({ value: String(p.id), title: p.title, text: p.tagline && stripLinks(p.tagline) })),
     {
       value: NO_PROJECT,
       title: 'Noch offen',

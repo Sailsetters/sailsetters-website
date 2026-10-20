@@ -1,3 +1,4 @@
+import LinkedText from '@/components/projects/LinkedText'
 import ProjectHinweis from '@/components/projects/ProjectHinweis'
 import type { Project } from '@/payload-types'
 
@@ -8,7 +9,7 @@ export const CATEGORY_LABELS: Record<Project['category'], string> = {
 
 /**
  * `withHinweis` adds the project's note for applicants as a collapsed
- * „Gut zu wissen“, on /projekte and /bewerbung. The homepage leaves it out.
+ * „Mehr erfahren“, on /projekte and /bewerbung. The homepage leaves it out.
  */
 export default function ProjectCard({ project: p, withHinweis = false }: { project: Project; withHinweis?: boolean }) {
   const hinweis = withHinweis ? p.bewerbung?.hinweis : undefined
@@ -19,12 +20,18 @@ export default function ProjectCard({ project: p, withHinweis = false }: { proje
         {p.period && <span className="font-normal normal-case tracking-normal"> · {p.period}</span>}
       </span>
       <h3 className="text-2xl leading-tight">{p.title}</h3>
-      {p.tagline && <span className="text-[15px] font-medium text-port">{p.tagline}</span>}
-      <p className="leading-relaxed">{p.description}</p>
+      {p.tagline && (
+        <span className="text-[15px] font-medium text-port">
+          <LinkedText text={p.tagline} />
+        </span>
+      )}
+      <p className="leading-relaxed">
+        <LinkedText text={p.description} />
+      </p>
       {hinweis && (
         <details className="group mt-1 border-t border-ink/10 pt-4">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-medium text-port hover:text-ink [&::-webkit-details-marker]:hidden">
-            Gut zu wissen vor der Bewerbung
+            Mehr erfahren
             <span aria-hidden="true" className="text-xl leading-none transition-transform group-open:rotate-45">
               +
             </span>
