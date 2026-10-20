@@ -1,5 +1,6 @@
 import config from '@payload-config'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { getPayload } from 'payload'
 
 import ProjectCard from '@/components/projects/ProjectCard'
@@ -53,34 +54,23 @@ export default async function BewerbungPage() {
             Wen wir suchen
           </h2>
           <p className="text-lg leading-relaxed">
-            Motivierte Studierende, die Bildungsgerechtigkeit nicht nur gut finden, sondern etwas
-            dafür tun wollen. Welches Fach du studierst, ist egal. Sailsetters lebt davon, dass
-            Studierende aller Fachrichtungen zusammenarbeiten. Wichtiger ist, dass du zuverlässig
-            bist und gern mit Kindern und Jugendlichen arbeitest.
+            Motivierte Studierende aller Fachrichtungen, die für Bildungsgerechtigkeit etwas tun
+            wollen. Erfahrung brauchst du keine. Wichtig ist, dass du zuverlässig bist und gern mit
+            Kindern und Jugendlichen arbeitest. Verantwortung bekommst du trotzdem, und ein Team,
+            das dich dabei nicht allein lässt.
           </p>
           <p className="text-lg leading-relaxed">
-            Zeitlich sind das im Schnitt ein bis zwei Stunden pro Woche. Wie sich das verteilt,
-            hängt vom Projekt ab: Die meisten haben aktivere Phasen, dazwischen ist es ruhiger,
-            und in der Prüfungszeit sind wir bewusst zurückhaltend. Niemand soll sich zwischen
-            Klausuren und Sailsetters entscheiden müssen. Patenschaften dagegen leben von einem
-            festen Termin jede Woche. Was dein Wunschprojekt genau verlangt, steht unten beim
-            Projekt.
+            Im Schnitt sind das ein bis zwei Stunden pro Woche, in der Prüfungszeit meist weniger.
+            Patenschaften leben dagegen von einem festen Termin jede Woche. Was dein Wunschprojekt
+            verlangt, steht unten beim Projekt.
           </p>
           <p className="text-lg leading-relaxed">
-            Erfahrung brauchst du keine. Verantwortung bekommst du trotzdem, und ein Team, das
-            dich dabei nicht allein lässt. Das gilt auch für eigene Ideen: Sailsetters lebt von
-            Studierenden, die neue Projekte anstoßen, und wir unterstützen sie auf dem Weg.
-          </p>
-          <p className="text-lg leading-relaxed">
-            Sailsetters ist dabei mehr als Projektarbeit. Bei unseren sozialen Events lernst du
-            Mitglieder aus anderen Projekten und Fachrichtungen kennen, knüpfst Kontakte und wirst
-            Teil einer Gemeinschaft, die über dein eigenes Projekt hinausreicht.
-          </p>
-          <p className="text-lg leading-relaxed">
-            Nicht jede:r muss in ein Projekt. Wer lieber Erfahrung in unseren Taskforces sammeln
-            will, in Marketing, Outreach, Community oder Recruiting, ist genauso willkommen, auch
-            ohne aktive Projektarbeit. Wähl im Formular dann „Noch offen“ und schreib es in deine
-            Motivation.
+            Lieber in eine unserer{' '}
+            <Link href="/verein#taskforces" className="underline hover:text-port">
+              Taskforces
+            </Link>{' '}
+            oder ein eigenes Projekt anstoßen? Auch dafür ist Platz. Wähl im Formular dann „Noch
+            offen“.
           </p>
         </section>
 
