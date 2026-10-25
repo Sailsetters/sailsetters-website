@@ -7,7 +7,7 @@ import ProjectCard from '@/components/projects/ProjectCard'
 import SemesterSteps from '@/components/SemesterSteps'
 import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
-import { bewerbungsphase, formatDay } from '@/lib/bewerbungsphase'
+import { berlinToday, bewerbungsphase, formatDay } from '@/lib/bewerbungsphase'
 import { verein } from '@/lib/verein'
 
 import ApplicationForm from './ApplicationForm'
@@ -39,6 +39,10 @@ export default async function BewerbungPage() {
   ])
   const phase = bewerbungsphase(settings.modus)
   const current = projects.docs
+  // Autumn 2026 intake, kept open past the fixed window via the global. The
+  // note hides itself after the deadline so it cannot resurface in April.
+  const today = berlinToday()
+  const herbst2026 = today.y * 10000 + today.m * 100 + today.d <= 20261101
 
   return (
     <>
@@ -110,6 +114,12 @@ export default async function BewerbungPage() {
               </span>
             )}
           </div>
+          {phase.open && herbst2026 && (
+            <p className="max-w-[720px] text-lg leading-relaxed">
+              Die Bewerbungsphase endet am 1. November. Der Onboarding Day findet am Donnerstag,
+              5. November, statt.
+            </p>
+          )}
           {phase.open ? (
             <div className="rounded-[20px] bg-paper p-6 shadow-[0_1px_2px_rgba(31,26,23,0.06)] sm:p-8 lg:p-12">
               <ApplicationForm projects={current.map(toProjectOption)} />
