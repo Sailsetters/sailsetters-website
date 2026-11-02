@@ -4,7 +4,10 @@ import MediaImage from '@/components/MediaImage'
 import Blob from '@/components/ui/Blob'
 import Container from '@/components/ui/Container'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import type { Team } from '@/payload-types'
+import type { ProjectLead, Team } from '@/payload-types'
+
+import ContactReveal from './ContactReveal'
+import Projektleitung from './Projektleitung'
 
 const organe = [
   { title: 'Mitgliederversammlung', text: 'Alle aktiven Mitglieder. Wählt den Vorstand, beschließt Haushalt und Satzung.' },
@@ -32,8 +35,8 @@ function Arrow() {
   )
 }
 
-/** Organe, Vorstand und Teamfoto. */
-export default function Struktur({ team }: { team: Team[] }) {
+/** Organe, Vorstand, Projektleitung und Teamfoto. */
+export default function Struktur({ team, leads }: { team: Team[]; leads: ProjectLead[] }) {
   return (
     <section id="vorstand" className="relative overflow-hidden bg-dune py-16 lg:py-24">
       <Blob name="cool-a" className="-bottom-40 -left-56 w-[440px] lg:-bottom-64 lg:-left-72 lg:w-[720px]" />
@@ -78,11 +81,16 @@ export default function Struktur({ team }: { team: Team[] }) {
                   </span>
                   <span className="font-display text-lg font-semibold leading-tight lg:text-[22px]">{m.name}</span>
                   <span className="text-[13px] text-driftwood lg:text-[15px]">{m.role}</span>
+                  {m.email && (
+                    <ContactReveal encoded={Buffer.from(m.email).toString('base64')} name={m.name} />
+                  )}
                 </li>
               ))}
             </ul>
           </div>
         )}
+
+        <Projektleitung leads={leads} />
 
         <Image
           src="/team.jpeg"

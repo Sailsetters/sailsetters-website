@@ -74,6 +74,7 @@ export interface Config {
     media: Media;
     partners: Partner;
     projects: Project;
+    'project-leads': ProjectLead;
     team: Team;
     users: User;
     'payload-kv': PayloadKv;
@@ -94,6 +95,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'project-leads': ProjectLeadsSelect<false> | ProjectLeadsSelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -400,12 +402,34 @@ export interface ContactSubmission {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-leads".
+ */
+export interface ProjectLead {
+  id: number;
+  name: string;
+  /**
+   * Erscheint nur, solange das Projekt auf „Aktuell“ steht. Wer mehrere Projekte leitet, bekommt einen Eintrag pro Projekt.
+   */
+  project: number | Project;
+  /**
+   * Öffentlich: erscheint auf „Über uns“, wenn man bei der Person auf „Kontakt“ klickt.
+   */
+  email: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "team".
  */
 export interface Team {
   id: number;
   name: string;
   role: string;
+  /**
+   * Öffentlich: erscheint auf „Über uns“, wenn man bei der Person auf „Kontakt“ klickt. Leer lassen, dann gibt es keinen Kontakt-Button.
+   */
+  email?: string | null;
   /**
    * Quadratisch, mindestens 400 × 400 Pixel. Ohne Foto erscheinen die Initialen.
    */
@@ -468,6 +492,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'project-leads';
+        value: number | ProjectLead;
       } | null)
     | ({
         relationTo: 'team';
@@ -653,11 +681,23 @@ export interface ProjectsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-leads_select".
+ */
+export interface ProjectLeadsSelect<T extends boolean = true> {
+  name?: T;
+  project?: T;
+  email?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "team_select".
  */
 export interface TeamSelect<T extends boolean = true> {
   name?: T;
   role?: T;
+  email?: T;
   photo?: T;
   order?: T;
   updatedAt?: T;

@@ -29,6 +29,18 @@ export const Team: CollectionConfig = {
     { name: 'name', type: 'text', label: 'Name', required: true },
     { name: 'role', type: 'text', label: 'Rolle', required: true },
     {
+      name: 'email',
+      type: 'email',
+      label: 'E-Mail',
+      // The page renders through the Local API, which bypasses access control;
+      // this only keeps the address out of the public REST and GraphQL API.
+      access: { read: authenticated },
+      admin: {
+        description:
+          'Öffentlich: erscheint auf „Über uns“, wenn man bei der Person auf „Kontakt“ klickt. Leer lassen, dann gibt es keinen Kontakt-Button.',
+      },
+    },
+    {
       name: 'photo',
       type: 'upload',
       relationTo: 'media',

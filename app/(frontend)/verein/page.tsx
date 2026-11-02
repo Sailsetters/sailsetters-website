@@ -19,6 +19,8 @@ export const revalidate = 3600
 export default async function VereinPage() {
   const payload = await getPayload({ config })
   const team = await payload.find({ collection: 'team', sort: 'order', limit: 20, depth: 1 })
+  // depth 1 populates the project, for its title, status and order.
+  const leads = await payload.find({ collection: 'project-leads', sort: 'name', limit: 200, depth: 1 })
 
   return (
     <>
@@ -29,7 +31,7 @@ export default async function VereinPage() {
       />
       <Werte />
       <Taskforces />
-      <Struktur team={team.docs} />
+      <Struktur team={team.docs} leads={leads.docs} />
     </>
   )
 }

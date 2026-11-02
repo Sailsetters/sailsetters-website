@@ -17,6 +17,7 @@ import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Emails } from './collections/Emails'
 import { Media } from './collections/Media'
 import { Partners } from './collections/Partners'
+import { ProjectLeads } from './collections/ProjectLeads'
 import { Projects } from './collections/Projects'
 import { Team } from './collections/Team'
 import { Users } from './collections/Users'
@@ -90,6 +91,7 @@ export default buildConfig({
     Media,
     Partners,
     Projects,
+    ProjectLeads,
     Team,
     Users,
   ],
