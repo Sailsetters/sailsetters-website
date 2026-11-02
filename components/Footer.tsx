@@ -26,6 +26,7 @@ const columns = [
     title: 'Rechtliches',
     links: [
       { href: '/impressum', text: 'Impressum' },
+      { href: '/satzung', text: 'Satzung' },
       { href: '/datenschutz', text: 'Datenschutz' },
     ],
   },

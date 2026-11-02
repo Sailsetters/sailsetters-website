@@ -4,12 +4,9 @@ import PageBody from '@/components/ui/PageBody'
 import PageHeader from '@/components/ui/PageHeader'
 import Prose from '@/components/ui/Prose'
 
-// Reachable by URL but not linked anywhere and not indexed, until the
-// registered version has been checked against this text.
 export const metadata: Metadata = {
   title: 'Satzung · Sailsetters',
   description: 'Die Satzung des Sailsetters e.V.',
-  robots: { index: false, follow: false },
 }
 
 /** Anchor id for a section title like "§ 12 Mitgliederversammlung" → "p12". */
@@ -116,16 +113,16 @@ export default function Satzung() {
         <SectionTitle title="§ 3 Erwerb der Mitgliedschaft" />
         <Paragraph number={1} text="Dem Verein beitreten können:" />
         <SubParagraph
-          number="1."
+          number="a."
           text="Als aktives Mitglied: Jede natürliche Person, die das 16. Lebensjahr vollendet hat, an einer Hochschule im deutschsprachigen Raum studiert und sich dem Zwecke des Vereins verbunden fühlt. Als Nachweis dient die Immatrikulationsbescheinigung."
         />
         <SubParagraph
-          number="1."
+          number="b."
           text="Als passives Mitglied: Jede natürliche Person, die das 16. Lebensjahr vollendet hat und sich dem Zwecke des Vereins verbunden fühlt. Passive Mitglieder sind nicht stimmberechtigt."
         />
         <Paragraph
           number={2}
-          text="Voraussetzung für den Erwerb der Mitgliedschaft ist ein schriftlicher Aufnahmeantrag, der an 1 den Vorstand zu richten ist. Bei Minderjährigen ist der Antrag auch von deren gesetzlichen Vertretern (§§ 1626, 1629 BGB) zu unterschreiben."
+          text="Voraussetzung für den Erwerb der Mitgliedschaft ist ein schriftlicher Aufnahmeantrag, der an den Vorstand zu richten ist. Bei Minderjährigen ist der Antrag auch von deren gesetzlichen Vertretern (§§ 1626, 1629 BGB) zu unterschreiben."
         />
         <Paragraph
           number={3}
