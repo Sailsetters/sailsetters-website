@@ -25,7 +25,7 @@ const PREFILLS: Record<string, Prefill> = {
   spende: {
     subject: 'Spende an Sailsetters',
     title: 'Danke, dass du uns unterstützen willst',
-    intro: 'Schreib uns kurz, und wir schicken dir alles, was du für deine Spende brauchst: die Bankverbindung und auf Wunsch eine Zuwendungsbestätigung.',
+    intro: 'Du brauchst eine Zuwendungsbestätigung oder hast eine Frage zu deiner Spende? Schreib uns kurz, wir melden uns.',
   },
   foerderung: {
     subject: 'Förderung von Sailsetters',
